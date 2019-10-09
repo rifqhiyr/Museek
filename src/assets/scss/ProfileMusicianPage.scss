@@ -1,0 +1,38 @@
+@import "theme_color";
+
+.picture-profile {
+  width: 400px;
+  height: 350px;
+  margin-bottom: 75px;
+  border: 1px solid $text-color;
+}
+
+.p-profile {
+  color: $text-color;
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.main-content-wrapper
+  .cart-table-area
+  table
+  tbody
+  tr
+  td.width-profile-description {
+  border: none;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 25%;
+  flex: 0 0 100%;
+  width: 100%;
+  max-width: 100%;
+}
+
+.button-right {
+  float: right;
+}
+
+.dstyle-btn.btn-profile {
+  border-radius: 30px;
+  font-size: 12px;
+}

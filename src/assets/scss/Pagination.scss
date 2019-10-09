@@ -1,0 +1,12 @@
+@import "theme_color";
+
+.pagination .page-item.active .page-link {
+  color: $text-color;
+  box-shadow: none;
+  background-color: $head-button;
+}
+
+.pagination .page-item .page-link:hover {
+  background-color: $head-button;
+  color: $bg-color;
+}
