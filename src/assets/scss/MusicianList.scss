@@ -3,7 +3,7 @@
 .single-product-wrapper .product-description {
   position: relative;
   z-index: 1;
-  margin-top: 10px;
+  margin-top: 0px;
   padding: 10px;
   height: 100px;
 }
@@ -16,7 +16,12 @@
   display: block;
 }
 
-.single-product-wrapper .product-description .ratings-cart .ratings i {
+.ratings {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.ratings i {
   font-size: 15px;
   color: $head-button;
 }

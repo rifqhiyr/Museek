@@ -25,14 +25,14 @@ export const getMusician = () => async dispatch => {
     const res = await axios.get(
       "https://museek.herokuapp.com/api/user?role=musician"
     );
-    
+
     console.log(res.data);
     dispatch({
       type: "GET_MUSICIAN",
       payload: res.data
     });
   } catch (error) {
-    console.log(error.response);
+    console.log(error.response.data);
   }
 };
 

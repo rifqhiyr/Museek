@@ -7,6 +7,7 @@ import "../assets/scss/ProfileMusicianPage.scss";
 import SideBar from "./SideBar";
 import NewsLetter from "./NewsLetter";
 import Picture from "./Picture";
+import Rupiah from "./Rupiah";
 
 class ProfileMusicianPage extends Component {
   componentDidMount() {
@@ -97,7 +98,10 @@ class ProfileMusicianPage extends Component {
                                   .join(", ")}
                             </p>
                             <p className="p-profile">
-                              Price: Rp {this.props.profile.price}, 00
+                              Price: Rp{" "}
+                              {this.props.profile.price &&
+                                Rupiah(this.props.profile.price)}
+                              , 00
                             </p>
                             <p className="p-profile">
                               Rating: {this.props.profile.rating}
