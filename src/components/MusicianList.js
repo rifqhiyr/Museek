@@ -11,13 +11,6 @@ class MusicianList extends Component {
     this.props.getMusician();
   }
 
-  handleClick(musician) {
-   this.props.history.push({
-      pathname: "musicians/" + musician._id,
-      state: { details: musician }
-    });
-  }
-
   render() {
     const listMusician = this.props.musicians.map(musician => {
       return (
@@ -38,7 +31,10 @@ class MusicianList extends Component {
             <div className="product-description d-flex align-items-center justify-content-between">
               <div className="product-meta-data">
                 <div className="line" />
-                <div onCLick={this.handleClick.bind(this, musician)}>
+                <Link
+                  to={{ pathname: "/detail/" + musician._id }}
+                  key={musician._id}
+                >
                   <h6>{musician.name}</h6>
                   <h6>
                     Start from Rp {musician.price && Rupiah(musician.price)},00/
@@ -53,7 +49,7 @@ class MusicianList extends Component {
                       .split(",")
                       .join(", ")}
                   </h6>
-                </div>
+                </Link>
               </div>
 
               <div className="ratings-cart text-right">

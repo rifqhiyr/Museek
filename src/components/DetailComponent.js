@@ -1,17 +1,11 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { getMusician } from "../store/actions/musicianDataAction";
 import "../assets/scss/DetailComponent.scss";
 
 class DetailComponent extends Component {
   render() {
-    let detail = this.props.musicians.filter(
-      detail => detail._id === this.props.params._id
-    )[0];
-
     return (
       <div className="container-fluid description">
-        <h3 className="desc-heading">{detail.name}</h3>
+        <h3 className="desc-heading">WALI</h3>
         <div className="row desc-row">
           <div className="col-12 col-lg-6 desc-col-left">
             <img
@@ -137,13 +131,4 @@ class DetailComponent extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    musicians: state.listMusicianReducer.musicians
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  { getMusician }
-)(DetailComponent);
+export default DetailComponent;

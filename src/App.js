@@ -40,7 +40,7 @@ class App extends Component {
           <Route exact path="/bookingform" component={BookingForm} />
           <Route path="/homepage" exact component={HomePage} />
           <Route path="/" exact component={LandingPage} />
-          <Route path="/musicians/:id" exact component={DetailComponent} />
+          <Route path="/detail:id" exact component={DetailComponent} />
           <Route path="/editmusician" exact component={ProfileEditmusician} />
           <Route path="/about" exact component={About} />
           <Route path="/profilecustomer" exact component={ProfileCustomer} />
