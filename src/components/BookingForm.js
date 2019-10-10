@@ -40,7 +40,7 @@ export default class BookingForm extends Component {
               <div className="row">
                 <div className="col-12 col-lg-1"></div>
                 <div className="col-12 col-lg-8">
-                  <div className="checkout_details_area mt-50 clearfix">
+                  <div className="checkout_details_area mt-100 clearfix">
                     <div className="cart-title">
                       <h2>ADD EVENT</h2>
                     </div>
