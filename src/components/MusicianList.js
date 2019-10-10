@@ -11,25 +11,34 @@ class MusicianList extends Component {
     this.props.getMusician();
   }
 
+  handleClick(musician) {
+   this.props.history.push({
+      pathname: "musicians/" + musician._id,
+      state: { details: musician }
+    });
+  }
+
   render() {
     const listMusician = this.props.musicians.map(musician => {
       return (
         <div className="col-12 col-sm-6 col-md-12 col-xl-6">
-          <div className="single-product-wrapper">
+          <div className="single-product-wrapper" key={musician._id}>
             <div className="product-img">
               <Picture picture={musician} />
             </div>
-            <div className="ratings">
+
+            <div className="ratings-cart ratings">
               <i className="fa fa-star" aria-hidden="true" />
               <i className="fa fa-star" aria-hidden="true" />
               <i className="fa fa-star" aria-hidden="true" />
               <i className="fa fa-star" aria-hidden="true" />
               <i className="fa fa-star" aria-hidden="true" />
             </div>
+
             <div className="product-description d-flex align-items-center justify-content-between">
               <div className="product-meta-data">
                 <div className="line" />
-                <Link to="/detail">
+                <div onCLick={this.handleClick.bind(this, musician)}>
                   <h6>{musician.name}</h6>
                   <h6>
                     Start from Rp {musician.price && Rupiah(musician.price)},00/
@@ -44,18 +53,20 @@ class MusicianList extends Component {
                       .split(",")
                       .join(", ")}
                   </h6>
-                </Link>
+                </div>
               </div>
 
-              <div className="text-right">
-                <Link
-                  to="/bookedlist"
-                  data-toggle="tooltip"
-                  data-placement="left"
-                  title="Add to Cart"
-                >
-                  <img src="img/core-img/cart.png" alt="" />
-                </Link>
+              <div className="ratings-cart text-right">
+                <div className="cart">
+                  <Link
+                    to="/bookedlist"
+                    data-toggle="tooltip"
+                    data-placement="left"
+                    title="Add to Cart"
+                  >
+                    <img src="img/core-img/cart.png" alt="" />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

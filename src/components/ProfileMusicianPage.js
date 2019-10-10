@@ -108,7 +108,7 @@ class ProfileMusicianPage extends Component {
                             </p>
 
                             <p className="p-profile">
-                              {this.props.profile.description}
+                              Description: {this.props.profile.description}
                             </p>
                           </td>
                         </tr>
