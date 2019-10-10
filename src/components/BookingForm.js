@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "../assets/scss/BookingForm.scss";
 import SideBar from "./SideBar";
-import PaymentCard from "./PaymentCard";
 import NewsLetter from "./NewsLetter";
 
 export default class BookingForm extends Component {
@@ -35,17 +35,64 @@ export default class BookingForm extends Component {
         </div>
         <div className="main-content-wrapper d-flex clearfix">
           <SideBar />
-          <div className="cart-table-area section-padding-100">
+          <div className="cart-table-area ">
             <div className="container-fluid">
               <div className="row">
+                <div className="col-12 col-lg-1"></div>
                 <div className="col-12 col-lg-8">
                   <div className="checkout_details_area mt-50 clearfix">
                     <div className="cart-title">
-                      <h2>Booking Form</h2>
+                      <h2>ADD EVENT</h2>
                     </div>
                     <form action="#" method="post">
-                      <div className="row">
-                        <div className="col-md-6 mb-3">
+                      <div className="row mt-50">
+                        <div className="col-12 mb-3">
+                          CATEGORY:
+                          <input
+                            type="text"
+                            className="form-control mb-3 mt-10"
+                            id="category"
+                            placeholder="CATEGORY"
+                          />
+                        </div>
+                        <div className="col-12 mb-3">
+                          EVENT DATE:
+                          <input
+                            type="date"
+                            className="form-control mb-3 mt-10"
+                            id="event_date"
+                            placeholder="EVENT DATE"
+                          />
+                        </div>
+                        <div className="col-12 mb-3">
+                          DURATION:
+                          <input
+                            type="number"
+                            className="form-control mb-3 mt-10"
+                            id="duration"
+                            placeholder="DURATION"
+                          />
+                        </div>
+                        <div className="col-12 mb-3">
+                          LOCATION:
+                          <input
+                            type="text"
+                            className="form-control mb-3 mt-10"
+                            id="location"
+                            placeholder="LOCATION"
+                          />
+                        </div>
+                        <div className="col-6 mb-3 mt-30 mb-100 cart-btn"></div>
+                        <div className="col-6 mb-3 mt-30 mb-100 cart-btn">
+                          <Link
+                            to="/bookingform"
+                            className="btn dstyle-btn btn-profile w-100"
+                          >
+                            ADD EVENT
+                          </Link>
+                        </div>
+
+                        {/* <div className="col-md-6 mb-3">
                           <input
                             type="text"
                             className="form-control"
@@ -132,12 +179,11 @@ export default class BookingForm extends Component {
                             placeholder="ADDITIONAL REQUEST OR EVENT DESCRIPTION"
                             defaultValue={""}
                           />
-                        </div>
+                        </div> */}
                       </div>
                     </form>
                   </div>
                 </div>
-                <PaymentCard />
               </div>
             </div>
           </div>

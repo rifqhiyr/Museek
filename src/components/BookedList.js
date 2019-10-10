@@ -39,8 +39,8 @@ export default class BookedList extends Component {
             <div className="container-fluid">
               <div className="row">
                 <div className="col-12 col-lg-8">
-                  <div className="cart-title mt-50">
-                    <h2>Booked List</h2>
+                  <div className="cart-title">
+                    <h2>BOOKED LIST</h2>
                   </div>
                   <div className="cart-table clearfix">
                     <table className="table table-responsive">

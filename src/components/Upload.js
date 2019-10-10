@@ -84,24 +84,24 @@ class App extends Component {
                 />
               </div>
             </form>
-            <div className="pull-right">
+            <div className="pull-right mt-50">
               <Link to="/profilemusician">
                 <button
                   width="100%"
                   type="button"
-                  className="btn btn-info-upload"
+                  className="btn dstyle-btn btn-profile"
                 >
-                  Back to Profile
+                  BACK TO PROFILE
                 </button>
               </Link>
 
               <button
                 width="100%"
                 type="button"
-                className="btn btn-info-upload"
+                className="btn dstyle-btn btn-profile"
                 onClick={this.fileUploadHandler}
               >
-                Upload File
+                UPLOAD
               </button>
             </div>
           </div>

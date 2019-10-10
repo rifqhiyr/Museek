@@ -51,7 +51,7 @@ class ProfileMusicianPage extends Component {
               <div className="row">
                 <div className="col-12 col-lg-12">
                   <div className="cart-title">
-                    <h2>My Profile</h2>
+                    <h2>MY PROFILE</h2>
                   </div>
 
                   <div className="cart-table clearfix">
@@ -115,10 +115,10 @@ class ProfileMusicianPage extends Component {
                         <tr>
                           {" "}
                           <td className="font-cart width-profile-description">
-                            <div className="dstyle-btn-group mt-10 mb-10 button-right">
+                            <div className="dstyle-btn-group button-right">
                               <Link
                                 to="/editmusician"
-                                className="btn dstyle-btn btn-profile mb-15"
+                                className="btn dstyle-btn btn-profile"
                               >
                                 EDIT PROFILE
                               </Link>

@@ -56,17 +56,3 @@
   text-transform: capitalize;
   text-align: center;
 }
-
-.btn-info-upload {
-  color: $bg-color;
-  background-color: $head-button;
-  border-radius: 30px;
-  font-size: 12px;
-  padding: 20px;
-  margin: 3px;
-}
-
-.btn-info-upload:hover {
-  background-color: $hover-color;
-  color: $text-color;
-}

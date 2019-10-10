@@ -214,15 +214,17 @@ class ProfileEditmusician extends Component {
               </form>
             </div>
           </div>
-          <div className="edit-button ">
+          <div className="edit-button">
             <Link to="/profilemusician">
-              <button className="btn tombol edit-btn">Back to Profile</button>
+              <button className="btn dstyle-btn btn-profile">
+                BACK TO PROFILE
+              </button>
             </Link>
             <button
-              className=" btn tombol edit-btn"
+              className="btn dstyle-btn btn-profile"
               onClick={this.handleSubmit}
             >
-              Save
+              SAVED
             </button>
           </div>
         </div>

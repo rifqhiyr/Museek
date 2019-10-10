@@ -31,10 +31,7 @@ class MusicianList extends Component {
             <div className="product-description d-flex align-items-center justify-content-between">
               <div className="product-meta-data">
                 <div className="line" />
-                <Link
-                  to={{ pathname: "/detail/" + musician._id }}
-                  key={musician._id}
-                >
+                <Link to="/detail">
                   <h6>{musician.name}</h6>
                   <h6>
                     Start from Rp {musician.price && Rupiah(musician.price)},00/
@@ -55,10 +52,10 @@ class MusicianList extends Component {
               <div className="ratings-cart text-right">
                 <div className="cart">
                   <Link
-                    to="/bookedlist"
+                    to="/bookingform"
                     data-toggle="tooltip"
                     data-placement="left"
-                    title="Add to Cart"
+                    title="Add Event"
                   >
                     <img src="img/core-img/cart.png" alt="" />
                   </Link>
