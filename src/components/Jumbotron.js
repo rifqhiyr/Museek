@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../assets/scss/Jumbotron.scss";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 class Jumbotron extends Component {
   refreshState = e => {

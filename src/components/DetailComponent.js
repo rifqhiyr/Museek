@@ -3,7 +3,7 @@ import "../assets/scss/DetailComponent.scss";
 
 class DetailComponent extends Component {
   state = {
-    log: true
+    log: false
   };
   render() {
     if (this.state.log) {

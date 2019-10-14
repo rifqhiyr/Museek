@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../assets/scss/Footer.scss";
-import { a } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Footer extends Component {
   render() {
@@ -20,16 +20,16 @@ class Footer extends Component {
               <h4 className="footer-title">Tentang Museek</h4>
               <ul className="list-unstyled">
                 <li className="footer-li">
-                  <a to="about">About</a>
+                  <Link to="/">About</Link>
                 </li>
                 <li className="footer-li">
-                  <a>Service</a>
+                  <Link to="/">Service</Link>
                 </li>
                 <li className="footer-li">
-                  <a>Genre </a>
+                  <Link to="/">Genre </Link>
                 </li>
                 <li className="footer-li">
-                  <a>Contact</a>
+                  <Link to="/">Contact</Link>
                 </li>
               </ul>
             </div>
@@ -41,25 +41,25 @@ class Footer extends Component {
                   <span className="footer-sosmed">
                     <i class="fa fa-instagram"></i>
                   </span>
-                  <a>Instagram</a>
+                  <a href="a">Instagram</a>
                 </li>
                 <li className="footer-li">
                   <span className="footer-sosmed">
                     <i class="fa fa-facebook-square"></i>
                   </span>
-                  <a>facebook</a>
+                  <a href="a">facebook</a>
                 </li>
                 <li className="footer-li">
                   <span className="footer-sosmed">
                     <i class="fa fa-twitter-square"></i>
                   </span>
-                  <a>twitter</a>
+                  <a href="a">twitter</a>
                 </li>
                 <li className="footer-li">
                   <span className="footer-sosmed">
                     <i class="fa fa-youtube"></i>
                   </span>
-                  <a>youtube</a>
+                  <a href="a">youtube</a>
                 </li>
               </ul>
             </div>
