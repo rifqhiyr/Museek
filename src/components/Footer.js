@@ -20,16 +20,16 @@ class Footer extends Component {
               <h4 className="footer-title">Tentang Museek</h4>
               <ul className="list-unstyled">
                 <li className="footer-li">
-                  <Link to="about">About</Link>
+                  <Link to="/">About</Link>
                 </li>
                 <li className="footer-li">
-                  <Link>Service</Link>
+                  <Link to="/">Service</Link>
                 </li>
                 <li className="footer-li">
-                  <Link>Genre </Link>
+                  <Link to="/">Genre </Link>
                 </li>
                 <li className="footer-li">
-                  <Link>Contact</Link>
+                  <Link to="/">Contact</Link>
                 </li>
               </ul>
             </div>
@@ -39,27 +39,27 @@ class Footer extends Component {
               <ul className="list-unstyled">
                 <li className="footer-li">
                   <span className="footer-sosmed">
-                    <i class="fab fa-instagram"></i>
+                    <i class="fa fa-instagram"></i>
                   </span>
-                  <Link>Instagram</Link>
+                  <a href="a">Instagram</a>
                 </li>
                 <li className="footer-li">
                   <span className="footer-sosmed">
-                    <i class="fab fa-facebook-square"></i>
+                    <i class="fa fa-facebook-square"></i>
                   </span>
-                  <Link>facebook</Link>
+                  <a href="a">facebook</a>
                 </li>
                 <li className="footer-li">
                   <span className="footer-sosmed">
-                    <i class="fab fa-twitter-square"></i>
+                    <i class="fa fa-twitter-square"></i>
                   </span>
-                  <Link>twitter</Link>
+                  <a href="a">twitter</a>
                 </li>
                 <li className="footer-li">
                   <span className="footer-sosmed">
-                    <i class="fab fa-youtube"></i>
+                    <i class="fa fa-youtube"></i>
                   </span>
-                  <Link>youtube</Link>
+                  <a href="a">youtube</a>
                 </li>
               </ul>
             </div>

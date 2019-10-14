@@ -32,6 +32,20 @@
   margin-bottom: -8px;
 }
 
+.btn-header {
+  text-transform: uppercase;
+  margin: 0 10px;
+  height: 80%;
+  background: $color-primary;
+  border-radius: 10rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.25rem 1.25rem;
+  &:hover {
+    background-color: $color-primary-2;
+  }
+}
+
 // desktop version
 @media (min-width: 992px) {
   .navigasi-a {

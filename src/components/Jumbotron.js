@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../assets/scss/Jumbotron.scss";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 class Jumbotron extends Component {
   refreshState = e => {
@@ -19,14 +19,14 @@ class Jumbotron extends Component {
               musicians and a place for musicians to collabs with other
               musicians
             </p>
-            <div className="">
+            {/* <div className="">
               <Link to="/signin">
                 <button className="btn tombol jumbo-btn">Signin</button>
               </Link>
               <Link to="/signup">
                 <button className="btn tombol jumbo-btn ">Signup</button>
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

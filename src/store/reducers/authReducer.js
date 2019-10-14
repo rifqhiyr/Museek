@@ -25,6 +25,11 @@ export default function(state = initialState, action) {
         loading: false,
         errors: payload
       };
+    case "UNAUTHENTICATED":
+      return {
+        ...state,
+        isAuthenticated: false
+      };
     default:
       return state;
   }
