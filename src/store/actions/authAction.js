@@ -39,3 +39,10 @@ export const login = formData => async dispatch => {
     });
   }
 };
+
+export function logout() {
+  localStorage.clear();
+  return {
+    type: "UNAUTHENTICATED"
+  };
+}

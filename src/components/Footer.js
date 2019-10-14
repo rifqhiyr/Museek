@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../assets/scss/Footer.scss";
-import { Link } from "react-router-dom";
+import { a } from "react-router-dom";
 
 class Footer extends Component {
   render() {
@@ -20,16 +20,16 @@ class Footer extends Component {
               <h4 className="footer-title">Tentang Museek</h4>
               <ul className="list-unstyled">
                 <li className="footer-li">
-                  <Link to="about">About</Link>
+                  <a to="about">About</a>
                 </li>
                 <li className="footer-li">
-                  <Link>Service</Link>
+                  <a>Service</a>
                 </li>
                 <li className="footer-li">
-                  <Link>Genre </Link>
+                  <a>Genre </a>
                 </li>
                 <li className="footer-li">
-                  <Link>Contact</Link>
+                  <a>Contact</a>
                 </li>
               </ul>
             </div>
@@ -39,27 +39,27 @@ class Footer extends Component {
               <ul className="list-unstyled">
                 <li className="footer-li">
                   <span className="footer-sosmed">
-                    <i class="fab fa-instagram"></i>
+                    <i class="fa fa-instagram"></i>
                   </span>
-                  <Link>Instagram</Link>
+                  <a>Instagram</a>
                 </li>
                 <li className="footer-li">
                   <span className="footer-sosmed">
-                    <i class="fab fa-facebook-square"></i>
+                    <i class="fa fa-facebook-square"></i>
                   </span>
-                  <Link>facebook</Link>
+                  <a>facebook</a>
                 </li>
                 <li className="footer-li">
                   <span className="footer-sosmed">
-                    <i class="fab fa-twitter-square"></i>
+                    <i class="fa fa-twitter-square"></i>
                   </span>
-                  <Link>twitter</Link>
+                  <a>twitter</a>
                 </li>
                 <li className="footer-li">
                   <span className="footer-sosmed">
-                    <i class="fab fa-youtube"></i>
+                    <i class="fa fa-youtube"></i>
                   </span>
-                  <Link>youtube</Link>
+                  <a>youtube</a>
                 </li>
               </ul>
             </div>

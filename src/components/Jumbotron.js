@@ -19,14 +19,14 @@ class Jumbotron extends Component {
               musicians and a place for musicians to collabs with other
               musicians
             </p>
-            <div className="">
+            {/* <div className="">
               <Link to="/signin">
                 <button className="btn tombol jumbo-btn">Signin</button>
               </Link>
               <Link to="/signup">
                 <button className="btn tombol jumbo-btn ">Signup</button>
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
