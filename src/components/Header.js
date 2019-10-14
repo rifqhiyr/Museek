@@ -16,7 +16,7 @@ class Header extends Component {
     if (!this.props.isAuthenticated) {
       return (
         <div className="bg-color-nav">
-          <div className="container">
+          <div className="container-fluid">
             <nav className="navbar navbar-expand-lg ">
               <Link to="/">
                 <div className="navbar-brand" href="#brand">
