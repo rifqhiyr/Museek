@@ -1,0 +1,11 @@
+@import "theme_color";
+
+.checkout_details_area form .form-control {
+  height: 60px;
+  // border: 2px solid $head-button;
+  border-radius: 0;
+  background-color: $bg-color;
+  padding: 30px;
+  font-size: 14px;
+  margin-top: 10px;
+}

@@ -1,8 +1,38 @@
-# How to do a merge request to Master
-* Make sure your work on develop branch is fine.
-* After that, create new merge request to Master and set the assigne to your mentor.
-* And don't forget set your team member as approval
-* If it's already done, just comment "ready to merge @YourMentorUsername" on your merge request.
-* Mentor will check your MR, and if it's approved, it will be merged.
-* If it's not, please fix your branch and push it.
-* Make sure to resolve all issues in your MR.
+# MUSEEK
+
+> This project aims to make MUSEEK Web using Reat JS.
+
+## Installation
+
+```bash
+# install dependencies
+$ yarn install
+```
+
+## Usage
+
+```bash
+# serve with hot reload at localhost:3000
+$ yarn run start
+```
+
+```bash
+# build for production and launch server
+$ yarn run build
+$ yarn start
+```
+
+## Built With
+
+I used HTML, Bootstrap, and React JS in building this program
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## Developer
+
+- **NUR INNA ALFIANINDA**
+- **RIFQI YULIANDRI**
