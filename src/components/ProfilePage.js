@@ -2,19 +2,19 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import setToken from "../helpers/setToken";
-import { getProfileMusician } from "../store/actions/musicianDataAction";
-import "../assets/scss/ProfileMusicianPage.scss";
+import { getProfile } from "../store/actions/dataAction";
+import "../assets/scss/ProfilePage.scss";
 import SideBar from "./SideBar";
 import NewsLetter from "./NewsLetter";
 import Picture from "./Picture";
 import Rupiah from "./Rupiah";
 
-class ProfileMusicianPage extends Component {
+class ProfilePage extends Component {
   componentDidMount() {
     if (localStorage.token) {
       setToken(localStorage.token);
     }
-    this.props.getProfileMusician();
+    this.props.getProfile();
   }
 
   render() {
@@ -147,5 +147,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getProfileMusician }
-)(ProfileMusicianPage);
+  { getProfile }
+)(ProfilePage);

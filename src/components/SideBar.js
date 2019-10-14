@@ -32,7 +32,7 @@ export default class SideBar extends Component {
                 <Link to="/musicianpage">Musician List</Link>
               </li>
               <li>
-                <Link to="/profilemusician">My Profile</Link>
+                <Link to="/profile">My Profile</Link>
               </li>
             </ul>
           </nav>

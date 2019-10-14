@@ -7,7 +7,7 @@ export default function(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case "GET_MUSICIAN_PROFILE":
+    case "GET_PROFILE":
       return {
         ...state,
         ...payload,

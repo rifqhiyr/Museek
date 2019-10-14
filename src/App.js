@@ -7,15 +7,13 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import LandingPage from "./components/LandingPage";
 import HomePage from "./components/HomePage";
-import DetailComponent from "./components/DetailComponent";
-import ProfileEditmusician from "./components/ProfileEditmusician";
 import About from "./components/About";
-import ProfileMusicianPage from "./components/ProfileMusicianPage";
-import ProfileCustomer from "./components/ProfileCustomer";
+import DetailComponent from "./components/DetailComponent";
+import ProfileEdit from "./components/ProfileEdit";
+import ProfilePage from "./components/ProfilePage";
 import MusicianPage from "./components/MusicianPage";
 import BookedList from "./components/BookedList";
 import BookingForm from "./components/BookingForm";
-import ProfileEdit from "./components/ProfileEdit";
 import Invoice from "./components/Invoice";
 import RegisterMusician from "./components/RegisterMusician";
 import RegisterCustomer from "./components/RegisterCustomer";
@@ -31,29 +29,22 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <Header />
-          <Route path="/signin" exact component={Signin} />
-          <Route path="/forgotpassword" exact component={ForgotPassword} />
-          <Route path="/signup" exact component={Signup} />
-          <Route path="/" exact Component={LandingPage} />
+          <Route path="/" exact component={LandingPage} />
+          <Route path="/homepage" exact component={HomePage} />
+          <Route path="/about" exact component={About} />
+          <Route path="/detail" exact component={DetailComponent} />
+          <Route path="/edit" exact component={ProfileEdit} />
+          <Route path="/profile" exact component={ProfilePage} />
           <Route exact path="/musicianpage" component={MusicianPage} />
           <Route exact path="/bookedlist" component={BookedList} />
           <Route exact path="/bookingform" component={BookingForm} />
-          <Route path="/homepage" exact component={HomePage} />
-          <Route path="/" exact component={LandingPage} />
-          <Route path="/detail" exact component={DetailComponent} />
-          <Route path="/editmusician" exact component={ProfileEditmusician} />
-          <Route path="/about" exact component={About} />
-          <Route path="/profilecustomer" exact component={ProfileCustomer} />
-          <Route
-            path="/profilemusician"
-            exact
-            component={ProfileMusicianPage}
-          />
-          <Route path="/edit" exact component={ProfileEdit} />
           <Route path="/invoice" exact component={Invoice} />
           <Route path="/registermusician" exact component={RegisterMusician} />
           <Route path="/registercustomer" exact component={RegisterCustomer} />
           <Route path="/upload" exact component={Upload} />
+          <Route path="/signin" exact component={Signin} />
+          <Route path="/signup" exact component={Signup} />
+          <Route path="/forgotpassword" exact component={ForgotPassword} />
           <Route path="/logout" exact component={Logout} />
           <Footer />
         </Router>

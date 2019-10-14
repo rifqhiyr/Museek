@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getMusician } from "../store/actions/musicianDataAction";
+import { getMusician } from "../store/actions/dataAction";
 import Picture from "./Picture";
 import Rupiah from "./Rupiah";
 import "../assets/scss/MusicianList.scss";
