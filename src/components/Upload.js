@@ -85,7 +85,7 @@ class App extends Component {
               </div>
             </form>
             <div className="pull-right mt-50">
-              <Link to="/profilemusician">
+              <Link to="/profile">
                 <button
                   width="100%"
                   type="button"

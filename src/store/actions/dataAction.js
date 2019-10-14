@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const edituser = formData => async dispatch => {
+export const editUser = formData => async dispatch => {
   try {
     const res = await axios.put(
       "https://museek.herokuapp.com/api/user/profile",

@@ -47,15 +47,6 @@ export default class BookingForm extends Component {
                     <form action="#" method="post">
                       <div className="row mt-50">
                         <div className="col-12 mb-3">
-                          CATEGORY:
-                          <input
-                            type="text"
-                            className="form-control mb-3 mt-10"
-                            id="category"
-                            placeholder="CATEGORY"
-                          />
-                        </div>
-                        <div className="col-12 mb-3">
                           EVENT DATE:
                           <input
                             type="date"

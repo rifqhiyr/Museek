@@ -18,6 +18,8 @@ class ProfilePage extends Component {
   }
 
   render() {
+    const { role } = this.props.profile;
+
     return (
       <div>
         <div className="search-wrapper section-padding-100">
@@ -89,27 +91,31 @@ class ProfilePage extends Component {
                             <p className="p-profile">
                               E-mail: {this.props.profile.email}
                             </p>
-                            <p className="p-profile">
-                              Skills:{" "}
-                              {this.props.profile.skill &&
-                                this.props.profile.skill
-                                  .toString()
-                                  .split(",")
-                                  .join(", ")}
-                            </p>
-                            <p className="p-profile">
-                              Price: Rp{" "}
-                              {this.props.profile.price &&
-                                Rupiah(this.props.profile.price)}
-                              , 00
-                            </p>
-                            <p className="p-profile">
-                              Rating: {this.props.profile.rating}
-                            </p>
 
-                            <p className="p-profile">
-                              Description: {this.props.profile.description}
-                            </p>
+                            {role === "musician" && (
+                              <span>
+                                <p className="p-profile">
+                                  Skills:{" "}
+                                  {this.props.profile.skill &&
+                                    this.props.profile.skill
+                                      .toString()
+                                      .split(",")
+                                      .join(", ")}
+                                </p>
+                                <p className="p-profile">
+                                  Price: Rp{" "}
+                                  {this.props.profile.price &&
+                                    Rupiah(this.props.profile.price)}
+                                  , 00
+                                </p>
+                                <p className="p-profile">
+                                  Rating: {this.props.profile.rating}
+                                </p>
+                                <p className="p-profile">
+                                  Description: {this.props.profile.description}
+                                </p>{" "}
+                              </span>
+                            )}
                           </td>
                         </tr>
                         <tr>
@@ -117,10 +123,26 @@ class ProfilePage extends Component {
                           <td className="font-cart width-profile-description">
                             <div className="dstyle-btn-group button-right">
                               <Link
-                                to="/editmusician"
+                                to="/edit"
                                 className="btn dstyle-btn btn-profile"
                               >
                                 EDIT PROFILE
+                              </Link>
+                            </div>
+                            <div className="dstyle-btn-group button-right">
+                              <Link
+                                to="#"
+                                className="btn dstyle-btn btn-profile"
+                              >
+                                BOOKING HISTORY
+                              </Link>
+                            </div>
+                            <div className="dstyle-btn-group button-right">
+                              <Link
+                                to="#"
+                                className="btn dstyle-btn btn-profile"
+                              >
+                                INVOICE HISTORY
                               </Link>
                             </div>
                           </td>

@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import setToken from "./../helpers/setToken";
-import { edituser } from "../store/actions/dataAction";
+import { getProfile } from "../store/actions/dataAction";
+import { editUser } from "../store/actions/dataAction";
 import propTypes from "prop-types";
 import "../assets/scss/ProfileEdit.scss";
 
@@ -18,18 +19,15 @@ class ProfileEdit extends Component {
     country: "",
     description: "",
     skills: [],
-    lists: [
-      "Acoustic",
-      "Jazz",
-      "Blues",
-      "Rock",
-      "Heavy metal",
-      "Dangdut",
-      "Marawis",
-      "Pop Modern",
-      "DJ gagak"
-    ]
+    lists: ["Singer", "Guitar", "Drum", "Percussion", "Keyboard"]
   };
+
+  componentDidMount() {
+    if (localStorage.token) {
+      setToken(localStorage.token);
+    }
+    this.props.getProfile();
+  }
 
   handleChange = e => {
     this.setState({
@@ -43,7 +41,7 @@ class ProfileEdit extends Component {
     });
   };
 
-  handleSubmit = e => {
+  handleSubmitMusician = e => {
     e.preventDefault();
 
     if (localStorage.token) {
@@ -63,8 +61,30 @@ class ProfileEdit extends Component {
       skill: this.state.skills
     };
 
-    this.props.edituser(formData);
-    alert("Data have been saved");
+    this.props.editUser(formData);
+    alert("Musician data have been saved");
+    this.props.history.push("/upload");
+  };
+
+  handleSubmitCustomer = e => {
+    e.preventDefault();
+
+    if (localStorage.token) {
+      setToken(localStorage.token);
+    }
+
+    const formData = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      gender: this.state.gender,
+      address: this.state.address,
+      city: this.state.city,
+      country: this.state.country
+    };
+
+    this.props.editUser(formData);
+    alert("Customer data have been saved");
     this.props.history.push("/upload");
   };
 
@@ -83,6 +103,7 @@ class ProfileEdit extends Component {
   };
 
   render() {
+    const { role } = this.props.profile;
     return (
       <div>
         <div className="container edit">
@@ -117,16 +138,7 @@ class ProfileEdit extends Component {
                   value={this.state.password}
                   onChange={this.handleChange}
                 />
-                <p className="edit-p">Price</p>
-                <input
-                  className="input-form"
-                  type="number"
-                  placeholder="price"
-                  name="price"
-                  value={this.state.price}
-                  onChange={this.handleChange}
-                />
-                <p className="edit-p">Jenis kelamin</p>
+                <p className="edit-p">Gender</p>
                 <div className="edit-gender">
                   <label>
                     <input
@@ -179,40 +191,51 @@ class ProfileEdit extends Component {
                 />
               </form>
             </div>
-            <div className="col-12 col-lg-6 edit-col-right">
-              <form className="edit-form edit-skill">
-                <p className="edit-p">Description</p>
-                <input
-                  className="input-form"
-                  type="text"
-                  placeholder=" description"
-                  name="description"
-                  value={this.state.description}
-                  onChange={this.handleChange}
-                />
-                <p className="edit-p">Skill</p>
-                <input
-                  className="input-form"
-                  type="text"
-                  placeholder="Pick skill"
-                  value={this.state.skills.map(sk => {
-                    return sk;
-                  })}
-                />
-                <div className="skill-btn-box">
-                  {this.state.lists.map(list => {
-                    return (
-                      <input
-                        className="btn tombol skill-btn"
-                        type="button"
-                        value={list}
-                        onClick={this.addskill}
-                      />
-                    );
-                  })}
-                </div>
-              </form>
-            </div>
+            {role === "musician" && (
+              <div className="col-12 col-lg-6 edit-col-right">
+                <form className="edit-form edit-skill">
+                  <p className="edit-p">Price</p>
+                  <input
+                    className="input-form"
+                    type="number"
+                    placeholder="price"
+                    name="price"
+                    value={this.state.price}
+                    onChange={this.handleChange}
+                  />
+                  <p className="edit-p">Description</p>
+                  <input
+                    className="input-form"
+                    type="text"
+                    placeholder=" description"
+                    name="description"
+                    value={this.state.description}
+                    onChange={this.handleChange}
+                  />
+                  <p className="edit-p">Skill</p>
+                  <input
+                    className="input-form"
+                    type="text"
+                    placeholder="Pick skill"
+                    value={this.state.skills.map(sk => {
+                      return sk;
+                    })}
+                  />
+                  <div className="skill-btn-box">
+                    {this.state.lists.map(list => {
+                      return (
+                        <input
+                          className="btn tombol skill-btn"
+                          type="button"
+                          value={list}
+                          onClick={this.addskill}
+                        />
+                      );
+                    })}
+                  </div>
+                </form>
+              </div>
+            )}
           </div>
           <div className="edit-button">
             <Link to="/profilemusician">
@@ -220,12 +243,21 @@ class ProfileEdit extends Component {
                 BACK TO PROFILE
               </button>
             </Link>
-            <button
-              className="btn dstyle-btn btn-profile"
-              onClick={this.handleSubmit}
-            >
-              SAVED
-            </button>
+            {role === "musician" ? (
+              <button
+                className="btn dstyle-btn btn-profile"
+                onClick={this.handleSubmitMusician}
+              >
+                SAVED
+              </button>
+            ) : (
+              <button
+                className="btn dstyle-btn btn-profile"
+                onClick={this.handleSubmitCustomer}
+              >
+                SAVED
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -234,10 +266,17 @@ class ProfileEdit extends Component {
 }
 
 ProfileEdit.propTypes = {
-  edituser: propTypes.func.isRequired
+  editUser: propTypes.func.isRequired,
+  getProfile: propTypes.func.isRequired
+};
+
+const mapStateToProps = state => {
+  return {
+    profile: state.profileReducer.profile
+  };
 };
 
 export default connect(
-  null,
-  { edituser }
+  mapStateToProps,
+  { editUser, getProfile }
 )(withRouter(ProfileEdit));
