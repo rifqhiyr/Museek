@@ -2,22 +2,24 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import setToken from "../helpers/setToken";
-import { getProfileMusician } from "../store/actions/musicianDataAction";
-import "../assets/scss/ProfileMusicianPage.scss";
+import { getProfile } from "../store/actions/dataAction";
+import "../assets/scss/ProfilePage.scss";
 import SideBar from "./SideBar";
 import NewsLetter from "./NewsLetter";
 import Picture from "./Picture";
 import Rupiah from "./Rupiah";
 
-class ProfileMusicianPage extends Component {
+class ProfilePage extends Component {
   componentDidMount() {
     if (localStorage.token) {
       setToken(localStorage.token);
     }
-    this.props.getProfileMusician();
+    this.props.getProfile();
   }
 
   render() {
+    const { role } = this.props.profile;
+
     return (
       <div>
         <div className="search-wrapper section-padding-100">
@@ -89,27 +91,31 @@ class ProfileMusicianPage extends Component {
                             <p className="p-profile">
                               E-mail: {this.props.profile.email}
                             </p>
-                            <p className="p-profile">
-                              Skills:{" "}
-                              {this.props.profile.skill &&
-                                this.props.profile.skill
-                                  .toString()
-                                  .split(",")
-                                  .join(", ")}
-                            </p>
-                            <p className="p-profile">
-                              Price: Rp{" "}
-                              {this.props.profile.price &&
-                                Rupiah(this.props.profile.price)}
-                              , 00
-                            </p>
-                            <p className="p-profile">
-                              Rating: {this.props.profile.rating}
-                            </p>
 
-                            <p className="p-profile">
-                              Description: {this.props.profile.description}
-                            </p>
+                            {role === "musician" && (
+                              <span>
+                                <p className="p-profile">
+                                  Skills:{" "}
+                                  {this.props.profile.skill &&
+                                    this.props.profile.skill
+                                      .toString()
+                                      .split(",")
+                                      .join(", ")}
+                                </p>
+                                <p className="p-profile">
+                                  Price: Rp{" "}
+                                  {this.props.profile.price &&
+                                    Rupiah(this.props.profile.price)}
+                                  , 00
+                                </p>
+                                <p className="p-profile">
+                                  Rating: {this.props.profile.rating}
+                                </p>
+                                <p className="p-profile">
+                                  Description: {this.props.profile.description}
+                                </p>{" "}
+                              </span>
+                            )}
                           </td>
                         </tr>
                         <tr>
@@ -117,12 +123,41 @@ class ProfileMusicianPage extends Component {
                           <td className="font-cart width-profile-description">
                             <div className="dstyle-btn-group button-right">
                               <Link
-                                to="/editmusician"
+                                to="/edit"
                                 className="btn dstyle-btn btn-profile"
                               >
                                 EDIT PROFILE
                               </Link>
                             </div>
+                            {role === "musician" ? (
+                              <span>
+                                <div className="dstyle-btn-group button-right">
+                                  <Link
+                                    to="#"
+                                    className="btn dstyle-btn btn-profile"
+                                  >
+                                    BOOKING HISTORY
+                                  </Link>
+                                </div>
+                                <div className="dstyle-btn-group button-right">
+                                  <Link
+                                    to="#"
+                                    className="btn dstyle-btn btn-profile"
+                                  >
+                                    INVOICE HISTORY
+                                  </Link>
+                                </div>{" "}
+                              </span>
+                            ) : (
+                              <div className="dstyle-btn-group button-right">
+                                <Link
+                                  to="#"
+                                  className="btn dstyle-btn btn-profile"
+                                >
+                                  EVENT HISTORY
+                                </Link>
+                              </div>
+                            )}
                           </td>
                         </tr>
                       </tbody>
@@ -147,5 +182,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getProfileMusician }
-)(ProfileMusicianPage);
+  { getProfile }
+)(ProfilePage);
