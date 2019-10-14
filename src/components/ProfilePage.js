@@ -129,22 +129,35 @@ class ProfilePage extends Component {
                                 EDIT PROFILE
                               </Link>
                             </div>
-                            <div className="dstyle-btn-group button-right">
-                              <Link
-                                to="#"
-                                className="btn dstyle-btn btn-profile"
-                              >
-                                BOOKING HISTORY
-                              </Link>
-                            </div>
-                            <div className="dstyle-btn-group button-right">
-                              <Link
-                                to="#"
-                                className="btn dstyle-btn btn-profile"
-                              >
-                                INVOICE HISTORY
-                              </Link>
-                            </div>
+                            {role === "musician" ? (
+                              <span>
+                                <div className="dstyle-btn-group button-right">
+                                  <Link
+                                    to="#"
+                                    className="btn dstyle-btn btn-profile"
+                                  >
+                                    BOOKING HISTORY
+                                  </Link>
+                                </div>
+                                <div className="dstyle-btn-group button-right">
+                                  <Link
+                                    to="#"
+                                    className="btn dstyle-btn btn-profile"
+                                  >
+                                    INVOICE HISTORY
+                                  </Link>
+                                </div>{" "}
+                              </span>
+                            ) : (
+                              <div className="dstyle-btn-group button-right">
+                                <Link
+                                  to="#"
+                                  className="btn dstyle-btn btn-profile"
+                                >
+                                  EVENT HISTORY
+                                </Link>
+                              </div>
+                            )}
                           </td>
                         </tr>
                       </tbody>
