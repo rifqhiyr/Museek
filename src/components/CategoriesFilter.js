@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "../assets/scss/CategoriesFilter.scss";
 
 export default class Categories extends Component {
   render() {
     return (
       <div className="shop_sidebar_area">
-        <div className="widget catagory mb-50">
+        {/* <div className="widget catagory mb-50">
           <h6 className="widget-title mb-30">Event Catagories</h6>
 
           <div className="catagories-menu">
@@ -28,7 +27,7 @@ export default class Categories extends Component {
               </li>
             </ul>
           </div>
-        </div>
+        </div> */}
 
         <div className="widget brands mb-50">
           <h6 className="widget-title mb-30">Musical Genres</h6>

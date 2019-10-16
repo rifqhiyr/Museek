@@ -94,12 +94,12 @@ class ProfileEdit extends Component {
         skills: [...this.state.skills, e.target.value]
       });
     }
-
+ 
     if (this.state.skills.includes(e.target.value) === true) {
       this.setState({
         skills: this.state.skills.filter(skill => skill !== e.target.value)
       });
-    }
+    } 
   };
 
   render() {
@@ -238,7 +238,7 @@ class ProfileEdit extends Component {
             )}
           </div>
           <div className="edit-button">
-            <Link to="/profilemusician">
+            <Link to="/profile">
               <button className="btn dstyle-btn btn-profile">
                 BACK TO PROFILE
               </button>

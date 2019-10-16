@@ -129,7 +129,7 @@ class ProfilePage extends Component {
                                 EDIT PROFILE
                               </Link>
                             </div>
-                            {role === "musician" ? (
+                            {role === "customer" ? (
                               <span>
                                 <div className="dstyle-btn-group button-right">
                                   <Link

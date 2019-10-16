@@ -9,7 +9,7 @@ export default class Filter extends Component {
         <div className="col-12">
           <div className="product-topbar d-xl-flex align-items-end justify-content-between">
             <div className="total-products">
-              <p>Showing 1-8 0f 25</p>
+              <p>{`${this.props.count} musicians found`}</p>
               <div className="view d-flex">
                 <Link to="#">
                   <i className="fa fa-th-large" aria-hidden="true" />
@@ -24,21 +24,13 @@ export default class Filter extends Component {
               <div className="sort-by-date d-flex align-items-center mr-15">
                 <p>Sort by</p>
                 <form action="#" method="get">
-                  <select name="select" id="sortBydate">
-                    <option value="value">Date</option>
-                    <option value="value">Newest</option>
-                    <option value="value">Popular</option>
-                  </select>
-                </form>
-              </div>
-              <div className="view-product d-flex align-items-center">
-                <p>View</p>
-                <form action="#" method="get">
-                  <select name="select" id="viewProduct">
-                    <option value="value">12</option>
-                    <option value="value">24</option>
-                    <option value="value">48</option>
-                    <option value="value">96</option>
+                  <select
+                    value={this.props.sort}
+                    onChange={this.props.handleSortChange}
+                  >
+                    <option value="">Select</option>
+                    <option value="lowestprice">Lowest to highest</option>
+                    <option value="highestprice">Highest to lowest</option>
                   </select>
                 </form>
               </div>

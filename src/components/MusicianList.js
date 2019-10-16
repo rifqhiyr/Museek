@@ -12,7 +12,17 @@ class MusicianList extends Component {
   }
 
   render() {
-    const listMusician = this.props.musicians.map(musician => {
+    const { currentPage, cardsPerPage } = this.props;
+
+    //logic for displaying current cards
+    const indexOfLastCard = currentPage * cardsPerPage;
+    const indexOfFirstCard = indexOfLastCard - cardsPerPage;
+    const currentCards = this.props.musicians.slice(
+      indexOfFirstCard,
+      indexOfLastCard
+    );
+
+    const listMusician = currentCards.map(musician => {
       return (
         <div className="col-12 col-sm-6 col-md-12 col-xl-6">
           <div className="single-product-wrapper" key={musician._id}>
