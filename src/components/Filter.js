@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { sortMusicians } from "../store/actions/filterAction";
 import "../assets/scss/Filter.scss";
 
-export default class Filter extends Component {
+class Filter extends Component {
   render() {
     return (
       <div className="row">
@@ -26,11 +28,16 @@ export default class Filter extends Component {
                 <form action="#" method="get">
                   <select
                     value={this.props.sort}
-                    onChange={this.props.handleSortChange}
+                    onChange={e =>
+                      this.props.sortMusicians(
+                        this.props.musicians,
+                        e.target.value
+                      )
+                    }
                   >
                     <option value="">Select</option>
-                    <option value="lowestprice">Lowest to highest</option>
-                    <option value="highestprice">Highest to lowest</option>
+                    <option value="lowest">Lowest to highest</option>
+                    <option value="highest">Highest to lowest</option>
                   </select>
                 </form>
               </div>
@@ -41,3 +48,13 @@ export default class Filter extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  musicians: state.listMusicianReducer.musicians,
+  sort: state.listMusicianReducer.sort
+});
+
+export default connect(
+  mapStateToProps,
+  { sortMusicians }
+)(Filter);

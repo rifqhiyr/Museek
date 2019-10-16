@@ -94,12 +94,12 @@ class ProfileEdit extends Component {
         skills: [...this.state.skills, e.target.value]
       });
     }
- 
+
     if (this.state.skills.includes(e.target.value) === true) {
       this.setState({
         skills: this.state.skills.filter(skill => skill !== e.target.value)
       });
-    } 
+    }
   };
 
   render() {

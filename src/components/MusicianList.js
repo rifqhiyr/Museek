@@ -7,9 +7,9 @@ import Rupiah from "./Rupiah";
 import "../assets/scss/MusicianList.scss";
 
 class MusicianList extends Component {
-  componentDidMount() {
-    this.props.getMusician();
-  }
+  // componentDidMount() {
+  //   this.props.getMusician();
+  // }
 
   render() {
     const { currentPage, cardsPerPage } = this.props;

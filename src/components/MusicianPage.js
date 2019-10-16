@@ -11,42 +11,18 @@ import Pagination from "./Pagination";
 class MusicianPage extends Component {
   state = {
     currentPage: 1,
-    cardsPerPage: 4,
-    sort: ""
+    cardsPerPage: 4
   };
 
-  componentDidMount() {
-    this.props.getMusician();
-  }
+  // componentDidMount() {
+  //   this.props.getMusician();
+  // }
 
   handleClick = id => {
     this.setState({
       currentPage: id
     });
     console.log(this.state.currentPage);
-  };
-
-  listMusicians = () => {
-    this.setState(() => {
-      if (this.state.sort !== "") {
-        this.props.musicians.sort((a, b) =>
-          this.state.sort === "lowestprice"
-            ? a.price > b.price
-              ? 1
-              : -1
-            : a.price < b.price
-            ? 1
-            : -1
-        );
-      } else {
-        this.props.musicians.sort((a, b) => (a.id > b.id ? 1 : -1));
-      }
-    });
-  };
-
-  handleSortChange = e => {
-    this.setState({ sort: e.target.value });
-    this.listMusicians();
   };
 
   render() {
@@ -82,10 +58,7 @@ class MusicianPage extends Component {
           <CategoriesFilter />
           <div className="dstyle_product_area section-padding-100">
             <div className="container-fluid">
-              <Filter
-                count={this.props.musicians.length}
-                handleSortChange={this.handleSortChange}
-              />
+              <Filter count={this.props.musicians.length} />
               <MusicianList
                 currentPage={this.state.currentPage}
                 cardsPerPage={this.state.cardsPerPage}
@@ -113,92 +86,3 @@ export default connect(
   mapStateToProps,
   { getMusician }
 )(MusicianPage);
-
-// import React, { Component } from "react";
-// import { connect } from "react-redux";
-// import { getMusician } from "../store/actions/dataAction";
-// import SideBar from "./SideBar";
-// import CategoriesFilter from "./CategoriesFilter";
-// import Filter from "./Filter";
-// import MusicianList from "./MusicianList";
-// import NewsLetter from "./NewsLetter";
-// import Pagination from "./Pagination";
-
-// class MusicianPage extends Component {
-//   state = {
-//     currentPage: 1,
-//     cardsPerPage: 4
-//   };
-
-//   componentDidMount() {
-//     this.props.getMusician();
-//   }
-
-//   handleClick = id => {
-//     this.setState({
-//       currentPage: id
-//     });
-//     console.log(this.state.currentPage);
-//   };
-
-//   render() {
-//     return (
-//       <div>
-//         <div className="search-wrapper section-padding-100">
-//           <div className="search-close">
-//             <i className="fa fa-close" aria-hidden="true" />
-//           </div>
-//           <div className="container">
-//             <div className="row">
-//               <div className="col-12">
-//                 <div className="search-content">
-//                   <form action="#" method="get">
-//                     <input
-//                       type="search"
-//                       name="search"
-//                       id="search"
-//                       placeholder="Type your keyword..."
-//                     />
-//                     <button type="submit">
-//                       <img src="img/core-img/search.png" alt="" />
-//                     </button>
-//                   </form>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-
-//         <div className="main-content-wrapper d-flex clearfix">
-//           <SideBar />
-//           <CategoriesFilter />
-//           <div className="dstyle_product_area section-padding-100">
-//             <div className="container-fluid">
-//               <Filter count={this.props.musicians.length} />
-//               <MusicianList
-//                 currentPage={this.state.currentPage}
-//                 cardsPerPage={this.state.cardsPerPage}
-//               />
-//               <Pagination
-//                 cardsPerPage={this.state.cardsPerPage}
-//                 handleClick={this.handleClick}
-//               />
-//             </div>
-//           </div>
-//         </div>
-//         <NewsLetter />
-//       </div>
-//     );
-//   }
-// }
-
-// const mapStateToProps = state => {
-//   return {
-//     musicians: state.listMusicianReducer.musicians
-//   };
-// };
-
-// export default connect(
-//   mapStateToProps,
-//   { getMusician }
-// )(MusicianPage);

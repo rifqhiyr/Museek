@@ -5,7 +5,26 @@ import SideBar from "./SideBar";
 import NewsLetter from "./NewsLetter";
 
 export default class BookingForm extends Component {
+  state = {
+    events: [],
+    lists: ["Birthday", "Wedding", "Engagement", "Percussion", "Reunion"]
+  };
+
+  addevent = e => {
+    e.preventDefault();
+    this.setState({
+      events: [...this.state.events, e.target.value]
+    });
+
+    if (this.state.events.includes(e.target.value) === true) {
+      this.setState({
+        events: this.state.events.filter(event => event !== e.target.value)
+      });
+    }
+  };
+
   render() {
+    console.log(this.state.events);
     return (
       <div>
         {" "}
@@ -47,6 +66,38 @@ export default class BookingForm extends Component {
                     <form action="#" method="post">
                       <div className="row mt-50">
                         <div className="col-12 mb-3">
+                          EVENT CATEGORIES:
+                          <input
+                            type="text"
+                            className="form-control mb-3 mt-10"
+                            id="event_categories"
+                            placeholder="PICK EVENT CATEGORIES"
+                            value={this.state.events
+                              .toString()
+                              .split(",")
+                              .join(", ")}
+                            onClick={this.addevent}
+                          />
+                        </div>
+                        <div className="skill-btn-box">
+                          {this.state.lists.map(list => {
+                            return (
+                              <input
+                                className="btn dstyle-btn btn-profile"
+                                type="button"
+                                value={list}
+                                onClick={this.addevent}
+                                style={{
+                                  marginTop: "12px"
+                                }}
+                              />
+                            );
+                          })}
+                        </div>
+                        <div
+                          className="col-12 mb-3"
+                          style={{ marginTop: "50px" }}
+                        >
                           EVENT DATE:
                           <input
                             type="date"
@@ -82,95 +133,6 @@ export default class BookingForm extends Component {
                             ADD EVENT
                           </Link>
                         </div>
-
-                        {/* <div className="col-md-6 mb-3">
-                          <input
-                            type="text"
-                            className="form-control"
-                            id="first_name"
-                            placeholder="FIRST NAME"
-                            required
-                          />
-                        </div>
-                        <div className="col-md-6 mb-3">
-                          <input
-                            type="text"
-                            className="form-control"
-                            id="last_name"
-                            placeholder="LAST NAME"
-                            required
-                          />
-                        </div>
-                        <div className="col-6 mb-3">
-                          <input
-                            type="email"
-                            className="form-control"
-                            id="email"
-                            placeholder="E-MAIL"
-                          />
-                        </div>
-                        <div className="col-md-6 mb-3">
-                          <input
-                            type="number"
-                            className="form-control"
-                            id="phone_number"
-                            min={0}
-                            placeholder="PHONE NUMBER"
-                          />
-                        </div>
-                        <div className="col-6 mb-3">
-                          <input
-                            type="date"
-                            className="form-control"
-                            id="company"
-                            placeholder="Specific Date"
-                          />
-                        </div>
-
-                        <div className="col-6 mb-3">
-                          <input
-                            type="number"
-                            className="form-control"
-                            id="company"
-                            placeholder="EVENT DURATION (IN HOURS)"
-                          />
-                        </div>
-                        <div className="col-12 mb-3">
-                          <input
-                            type="text"
-                            className="form-control"
-                            id="company"
-                            placeholder="EVENT NAME (EX. BIRTHDAY PARTY)"
-                          />
-                        </div>
-                        <div className="col-12 mb-3">
-                          <input
-                            type="text"
-                            className="form-control mb-3"
-                            id="street_address"
-                            placeholder="EVENT ADDRESS"
-                          />
-                        </div>
-                        <div className="col-12 mb-3">
-                          <input
-                            type="text"
-                            className="form-control"
-                            id="city"
-                            placeholder="TOWN"
-                          />
-                        </div>
-
-                        <div className="col-12 mb-3">
-                          <textarea
-                            name="comment"
-                            className="form-control w-100"
-                            id="comment"
-                            cols={30}
-                            rows={10}
-                            placeholder="ADDITIONAL REQUEST OR EVENT DESCRIPTION"
-                            defaultValue={""}
-                          />
-                        </div> */}
                       </div>
                     </form>
                   </div>
