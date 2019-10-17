@@ -7,7 +7,7 @@ class SideBar extends Component {
   render() {
     return (
       <div className="responsive1">
-        <div className="mobile-nav">
+        {/* <div className="mobile-nav">
           <div className="dstyle-navbar-brand">
             <Link to="/homepage">
               <img src={require("../assets/images/logo.png")} alt="" />
@@ -18,11 +18,11 @@ class SideBar extends Component {
             <span />
             <span />
           </div>
-        </div>
+        </div> */}
         <header className="header-area clearfix">
-          <div className="nav-close">
+          {/* <div className="nav-close">
             <i className="fa fa-close" aria-hidden="true" />
-          </div>
+          </div> */}
 
           <nav className="dstyle-nav">
             <ul>
@@ -40,18 +40,26 @@ class SideBar extends Component {
             </ul>
           </nav>
           <div className="dstyle-btn-group mt-30 mb-100"></div>
+
           <div className="cart-fav-search mb-100">
-            <Link to="/bookedlist" className="cart-nav">
-              <img src="img/core-img/cart.png" alt="" /> Booked List{" "}
-              <span>(0)</span>
-            </Link>
-            <Link to="#" className="fav-nav">
-              <img src="img/core-img/favorites.png" alt="" /> Favourite
-            </Link>
+            {this.props.isAuthenticated && (
+              <div>
+                <Link to="/bookedlist" className="cart-nav">
+                  <img src="img/core-img/cart.png" alt="" /> Booked List{" "}
+                  <span>(0)</span>
+                </Link>
+
+                <Link to="#" className="fav-nav">
+                  <img src="img/core-img/favorites.png" alt="" /> Favourite
+                </Link>
+              </div>
+            )}
+
             <Link to="#" className="search-nav">
               <img src="img/core-img/search.png" alt="" /> Search
             </Link>
           </div>
+
           <div className="social-info d-flex justify-content-between">
             <Link to="#">
               <i className="fa fa-pinterest" aria-hidden="true" />
