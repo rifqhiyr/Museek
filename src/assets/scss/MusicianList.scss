@@ -26,6 +26,9 @@
   position: relative;
   flex: 100%;
   padding: 50px;
+  @media (max-width: 767.98px) {
+    padding: 0px;
+  }
 }
 
 .row1 {
