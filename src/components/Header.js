@@ -16,7 +16,7 @@ class Header extends Component {
     if (!this.props.isAuthenticated) {
       return (
         <div className="bg-color-nav">
-          <div className="container-fluid">
+          <div className="container">
             <nav className="navbar navbar-expand-lg ">
               <Link to="/">
                 <div className="navbar-brand" href="#brand">
@@ -42,26 +42,24 @@ class Header extends Component {
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item Active">
                     <Link
-                      to="/homepage"
+                      to="/about"
                       className="nav-link navigasi-a"
                       href="#tentangkami"
                     >
                       About<span className="sr-only">(current)</span>
                     </Link>
                   </li>
+
                   <li>
                     <Link
-                      to="/about"
+                      to="/musicianpage"
                       className="nav-link navigasi-a"
                       href="#tentangkami"
                     >
-                      Detail<span className="sr-only">(current)</span>
+                      Musician List<span className="sr-only">(current)</span>
                     </Link>
                   </li>
                 </ul>
-                <Link to="/signup">
-                  <button className="btn btn-header">sign up</button>
-                </Link>
                 <Link to="/signin">
                   <button className="btn btn-header">sign in</button>
                 </Link>
@@ -114,6 +112,34 @@ class Header extends Component {
                     >
                       Detail<span className="sr-only">(current)</span>
                     </Link>
+                  </li>
+                  <li className="nav-item Active dropdown">
+                    <Link
+                      class="nav-link dropdown-toggle navigasi-b"
+                      href="#"
+                      id="navbarDropdown"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      my profile
+                    </Link>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <Link class="dropdown-item" to="/edit">
+                        edit profile
+                      </Link>
+                      <div class="dropdown-divider">pantek</div>
+                      <Link class="dropdown-item" to="/bookedlist">
+                        bookedlist
+                      </Link>
+                      <Link class="dropdown-item" to="/favourite">
+                        Favourite
+                      </Link>
+                      <Link class="dropdown-item" to="/search">
+                        Search
+                      </Link>
+                    </div>
                   </li>
                 </ul>
                 <Link to="/logout">

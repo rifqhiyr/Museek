@@ -22,6 +22,8 @@ import Signin from "./components/Signin";
 import Signup from "./components/Signup";
 import ForgotPassword from "./components/ForgotPassword";
 import Logout from "./components/Logout";
+import VerificationEmail from "./components/VerificationEmail";
+import Privacy from "./components/Privacy";
 
 class App extends Component {
   render() {
@@ -46,6 +48,8 @@ class App extends Component {
           <Route path="/signup" exact component={Signup} />
           <Route path="/forgotpassword" exact component={ForgotPassword} />
           <Route path="/logout" exact component={Logout} />
+          <Route path="/verification" exact component={VerificationEmail} />
+          <Route path="/privacy" exact component={Privacy} />
           <Footer />
         </Router>
       </Provider>
