@@ -7,23 +7,7 @@ class SideBar extends Component {
   render() {
     return (
       <div className="responsive1">
-        {/* <div className="mobile-nav">
-          <div className="dstyle-navbar-brand">
-            <Link to="/homepage">
-              <img src={require("../assets/images/logo.png")} alt="" />
-            </Link>
-          </div>
-          <div className="dstyle-navbar-toggler">
-            <span />
-            <span />
-            <span />
-          </div>
-        </div> */}
         <header className="header-area clearfix">
-          {/* <div className="nav-close">
-            <i className="fa fa-close" aria-hidden="true" />
-          </div> */}
-
           <nav className="dstyle-nav">
             <ul>
               <li>

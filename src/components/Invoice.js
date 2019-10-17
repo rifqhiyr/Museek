@@ -51,9 +51,6 @@ class Invoice extends Component {
                       <p>Jl. Raya</p>
                       <p>Jakarta, Indonesia</p>
                     </div>
-                    {/* <a href="#dudu" className="btn btn-primary">
-                      Go somewhere
-                    </a> */}
                   </div>
                 </div>
               </div>
@@ -69,9 +66,6 @@ class Invoice extends Component {
                       <p>Total Price: Rp 1000.000,00</p>
                       <p>Musician Skill: Singing, Guitar</p>
                     </div>
-                    {/* <a href="#tara" className="btn btn-primary">
-                      Go somewhere
-                    </a> */}
                   </div>
                 </div>
               </div>

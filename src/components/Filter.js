@@ -7,7 +7,7 @@ import "../assets/scss/Filter.scss";
 class Filter extends Component {
   render() {
     return (
-      <div className="row">
+      <div className="row1">
         <div className="col-12">
           <div className="product-topbar d-xl-flex align-items-end justify-content-between">
             <div className="total-products">
@@ -21,7 +21,7 @@ class Filter extends Component {
                 </Link>
               </div>
             </div>
-
+ 
             <div className="product-sorting d-flex">
               <div className="sort-by-date d-flex align-items-center mr-15">
                 <p>Sort by</p>

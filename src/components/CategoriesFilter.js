@@ -5,30 +5,6 @@ export default class Categories extends Component {
   render() {
     return (
       <div className="shop_sidebar_area">
-        {/* <div className="widget catagory mb-50">
-          <h6 className="widget-title mb-30">Event Catagories</h6>
-
-          <div className="catagories-menu">
-            <ul>
-              <li>
-                <Link to="#">Birthday</Link>
-              </li>
-              <li>
-                <Link to="#">Wedding</Link>
-              </li>
-              <li>
-                <Link to="#">Engagement</Link>
-              </li>
-              <li>
-                <Link to="#">Reunion</Link>
-              </li>
-              <li>
-                <Link to="#">All</Link>
-              </li>
-            </ul>
-          </div>
-        </div> */}
-
         <div className="widget brands mb-50">
           <h6 className="widget-title mb-30">Musical Genres</h6>
           <div className="widget-desc">

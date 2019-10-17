@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import setToken from "./../helpers/setToken";
 import { addEvent } from "../store/actions/eventAction";
 import "../assets/scss/BookingForm.scss";
-import SideBar from "./SideBar";
 import NewsLetter from "./NewsLetter";
 
 class BookingForm extends Component {
@@ -83,12 +82,10 @@ class BookingForm extends Component {
           </div>
         </div>
         <div className="main-content-wrapper d-flex clearfix">
-          <SideBar />
-          <div className="cart-table-area ">
+          <div className="cart-table-area">
             <div className="container-fluid">
-              <div className="row">
-                <div className="col-12 col-lg-1"></div>
-                <div className="col-12 col-lg-8">
+              <div className="row2">
+                <div className="col-12 col-lg-6">
                   <div className="checkout_details_area mt-100 clearfix">
                     <div className="cart-title">
                       <h2>ADD EVENT</h2>

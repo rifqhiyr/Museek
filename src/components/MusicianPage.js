@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getMusician } from "../store/actions/dataAction";
-import SideBar from "./SideBar";
-import CategoriesFilter from "./CategoriesFilter";
 import Filter from "./Filter";
 import MusicianList from "./MusicianList";
 import NewsLetter from "./NewsLetter";
@@ -11,12 +9,8 @@ import Pagination from "./Pagination";
 class MusicianPage extends Component {
   state = {
     currentPage: 1,
-    cardsPerPage: 4
+    cardsPerPage: 6
   };
-
-  // componentDidMount() {
-  //   this.props.getMusician();
-  // }
 
   handleClick = id => {
     this.setState({
@@ -54,9 +48,7 @@ class MusicianPage extends Component {
         </div>
 
         <div className="main-content-wrapper d-flex clearfix">
-          <SideBar />
-          <CategoriesFilter />
-          <div className="dstyle_product_area section-padding-100">
+          <div className="content">
             <div className="container-fluid">
               <Filter count={this.props.musicians.length} />
               <MusicianList
