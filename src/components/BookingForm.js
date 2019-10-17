@@ -1,13 +1,44 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import setToken from "./../helpers/setToken";
+import { addEvent } from "../store/actions/eventAction";
 import "../assets/scss/BookingForm.scss";
 import SideBar from "./SideBar";
 import NewsLetter from "./NewsLetter";
 
-export default class BookingForm extends Component {
+class BookingForm extends Component {
   state = {
+    dateEvent: "",
+    duration: "",
+    location: "",
     events: [],
     lists: ["Birthday", "Wedding", "Engagement", "Percussion", "Reunion"]
+  };
+
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+
+    if (localStorage.token) {
+      setToken(localStorage.token);
+    }
+
+    const formData = {
+      dateEvent: this.state.dateEvent,
+      duration: this.state.duration,
+      location: this.state.location,
+      category: this.state.events
+    };
+
+    this.props.addEvent(formData);
+    alert("Event booking have been saved");
+    this.props.history.push("/bookedlist");
   };
 
   addevent = e => {
@@ -24,7 +55,6 @@ export default class BookingForm extends Component {
   };
 
   render() {
-    console.log(this.state.events);
     return (
       <div>
         {" "}
@@ -102,16 +132,20 @@ export default class BookingForm extends Component {
                           <input
                             type="date"
                             className="form-control mb-3 mt-10"
-                            id="event_date"
+                            name="dateEvent"
+                            value={this.state.dateEvent}
+                            onChange={this.handleChange}
                             placeholder="EVENT DATE"
                           />
                         </div>
                         <div className="col-12 mb-3">
-                          DURATION:
+                          DURATION (HOURS):
                           <input
                             type="number"
                             className="form-control mb-3 mt-10"
-                            id="duration"
+                            name="duration"
+                            value={this.state.duration}
+                            onChange={this.handleChange}
                             placeholder="DURATION"
                           />
                         </div>
@@ -120,15 +154,18 @@ export default class BookingForm extends Component {
                           <input
                             type="text"
                             className="form-control mb-3 mt-10"
-                            id="location"
+                            name="location"
+                            value={this.state.location}
+                            onChange={this.handleChange}
                             placeholder="LOCATION"
                           />
                         </div>
                         <div className="col-6 mb-3 mt-30 mb-100 cart-btn"></div>
                         <div className="col-6 mb-3 mt-30 mb-100 cart-btn">
                           <Link
-                            to="/bookingform"
+                            to="#"
                             className="btn dstyle-btn btn-profile w-100"
+                            onClick={this.handleSubmit}
                           >
                             ADD EVENT
                           </Link>
@@ -146,3 +183,8 @@ export default class BookingForm extends Component {
     );
   }
 }
+
+export default connect(
+  null,
+  { addEvent }
+)(BookingForm);
