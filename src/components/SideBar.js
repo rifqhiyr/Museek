@@ -5,7 +5,7 @@ import "../assets/scss/SideBar.scss";
 export default class SideBar extends Component {
   render() {
     return (
-      <div>
+      <div className="responsive1">
         <div className="mobile-nav">
           <div className="dstyle-navbar-brand">
             <Link to="/homepage">

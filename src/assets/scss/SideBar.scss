@@ -74,3 +74,23 @@
 .dstyle-btn:hover {
   background-color: $hover-color;
 }
+
+.responsive1 {
+  @media (max-width: 767.98px) {
+    display: none;
+  }
+}
+
+.main-content-wrapper .dstyle_product_area {
+  @media only screen and (max-width: 767px) {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+    padding-top: 20px;
+  }
+}
