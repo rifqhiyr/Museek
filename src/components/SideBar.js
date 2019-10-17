@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import "../assets/scss/SideBar.scss";
 
-export default class SideBar extends Component {
+class SideBar extends Component {
   render() {
     return (
       <div className="responsive1">
@@ -32,7 +33,9 @@ export default class SideBar extends Component {
                 <Link to="/musicianpage">Musician List</Link>
               </li>
               <li>
-                <Link to="/profile">My Profile</Link>
+                {this.props.isAuthenticated && (
+                  <Link to="/profile">My Profile</Link>
+                )}
               </li>
             </ul>
           </nav>
@@ -68,3 +71,11 @@ export default class SideBar extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.authReducer.isAuthenticated
+  };
+};
+
+export default connect(mapStateToProps)(SideBar);
