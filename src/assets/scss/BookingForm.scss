@@ -9,3 +9,17 @@
   font-size: 14px;
   margin-top: 10px;
 }
+
+.main-content-wrapper .cart-table-area {
+  position: relative;
+  flex: 100% 1;
+  width: 100%;
+  max-width: 100%;
+  padding: 0px;
+}
+
+.row2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

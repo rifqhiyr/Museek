@@ -18,7 +18,7 @@ class Header extends Component {
         <div className="bg-color-nav">
           <div className="container">
             <nav className="navbar navbar-expand-lg ">
-              <Link to="/">
+              <Link to="/homepage">
                 <div className="navbar-brand" href="#brand">
                   <img
                     className="logo"

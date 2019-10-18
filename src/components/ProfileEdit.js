@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import setToken from "./../helpers/setToken";
 import { getProfile } from "../store/actions/dataAction";
 import { editUser } from "../store/actions/dataAction";
+import Districts from "../assets/data/list_of_area/Districts";
+import Regencies from "../assets/data/list_of_area/regencies.json";
+import Provinces from "../assets/data/list_of_area/provinces.json";
 import propTypes from "prop-types";
 import "../assets/scss/ProfileEdit.scss";
 
@@ -17,6 +20,7 @@ class ProfileEdit extends Component {
     address: "",
     city: "",
     country: "",
+    validationError: "",
     description: "",
     skills: [],
     lists: ["Singer", "Guitar", "Drum", "Percussion", "Keyboard"]
@@ -103,6 +107,23 @@ class ProfileEdit extends Component {
   };
 
   render() {
+    const districts = Districts.map(district => {
+      return <option>{district.name}</option>;
+    });
+    const regencies = Regencies.map(regencie => {
+      return (
+        <option key={regencie.name} value={regencie.name}>
+          {regencie.name}
+        </option>
+      );
+    });
+    const provinces = Provinces.map(province => {
+      return (
+        <option key={province.name} value={province.name}>
+          {province.name}
+        </option>
+      );
+    });
     const { role } = this.props.profile;
     return (
       <div>
@@ -111,7 +132,7 @@ class ProfileEdit extends Component {
             <div className="col-12 col-lg-6 edit-col-left">
               <h1 className="edit-title">Edit Profile</h1>
               <form className="edit-form">
-                <p className="edit-p">Nama Lengkap</p>
+                <p className="edit-p">Full Name</p>
                 <input
                   className="input-form"
                   type="text"
@@ -148,7 +169,7 @@ class ProfileEdit extends Component {
                       value="male"
                       onChange={this.onSiteChanged}
                     />{" "}
-                    Laki-Laki
+                    Male
                   </label>
                   <label>
                     <input
@@ -158,11 +179,11 @@ class ProfileEdit extends Component {
                       value="female"
                       onChange={this.onSiteChanged}
                     />{" "}
-                    Perempuan
+                    Female
                   </label>
                 </div>
 
-                <p className="edit-p">Alamat</p>
+                <p className="edit-p">Address</p>
                 <input
                   className="input-form"
                   type="text"
@@ -171,24 +192,40 @@ class ProfileEdit extends Component {
                   value={this.state.address}
                   onChange={this.handleChange}
                 />
-                <p className="edit-p">Kota</p>
-                <input
+                <p className="edit-p">Districts</p>
+                <select className="input-form">{districts}</select>
+
+                <p className="edit-p">City</p>
+                <select
                   className="input-form"
-                  type="text"
-                  placeholder=" kota"
-                  name="city"
                   value={this.state.city}
-                  onChange={this.handleChange}
-                />
-                <p className="edit-p">Negara</p>
-                <input
+                  onChange={e =>
+                    this.setState({
+                      city: e.target.value,
+                      validationError:
+                        e.target.value === "" ? "You must select your city" : ""
+                    })
+                  }
+                >
+                  {regencies}
+                </select>
+
+                <p className="edit-p">Provinces</p>
+                <select
                   className="input-form"
-                  type="text"
-                  placeholder=" Negara"
-                  name="country"
                   value={this.state.country}
-                  onChange={this.handleChange}
-                />
+                  onChange={e =>
+                    this.setState({
+                      country: e.target.value,
+                      validationError:
+                        e.target.value === ""
+                          ? "You must select your country"
+                          : ""
+                    })
+                  }
+                >
+                  {provinces}
+                </select>
               </form>
             </div>
             {role === "musician" && (
@@ -238,7 +275,7 @@ class ProfileEdit extends Component {
             )}
           </div>
           <div className="edit-button">
-            <Link to="/profilemusician">
+            <Link to="/profile">
               <button className="btn dstyle-btn btn-profile">
                 BACK TO PROFILE
               </button>

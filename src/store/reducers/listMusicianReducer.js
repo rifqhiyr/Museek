@@ -1,5 +1,6 @@
 const initialState = {
-  musicians: []
+  musicians: [],
+  sort: ""
 };
 
 export default function(state = initialState, action) {
@@ -11,6 +12,12 @@ export default function(state = initialState, action) {
         ...state,
         ...payload,
         musicians: payload
+      };
+    case "BY_PRICE":
+      return {
+        ...state,
+        musicians: payload.musicians,
+        sort: payload.sort
       };
     default:
       return state;

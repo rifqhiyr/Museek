@@ -36,54 +36,50 @@ class Invoice extends Component {
           </div>
           <div className="container invoice-boxtwo">
             <div className="invoice-boxtwo-t">
-              <h1>Booking Detail</h1>
+              <h1>Booking Detail (PAID)</h1>
             </div>
             <div className="row">
               <div className="col-sm-6">
                 <div className="card">
                   <div className="card-body">
-                    <h5 className="card-title">Data Pemesan</h5>
+                    <h5 className="card-title">Customer Data</h5>
                     <hr class="my-4" />
                     <div className="invoice--card__text">
-                      <p>Alex komang</p>
-                      <p>alex@gmail.com</p>
-                      <p>0812-3434-000</p>
-                      <p>sleman, yogya</p>
+                      <p>Nur Inna Alfianinda</p>
+                      <p>Female</p>
+                      <p>ni.alfianinda@outlook.com</p>
+                      <p>Jl. Raya</p>
+                      <p>Jakarta, Indonesia</p>
                     </div>
-                    <a href="#dudu" className="btn btn-primary">
-                      Go somewhere
-                    </a>
                   </div>
                 </div>
               </div>
               <div className="col-sm-6">
                 <div className="card">
                   <div className="card-body">
-                    <h5 className="card-title">Data Musisi</h5>
+                    <h5 className="card-title">Musician Data</h5>
                     <hr class="my-4" />
                     <div className="invoice--card__text">
-                      <p>Alex komang</p>
-                      <p>alex@gmail.com</p>
-                      <p>0812-3434-000</p>
-                      <p>sleman, yogya</p>
+                      <p>Rifqi Yuliandri</p>
+                      <p>Solo Performer</p>
+                      <p>rifqi@gmail.com</p>
+                      <p>Total Price: Rp 1000.000,00</p>
+                      <p>Musician Skill: Singing, Guitar</p>
                     </div>
-                    <a href="#tara" className="btn btn-primary">
-                      Go somewhere
-                    </a>
                   </div>
                 </div>
               </div>
             </div>
             <div className="card invoice-card-box">
               <div className="card-body">
-                <h5 className="card-title">Data Musisi</h5>
+                <h5 className="card-title">Event Detail</h5>
                 <hr class="my-4" />
                 <div className="invoice--card__text">
-                  <p>pernikahan alex sherly</p>
-                  <p>pernikahan</p>
-                  <p>27 Mei 2019</p>
-                  <p>Gedung ABCD</p>
-                  <p>Ini isinya deskripsi acara</p>
+                  <p>Event Date: 10 Desember 2019</p>
+                  <p>Duration: 2 hours</p>
+                  <p>Event Category: Wedding</p>
+                  <p>Musical Genres: Pop, Dangdut</p>
+                  <p>Event Location: Gedung ABCD</p>
                 </div>
               </div>
             </div>

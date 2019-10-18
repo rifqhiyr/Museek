@@ -91,3 +91,9 @@ body {
 #scrollUp:hover {
   background-color: $hover-color;
 }
+
+.content {
+  position: relative;
+  flex: 100%;
+  padding: 50px;
+}

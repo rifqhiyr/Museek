@@ -1,40 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../assets/scss/HomePage.scss";
-import SideBar from "./SideBar";
 import NewsLetter from "./NewsLetter";
 
 export default class HomePage extends Component {
   render() {
     return (
       <div>
-        <div className="search-wrapper section-padding-100">
-          <div className="search-close">
-            <i className="fa fa-close" aria-hidden="true" />
-          </div>
-          <div className="container">
-            <div className="row">
-              <div className="col-12">
-                <div className="search-content">
-                  <form action="#" method="get">
-                    <input
-                      type="search"
-                      name="search"
-                      id="search"
-                      placeholder="Type your keyword..."
-                    />
-                    <button type="submit">
-                      <img src="img/core-img/search.png" alt="" />
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="main-content-wrapper d-flex clearfix">
-          <SideBar />
-          <div className="products-catagories-area clearfix">
+          <div className="content">
             <div className="dstyle-pro-catagory clearfix flex-home">
               <div className="single-products-catagory clearfix">
                 <Link to="shop.html">

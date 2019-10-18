@@ -7,14 +7,24 @@ import Rupiah from "./Rupiah";
 import "../assets/scss/MusicianList.scss";
 
 class MusicianList extends Component {
-  componentDidMount() {
-    this.props.getMusician();
-  }
+  // componentDidMount() {
+  //   this.props.getMusician();
+  // }
 
   render() {
-    const listMusician = this.props.musicians.map(musician => {
+    const { currentPage, cardsPerPage } = this.props;
+
+    //logic for displaying current cards
+    const indexOfLastCard = currentPage * cardsPerPage;
+    const indexOfFirstCard = indexOfLastCard - cardsPerPage;
+    const currentCards = this.props.musicians.slice(
+      indexOfFirstCard,
+      indexOfLastCard
+    );
+
+    const listMusician = currentCards.map(musician => {
       return (
-        <div className="col-12 col-sm-6 col-md-12 col-xl-6">
+        <div className="col-12 col-md-4 col-xl-4">
           <div className="single-product-wrapper" key={musician._id}>
             <div className="product-img">
               <Picture picture={musician} />
@@ -26,6 +36,7 @@ class MusicianList extends Component {
               <i className="fa fa-star" aria-hidden="true" />
               <i className="fa fa-star" aria-hidden="true" />
               <i className="fa fa-star" aria-hidden="true" />
+              <i className="circle left"></i> <i className="circle right"></i>
             </div>
 
             <div className="product-description d-flex align-items-center justify-content-between">
@@ -66,7 +77,7 @@ class MusicianList extends Component {
         </div>
       );
     });
-    return <div className="row">{listMusician}</div>;
+    return <div className="row1">{listMusician}</div>;
   }
 }
 

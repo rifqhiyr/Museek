@@ -1,12 +1,24 @@
 import React, { Component } from "react";
-import SideBar from "./SideBar";
-import CategoriesFilter from "./CategoriesFilter";
+import { connect } from "react-redux";
+import { getMusician } from "../store/actions/dataAction";
 import Filter from "./Filter";
 import MusicianList from "./MusicianList";
 import NewsLetter from "./NewsLetter";
 import Pagination from "./Pagination";
 
-export default class MusicianPage extends Component {
+class MusicianPage extends Component {
+  state = {
+    currentPage: 1,
+    cardsPerPage: 6
+  };
+
+  handleClick = id => {
+    this.setState({
+      currentPage: id
+    });
+    console.log(this.state.currentPage);
+  };
+
   render() {
     return (
       <div>
@@ -36,13 +48,17 @@ export default class MusicianPage extends Component {
         </div>
 
         <div className="main-content-wrapper d-flex clearfix">
-          <SideBar />
-          <CategoriesFilter />
-          <div className="dstyle_product_area section-padding-100">
+          <div className="content">
             <div className="container-fluid">
-              <Filter />
-              <MusicianList />
-              <Pagination />
+              <Filter count={this.props.musicians.length} />
+              <MusicianList
+                currentPage={this.state.currentPage}
+                cardsPerPage={this.state.cardsPerPage}
+              />
+              <Pagination
+                cardsPerPage={this.state.cardsPerPage}
+                handleClick={this.handleClick}
+              />
             </div>
           </div>
         </div>
@@ -51,3 +67,14 @@ export default class MusicianPage extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    musicians: state.listMusicianReducer.musicians
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { getMusician }
+)(MusicianPage);
