@@ -27,6 +27,8 @@ import Privacy from "./components/Privacy";
 import EventDetail from "./components/EventDetail";
 import EventEdit from "./components/EventEdit";
 import EventSchedule from "./components/EventSchedule";
+import InvoiceHistory from "./components/InvoiceHistory";
+import BookingHistory from "./components/BookingHistory";
 
 class App extends Component {
   render() {
@@ -42,8 +44,10 @@ class App extends Component {
           <Route path="/profile" exact component={ProfilePage} />
           <Route exact path="/musicianpage" component={MusicianPage} />
           <Route exact path="/bookedlist=:id" component={BookedList} />
+          <Route exact path="/bookinghistory=:id" component={BookingHistory} />
           <Route exact path="/bookingform" component={BookingForm} />
-          <Route path="/invoice" exact component={Invoice} />
+          <Route path="/invoice=:id" exact component={Invoice} />
+          <Route path="/invoicehistory=:id" exact component={InvoiceHistory} />
           <Route path="/registermusician" exact component={RegisterMusician} />
           <Route path="/registercustomer" exact component={RegisterCustomer} />
           <Route path="/upload" exact component={Upload} />

@@ -31,7 +31,7 @@ class RegisterMusicianComponent extends Component {
 
     this.props.register(formData);
     alert("You have been registered..");
-    this.props.history.push("/login");
+    this.props.history.push("/signin");
   };
 
   render() {
