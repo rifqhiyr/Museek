@@ -37,3 +37,29 @@
   font-size: 12px;
   margin-left: 10px;
 }
+
+.main-content-wrapper .cart-table-area.profile {
+  position: relative;
+  flex: 100%;
+  width: 100%;
+  max-width: 100%;
+  padding: 100px;
+}
+
+.dstyle-btn {
+  display: inline-block;
+  min-width: 160px;
+  height: 55px;
+  color: $bg-over;
+  border: none;
+  border-radius: 0;
+  padding: 0 7px;
+  font-size: 18px;
+  line-height: 56px;
+  background-color: $head-button;
+  font-weight: 400;
+}
+
+.dstyle-btn:hover {
+  background-color: $hover-color;
+}

@@ -1,182 +1,139 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import setToken from "./../helpers/setToken";
+import { getProfile } from "../store/actions/dataAction";
+import { addEvent } from "../store/actions/eventAction";
 import "../assets/scss/BookingForm.scss";
-import SideBar from "./SideBar";
 import NewsLetter from "./NewsLetter";
 
-export default class BookingForm extends Component {
+class BookingForm extends Component {
+  state = {
+    dateEvent: "",
+    duration: "",
+    location: "",
+    category: "",
+    validationError: "",
+    musicianId: "",
+    eventList: ["Birthday", "Wedding", "Engagement", "Percussion", "Reunion"]
+  };
+
+  componentDidMount() {
+    if (localStorage.token) {
+      setToken(localStorage.token);
+    }
+    this.props.getProfile();
+  }
+
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+
+    if (localStorage.token) {
+      setToken(localStorage.token);
+    }
+
+    if (localStorage.token == null) {
+      return alert("Please login as a customer before adding event");
+    } else {
+      if (this.props.profile.role === "musician") {
+        return alert("Please login as a customer before adding event");
+      } else {
+        const formData = {
+          dateEvent: this.state.dateEvent,
+          duration: this.state.duration,
+          location: this.state.location,
+          category: this.state.category,
+          musicianId:
+            this.props.location.state && this.props.location.state.musicianId
+        };
+
+        this.props.addEvent(formData);
+        alert("Event booking have been saved");
+
+        this.props.history.push(`/bookedlist=${this.props.profile._id}`);
+      }
+    }
+  };
+
   render() {
+    const dataList = this.state.eventList.map(event => {
+      return (
+        <option key={event} value={event}>
+          {event}
+        </option>
+      );
+    });
     return (
       <div>
-        {" "}
-        <div className="search-wrapper section-padding-100">
-          <div className="search-close">
-            <i className="fa fa-close" aria-hidden="true" />
-          </div>
-          <div className="container">
-            <div className="row">
-              <div className="col-12">
-                <div className="search-content">
-                  <form action="#" method="get">
-                    <input
-                      type="search"
-                      name="search"
-                      id="search"
-                      placeholder="Type your keyword..."
-                    />
-                    <button type="submit">
-                      <img src="img/core-img/search.png" alt="" />
-                    </button>
-                  </form>
-                </div>
-              </div>
+        <div className="container edit main-footer">
+          <div className="row edit-row" style={{ justifyContent: "center" }}>
+            <div className="col-12 col-lg-12">
+              <h1 className="edit-title">ADD EVENT</h1>
+            </div>
+            <div className="col-12 col-lg-4">
+              <form className="edit-form">
+                <p className="edit-p">EVENT CATEGORIES</p>
+                <select
+                  className="input-form form"
+                  value={this.state.category}
+                  onChange={e =>
+                    this.setState({
+                      category: e.target.value,
+                      validationError:
+                        e.target.value === "" ? "You must select event" : ""
+                    })
+                  }
+                >
+                  {dataList}
+                </select>
+                <p className="edit-p">EVENT DATE</p>
+                <input
+                  type="date"
+                  className="input-form form"
+                  name="dateEvent"
+                  value={this.state.dateEvent}
+                  onChange={this.handleChange}
+                  placeholder="EVENT DATE"
+                />
+              </form>
+            </div>
+            <div className="col-12 col-lg-4 respon-top">
+              <form className="edit-form">
+                <p className="edit-p">DURATION (HOURS)</p>
+                <input
+                  type="number"
+                  className="input-form form"
+                  name="duration"
+                  value={this.state.duration}
+                  onChange={this.handleChange}
+                  placeholder="DURATION"
+                />
+                <p className="edit-p">LOCATION</p>
+                <input
+                  type="text"
+                  className="input-form form"
+                  name="location"
+                  value={this.state.location}
+                  onChange={this.handleChange}
+                  placeholder="LOCATION"
+                />
+              </form>
             </div>
           </div>
-        </div>
-        <div className="main-content-wrapper d-flex clearfix">
-          <SideBar />
-          <div className="cart-table-area ">
-            <div className="container-fluid">
-              <div className="row">
-                <div className="col-12 col-lg-1"></div>
-                <div className="col-12 col-lg-8">
-                  <div className="checkout_details_area mt-100 clearfix">
-                    <div className="cart-title">
-                      <h2>ADD EVENT</h2>
-                    </div>
-                    <form action="#" method="post">
-                      <div className="row mt-50">
-                        <div className="col-12 mb-3">
-                          EVENT DATE:
-                          <input
-                            type="date"
-                            className="form-control mb-3 mt-10"
-                            id="event_date"
-                            placeholder="EVENT DATE"
-                          />
-                        </div>
-                        <div className="col-12 mb-3">
-                          DURATION:
-                          <input
-                            type="number"
-                            className="form-control mb-3 mt-10"
-                            id="duration"
-                            placeholder="DURATION"
-                          />
-                        </div>
-                        <div className="col-12 mb-3">
-                          LOCATION:
-                          <input
-                            type="text"
-                            className="form-control mb-3 mt-10"
-                            id="location"
-                            placeholder="LOCATION"
-                          />
-                        </div>
-                        <div className="col-6 mb-3 mt-30 mb-100 cart-btn"></div>
-                        <div className="col-6 mb-3 mt-30 mb-100 cart-btn">
-                          <Link
-                            to="/bookingform"
-                            className="btn dstyle-btn btn-profile w-100"
-                          >
-                            ADD EVENT
-                          </Link>
-                        </div>
 
-                        {/* <div className="col-md-6 mb-3">
-                          <input
-                            type="text"
-                            className="form-control"
-                            id="first_name"
-                            placeholder="FIRST NAME"
-                            required
-                          />
-                        </div>
-                        <div className="col-md-6 mb-3">
-                          <input
-                            type="text"
-                            className="form-control"
-                            id="last_name"
-                            placeholder="LAST NAME"
-                            required
-                          />
-                        </div>
-                        <div className="col-6 mb-3">
-                          <input
-                            type="email"
-                            className="form-control"
-                            id="email"
-                            placeholder="E-MAIL"
-                          />
-                        </div>
-                        <div className="col-md-6 mb-3">
-                          <input
-                            type="number"
-                            className="form-control"
-                            id="phone_number"
-                            min={0}
-                            placeholder="PHONE NUMBER"
-                          />
-                        </div>
-                        <div className="col-6 mb-3">
-                          <input
-                            type="date"
-                            className="form-control"
-                            id="company"
-                            placeholder="Specific Date"
-                          />
-                        </div>
-
-                        <div className="col-6 mb-3">
-                          <input
-                            type="number"
-                            className="form-control"
-                            id="company"
-                            placeholder="EVENT DURATION (IN HOURS)"
-                          />
-                        </div>
-                        <div className="col-12 mb-3">
-                          <input
-                            type="text"
-                            className="form-control"
-                            id="company"
-                            placeholder="EVENT NAME (EX. BIRTHDAY PARTY)"
-                          />
-                        </div>
-                        <div className="col-12 mb-3">
-                          <input
-                            type="text"
-                            className="form-control mb-3"
-                            id="street_address"
-                            placeholder="EVENT ADDRESS"
-                          />
-                        </div>
-                        <div className="col-12 mb-3">
-                          <input
-                            type="text"
-                            className="form-control"
-                            id="city"
-                            placeholder="TOWN"
-                          />
-                        </div>
-
-                        <div className="col-12 mb-3">
-                          <textarea
-                            name="comment"
-                            className="form-control w-100"
-                            id="comment"
-                            cols={30}
-                            rows={10}
-                            placeholder="ADDITIONAL REQUEST OR EVENT DESCRIPTION"
-                            defaultValue={""}
-                          />
-                        </div> */}
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="edit-button">
+            <button
+              className="btn dstyle-btn btn-profile book"
+              onClick={this.handleSubmit}
+            >
+              ADD EVENT
+            </button>
           </div>
         </div>
         <NewsLetter />
@@ -184,3 +141,14 @@ export default class BookingForm extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    profile: state.profileReducer.profile
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { getProfile, addEvent }
+)(BookingForm);

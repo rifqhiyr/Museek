@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import setToken from "../helpers/setToken";
 import { getProfile } from "../store/actions/dataAction";
 import "../assets/scss/ProfilePage.scss";
-import SideBar from "./SideBar";
 import NewsLetter from "./NewsLetter";
 import Picture from "./Picture";
 import Rupiah from "./Rupiah";
@@ -47,8 +46,7 @@ class ProfilePage extends Component {
           </div>
         </div>
         <div className="main-content-wrapper d-flex clearfix">
-          <SideBar />
-          <div className="cart-table-area section-padding-100">
+          <div className="cart-table-area profile">
             <div className="container-fluid">
               <div className="row">
                 <div className="col-12 col-lg-12">
@@ -129,11 +127,11 @@ class ProfilePage extends Component {
                                 EDIT PROFILE
                               </Link>
                             </div>
-                            {role === "musician" ? (
+                            {role === "customer" ? (
                               <span>
                                 <div className="dstyle-btn-group button-right">
                                   <Link
-                                    to="#"
+                                    to={`/bookedlist=${this.props.profile._id}`}
                                     className="btn dstyle-btn btn-profile"
                                   >
                                     BOOKING HISTORY
@@ -151,10 +149,10 @@ class ProfilePage extends Component {
                             ) : (
                               <div className="dstyle-btn-group button-right">
                                 <Link
-                                  to="#"
+                                  to={`/eventschedule=${this.props.profile._id}`}
                                   className="btn dstyle-btn btn-profile"
                                 >
-                                  EVENT HISTORY
+                                  EVENT SCHEDULE
                                 </Link>
                               </div>
                             )}

@@ -27,7 +27,7 @@ class Signin extends Component {
     await this.props.login(formData);
     if (this.props.isAuthenticated) {
       console.log("welcome", this.props.isAuthenticated);
-      this.props.history.push("/homepage");
+      this.props.history.push("/musicianpage");
     } else {
       console.log(this.props.isAuthenticated);
       alert("Invalid username or password");

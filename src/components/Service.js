@@ -7,7 +7,7 @@ class Service extends Component {
     return (
       <div className="jumbotron jumbotron-fluid service ">
         <div className="service-box">
-          <h1 className="display-4 service-heading underline">
+          <h1 className="display-4 service-heading underline service-heading">
             We've got what you need!
           </h1>
           <p className="service-text">

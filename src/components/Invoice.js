@@ -6,7 +6,7 @@ class Invoice extends Component {
     return (
       <div>
         <div className="container-fluid invo-box">
-          <div className="container invoice-header">
+          {/* <div className="container invoice-header">
             <div className="invoice-box-head">
               <img
                 className="invoice-img"
@@ -33,57 +33,55 @@ class Invoice extends Component {
                 </ul>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="container invoice-boxtwo">
             <div className="invoice-boxtwo-t">
-              <h1>Booking Detail</h1>
+              <h1 className="h-1-invoice">Booking Detail (PAID)</h1>
             </div>
             <div className="row">
               <div className="col-sm-6">
-                <div className="card">
-                  <div className="card-body">
-                    <h5 className="card-title">Data Pemesan</h5>
-                    <hr class="my-4" />
+                <div className="card  main-footer">
+                  <div className="card-body inv">
+                    <h5 className="card-title h-5-invoice">Customer Data</h5>
+                    <hr className="hr my-4" />
                     <div className="invoice--card__text">
-                      <p>Alex komang</p>
-                      <p>alex@gmail.com</p>
-                      <p>0812-3434-000</p>
-                      <p>sleman, yogya</p>
+                      <p className="p-invoice">Nur Inna Alfianinda</p>
+                      <p className="p-invoice">Female</p>
+                      <p className="p-invoice">ni.alfianinda@outlook.com</p>
+                      <p className="p-invoice">Jl. Raya</p>
+                      <p className="p-invoice">Jakarta, Indonesia</p>
                     </div>
-                    <a href="#dudu" className="btn btn-primary">
-                      Go somewhere
-                    </a>
                   </div>
                 </div>
               </div>
               <div className="col-sm-6">
-                <div className="card">
-                  <div className="card-body">
-                    <h5 className="card-title">Data Musisi</h5>
-                    <hr class="my-4" />
+                <div className="card main-footer">
+                  <div className="card-body inv">
+                    <h5 className="card-title h-5-invoice">Musician Data</h5>
+                    <hr className="hr my-4" />
                     <div className="invoice--card__text">
-                      <p>Alex komang</p>
-                      <p>alex@gmail.com</p>
-                      <p>0812-3434-000</p>
-                      <p>sleman, yogya</p>
+                      <p className="p-invoice">Rifqi Yuliandri</p>
+                      <p className="p-invoice">Solo Performer</p>
+                      <p className="p-invoice">rifqi@gmail.com</p>
+                      <p className="p-invoice">Total Price: Rp 1000.000,00</p>
+                      <p className="p-invoice">
+                        Musician Skill: Singing, Guitar
+                      </p>
                     </div>
-                    <a href="#tara" className="btn btn-primary">
-                      Go somewhere
-                    </a>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="card invoice-card-box">
-              <div className="card-body">
-                <h5 className="card-title">Data Musisi</h5>
-                <hr class="my-4" />
+            <div className="card invoice-card-box main-footer">
+              <div className="card-body inv">
+                <h5 className="card-title h-5-invoice">Event Detail</h5>
+                <hr className="hr my-4" />
                 <div className="invoice--card__text">
-                  <p>pernikahan alex sherly</p>
-                  <p>pernikahan</p>
-                  <p>27 Mei 2019</p>
-                  <p>Gedung ABCD</p>
-                  <p>Ini isinya deskripsi acara</p>
+                  <p className="p-invoice">Event Date: 10 Desember 2019</p>
+                  <p className="p-invoice">Duration: 2 hours</p>
+                  <p className="p-invoice">Event Category: Wedding</p>
+                  <p className="p-invoice">Musical Genres: Pop, Dangdut</p>
+                  <p className="p-invoice">Event Location: Gedung ABCD</p>
                 </div>
               </div>
             </div>

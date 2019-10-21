@@ -1,80 +1,140 @@
-@import "./Variables";
+@import "./Variables.scss";
 
-.description {
-  .desc-heading {
-    margin-top: 20px;
+.detail {
+  background-color: $color-secondary-2;
+  position: relative;
+  padding: 2%;
+  width: 100%;
+  height: 100%;
+  .detail--div__title {
+    padding: 2rem;
     text-align: center;
-    font-size: 40px;
-    color: $color-primary;
-    text-transform: uppercase;
-  }
-  .desc-row {
-    margin: 50px 20px;
-    .desc-col-left {
+    .detail-h1 {
+      box-shadow: 5px 10px 18px $color-secondary-2;
+      width: 90%;
+      margin: auto;
+      border-radius: 2rem;
+      padding: 1%;
+      color: $color-primary;
       background-color: $color-secondary-3;
     }
-    .desc-col-right {
-      font-size: 40px;
-      color: $color-dark-1;
-      background-color: $color-secondary-1;
-      .desc-group {
-        margin: 60px 0;
-        .desc-title {
-          font-size: 12px;
-
-          .desc-span {
-            font-size: 16px;
-            color: $color-dark-1;
-            text-transform: uppercase;
-          }
+  }
+  .detail-row {
+    .detail-col-left {
+      .detail-div--img {
+        .detail-img {
+          border-radius: 2rem;
+          box-shadow: 5px 10px 18px $color-secondary-3;
         }
       }
     }
-    .desc-about {
-      margin: 50px 0 0;
-      .desc-about-title {
-        font-size: 20px;
-        text-align: center;
-        margin-bottom: 50px;
-        color: $color-dark-2;
-      }
-    }
-  }
-}
-
-@media (min-width: 992px) {
-  .description {
-    .desc-heading {
-      margin-top: 20px;
-      text-align: center;
-      font-size: 80px;
-      color: $color-primary;
-      text-transform: uppercase;
-    }
-    .desc-row {
-      margin: 50px 20px;
-      .desc-col-right {
-        .desc-group {
-          margin: 60px 0;
-          .desc-title {
-            font-size: 16px;
-            .desc-span {
-              font-size: 20px;
-              color: $color-dark-2;
-              text-transform: uppercase;
+    .detail-col-right {
+      margin: 3% 0;
+      .detail-content {
+        background-color: black;
+        border-radius: 2rem;
+        text-align: start;
+        width: 100%;
+        height: 100%;
+        padding: 6%;
+        box-shadow: 5px 10px 18px $color-secondary-3;
+        .detail-div--content {
+          display: flex;
+          .detail-p {
+            color: yellow;
+            .detail-contain-span {
+              font-size: 1.5rem;
             }
           }
         }
       }
-      .desc-about {
-        margin: 200px 0 0;
-        .desc-about-title {
-          font-size: 40px;
-          text-align: center;
-          margin-bottom: 50px;
-          color: $color-dark-2;
+    }
+  }
+  .detail-box {
+    background: black;
+    margin: 2% 0;
+    padding: 6%;
+    border-radius: 2rem;
+    box-shadow: 5px 10px 18px $color-secondary-3;
+  }
+  .detail-p {
+    color: yellow;
+    .detail-contain-span {
+      font-size: 1.5rem;
+    }
+  }
+  .detail-btn {
+    margin: 3rem 2rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 992px) {
+  .detail {
+    background-color: $color-secondary-2;
+    position: relative;
+    // box-shadow: 5px 10px 18px $color-secondary-3;
+
+    // border-radius: 2rem;
+    height: 100%;
+    .detail--div__title {
+      padding: 2rem;
+      text-align: center;
+      .detail-h1 {
+        box-shadow: 5px 10px 18px $color-secondary-3;
+        width: 30%;
+        margin: auto;
+      }
+    }
+    .detail-row {
+      .detail-col-left {
+        .detail-div--img {
+          .detail-img {
+            border-radius: 2rem;
+            box-shadow: 5px 10px 18px $color-secondary-3;
+          }
         }
       }
+      .detail-col-right {
+        margin: 0 0;
+        .detail-content {
+          background-color: black;
+          border-radius: 2rem;
+          text-align: start;
+          width: 100%;
+          height: 100%;
+          padding: 2rem;
+          box-shadow: 5px 10px 18px $color-secondary-3;
+          .detail-div--content {
+            display: flex;
+            .detail-p {
+              color: yellow;
+              .detail-contain-span {
+                font-size: 1.5rem;
+              }
+            }
+          }
+        }
+      }
+    }
+    .detail-box {
+      background: black;
+      margin: 3% 0;
+      padding: 2%;
+      border-radius: 2rem;
+      box-shadow: 5px 10px 18px $color-secondary-2;
+    }
+    .detail-p {
+      color: yellow;
+      .detail-contain-span {
+        font-size: 1.5rem;
+      }
+    }
+    .detail-btn {
+      margin: 3rem 2rem;
+      display: flex;
+      justify-content: flex-end;
     }
   }
 }
