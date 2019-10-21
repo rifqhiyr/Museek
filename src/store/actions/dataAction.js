@@ -12,7 +12,7 @@ export const editUser = formData => async dispatch => {
       payload: res.data
     });
   } catch (error) {
-    console.log("error", error.response.data);
+    console.log(error.response.data);
     dispatch({
       type: "EDIT_FAIL",
       payload: error.response.data

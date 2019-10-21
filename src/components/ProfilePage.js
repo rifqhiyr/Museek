@@ -131,7 +131,7 @@ class ProfilePage extends Component {
                               <span>
                                 <div className="dstyle-btn-group button-right">
                                   <Link
-                                    to="#"
+                                    to={`/bookedlist=${this.props.profile._id}`}
                                     className="btn dstyle-btn btn-profile"
                                   >
                                     BOOKING HISTORY
@@ -149,10 +149,10 @@ class ProfilePage extends Component {
                             ) : (
                               <div className="dstyle-btn-group button-right">
                                 <Link
-                                  to="#"
+                                  to={`/eventschedule=${this.props.profile._id}`}
                                   className="btn dstyle-btn btn-profile"
                                 >
-                                  EVENT HISTORY
+                                  EVENT SCHEDULE
                                 </Link>
                               </div>
                             )}

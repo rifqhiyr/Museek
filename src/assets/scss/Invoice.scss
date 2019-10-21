@@ -1,4 +1,5 @@
 @import "./Variables";
+@import "theme_color";
 
 .invo-box {
   padding: 0;
@@ -84,4 +85,33 @@
       }
     }
   }
+}
+
+.invo-box .invoice-boxtwo {
+  background-color: $bg-color;
+  padding: 10px 20px;
+}
+
+.h-1-invoice {
+  color: $text-color;
+  text-align: center;
+  margin: 30px;
+}
+
+.h-5-invoice {
+  color: $text-color;
+  font-weight: bolder;
+}
+
+.p-invoice {
+  color: $text-color;
+}
+
+.hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.417);
+}
+
+.card-body.inv {
+  padding: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.417);
 }

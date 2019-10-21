@@ -24,6 +24,9 @@ import ForgotPassword from "./components/ForgotPassword";
 import Logout from "./components/Logout";
 import VerificationEmail from "./components/VerificationEmail";
 import Privacy from "./components/Privacy";
+import EventDetail from "./components/EventDetail";
+import EventEdit from "./components/EventEdit";
+import EventSchedule from "./components/EventSchedule";
 
 class App extends Component {
   render() {
@@ -38,7 +41,7 @@ class App extends Component {
           <Route path="/edit" exact component={ProfileEdit} />
           <Route path="/profile" exact component={ProfilePage} />
           <Route exact path="/musicianpage" component={MusicianPage} />
-          <Route exact path="/bookedlist" component={BookedList} />
+          <Route exact path="/bookedlist=:id" component={BookedList} />
           <Route exact path="/bookingform" component={BookingForm} />
           <Route path="/invoice" exact component={Invoice} />
           <Route path="/registermusician" exact component={RegisterMusician} />
@@ -50,6 +53,9 @@ class App extends Component {
           <Route path="/logout" exact component={Logout} />
           <Route path="/verification" exact component={VerificationEmail} />
           <Route path="/privacy" exact component={Privacy} />
+          <Route path="/eventdetail/:id" exact component={EventDetail} />
+          <Route path="/eventedit/:id" exact component={EventEdit} />
+          <Route path="/eventschedule=:id" exact component={EventSchedule} />
           <Footer />
         </Router>
       </Provider>

@@ -10,7 +10,6 @@ class MusicianList extends Component {
   // componentDidMount() {
   //   this.props.getMusician();
   // }
-
   render() {
     const { currentPage, cardsPerPage } = this.props;
 
@@ -63,7 +62,10 @@ class MusicianList extends Component {
               <div className="ratings-cart text-right">
                 <div className="cart">
                   <Link
-                    to="/bookingform"
+                    to={{
+                      pathname: "/bookingform",
+                      state: [{ musicianId: musician._id }]
+                    }}
                     data-toggle="tooltip"
                     data-placement="left"
                     title="Add Event"

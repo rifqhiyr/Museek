@@ -129,107 +129,222 @@ class ProfileEdit extends Component {
       <div>
         <div className="container edit">
           <div className="row edit-row">
-            <div className="col-12 col-lg-6 edit-col-left">
-              <h1 className="edit-title">Edit Profile</h1>
-              <form className="edit-form">
-                <p className="edit-p">Full Name</p>
-                <input
-                  className="input-form"
-                  type="text"
-                  placeholder=" name"
-                  name="name"
-                  value={this.state.name}
-                  onChange={this.handleChange}
-                />
-                <p className="edit-p">Email</p>
-                <input
-                  className="input-form"
-                  type="email"
-                  placeholder=" email"
-                  name="email"
-                  value={this.state.email}
-                  onChange={this.handleChange}
-                />
-                <p className="edit-p">Password</p>
-                <input
-                  className="input-form"
-                  type="password"
-                  placeholder=" password"
-                  name="password"
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                />
-                <p className="edit-p">Gender</p>
-                <div className="edit-gender">
-                  <label>
-                    <input
-                      className="input-radio"
-                      type="radio"
-                      name="male"
-                      value="male"
-                      onChange={this.onSiteChanged}
-                    />{" "}
-                    Male
-                  </label>
-                  <label>
-                    <input
-                      className="input-radio"
-                      type="radio"
-                      name="female"
-                      value="female"
-                      onChange={this.onSiteChanged}
-                    />{" "}
-                    Female
-                  </label>
-                </div>
-
-                <p className="edit-p">Address</p>
-                <input
-                  className="input-form"
-                  type="text"
-                  placeholder=" alamat"
-                  name="address"
-                  value={this.state.address}
-                  onChange={this.handleChange}
-                />
-                <p className="edit-p">Districts</p>
-                <select className="input-form">{districts}</select>
-
-                <p className="edit-p">City</p>
-                <select
-                  className="input-form"
-                  value={this.state.city}
-                  onChange={e =>
-                    this.setState({
-                      city: e.target.value,
-                      validationError:
-                        e.target.value === "" ? "You must select your city" : ""
-                    })
-                  }
-                >
-                  {regencies}
-                </select>
-
-                <p className="edit-p">Provinces</p>
-                <select
-                  className="input-form"
-                  value={this.state.country}
-                  onChange={e =>
-                    this.setState({
-                      country: e.target.value,
-                      validationError:
-                        e.target.value === ""
-                          ? "You must select your country"
-                          : ""
-                    })
-                  }
-                >
-                  {provinces}
-                </select>
-              </form>
+            <div className="col-12 col-lg-12">
+              <h1 className="edit-title">EDIT PROFILE</h1>
             </div>
+          </div>
+          <div className="row edit-row">
+            {role === "customer" && (
+              <div className="col-12 col-lg-6 edit-col-left">
+                <form className="edit-form">
+                  <p className="edit-p">Full Name</p>
+                  <input
+                    className="input-form"
+                    type="text"
+                    placeholder=" name"
+                    name="name"
+                    value={this.state.name}
+                    onChange={this.handleChange}
+                  />
+                  <p className="edit-p">Email</p>
+                  <input
+                    className="input-form"
+                    type="email"
+                    placeholder=" email"
+                    name="email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                  />
+                  <p className="edit-p">Password</p>
+                  <input
+                    className="input-form"
+                    type="password"
+                    placeholder=" password"
+                    name="password"
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                  />
+                  <p className="edit-p">Gender</p>
+                  <div className="edit-gender">
+                    <label>
+                      <input
+                        className="input-radio"
+                        type="radio"
+                        name="male"
+                        value="male"
+                        onChange={this.onSiteChanged}
+                      />{" "}
+                      Male
+                    </label>
+                    <label>
+                      <input
+                        className="input-radio"
+                        type="radio"
+                        name="female"
+                        value="female"
+                        onChange={this.onSiteChanged}
+                      />{" "}
+                      Female
+                    </label>
+                  </div>
+                </form>
+              </div>
+            )}
             {role === "musician" && (
-              <div className="col-12 col-lg-6 edit-col-right">
+              <div className="col-12 col-lg-6 edit-col-left">
+                <form className="edit-form">
+                  <p className="edit-p">Full Name</p>
+                  <input
+                    className="input-form"
+                    type="text"
+                    placeholder=" name"
+                    name="name"
+                    value={this.state.name}
+                    onChange={this.handleChange}
+                  />
+                  <p className="edit-p">Email</p>
+                  <input
+                    className="input-form"
+                    type="email"
+                    placeholder=" email"
+                    name="email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                  />
+                  <p className="edit-p">Password</p>
+                  <input
+                    className="input-form"
+                    type="password"
+                    placeholder=" password"
+                    name="password"
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                  />
+                  <p className="edit-p">Gender</p>
+                  <div className="edit-gender">
+                    <label>
+                      <input
+                        className="input-radio"
+                        type="radio"
+                        name="male"
+                        value="male"
+                        onChange={this.onSiteChanged}
+                      />{" "}
+                      Male
+                    </label>
+                    <label>
+                      <input
+                        className="input-radio"
+                        type="radio"
+                        name="female"
+                        value="female"
+                        onChange={this.onSiteChanged}
+                      />{" "}
+                      Female
+                    </label>
+                  </div>
+
+                  <p className="edit-p">Address</p>
+                  <input
+                    className="input-form"
+                    type="text"
+                    placeholder=" alamat"
+                    name="address"
+                    value={this.state.address}
+                    onChange={this.handleChange}
+                  />
+                  <p className="edit-p">Districts</p>
+                  <select className="input-form">{districts}</select>
+
+                  <p className="edit-p">City</p>
+                  <select
+                    className="input-form"
+                    value={this.state.city}
+                    onChange={e =>
+                      this.setState({
+                        city: e.target.value,
+                        validationError:
+                          e.target.value === ""
+                            ? "You must select your city"
+                            : ""
+                      })
+                    }
+                  >
+                    {regencies}
+                  </select>
+
+                  <p className="edit-p">Provinces</p>
+                  <select
+                    className="input-form"
+                    value={this.state.country}
+                    onChange={e =>
+                      this.setState({
+                        country: e.target.value,
+                        validationError:
+                          e.target.value === ""
+                            ? "You must select your country"
+                            : ""
+                      })
+                    }
+                  >
+                    {provinces}
+                  </select>
+                </form>
+              </div>
+            )}
+            {role === "customer" && (
+              <div className="col-12 col-lg-6 edit-col-right respon-table">
+                <form className="edit-form edit-skill">
+                  <p className="edit-p">Address</p>
+                  <input
+                    className="input-form"
+                    type="text"
+                    placeholder=" alamat"
+                    name="address"
+                    value={this.state.address}
+                    onChange={this.handleChange}
+                  />
+                  <p className="edit-p">Districts</p>
+                  <select className="input-form">{districts}</select>
+
+                  <p className="edit-p">City</p>
+                  <select
+                    className="input-form"
+                    value={this.state.city}
+                    onChange={e =>
+                      this.setState({
+                        city: e.target.value,
+                        validationError:
+                          e.target.value === ""
+                            ? "You must select your city"
+                            : ""
+                      })
+                    }
+                  >
+                    {regencies}
+                  </select>
+
+                  <p className="edit-p">Provinces</p>
+                  <select
+                    className="input-form"
+                    value={this.state.country}
+                    onChange={e =>
+                      this.setState({
+                        country: e.target.value,
+                        validationError:
+                          e.target.value === ""
+                            ? "You must select your country"
+                            : ""
+                      })
+                    }
+                  >
+                    {provinces}
+                  </select>
+                </form>
+              </div>
+            )}
+            {role === "musician" && (
+              <div className="col-12 col-lg-6 edit-col-right respon-table">
                 <form className="edit-form edit-skill">
                   <p className="edit-p">Price</p>
                   <input
@@ -274,7 +389,7 @@ class ProfileEdit extends Component {
               </div>
             )}
           </div>
-          <div className="edit-button">
+          <div className="edit-button profil">
             <Link to="/profile">
               <button className="btn dstyle-btn btn-profile">
                 BACK TO PROFILE

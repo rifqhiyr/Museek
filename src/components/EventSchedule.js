@@ -2,80 +2,107 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import setToken from "../helpers/setToken";
-import { getEventCustomer, deleteEvent } from "../store/actions/eventAction";
+import {
+  getEventMusician,
+  acceptEvent,
+  rejectEvent
+} from "../store/actions/eventAction";
+import { getProfile } from "../store/actions/dataAction";
 import Rupiah from "./Rupiah";
 import "../assets/scss/BookedList.scss";
-import PaymentCard from "./PaymentCard";
-import NewsLetter from "./NewsLetter";
 
-class BookedList extends Component {
-  componentDidMount() {
+class EventSchedule extends Component {
+  state = {
+    status: "acepted",
+    status2: "rejected"
+  };
+
+  componentDidMount = async () => {
     if (localStorage.token) {
       setToken(localStorage.token);
     }
     const id = this.props.match.params.id;
     console.log(id);
-    this.props.getEventCustomer(id);
-  }
+    await this.props.getEventMusician(id);
+    this.props.getProfile();
+  };
 
-  handleDelete = async id => {
+  handleSubmitAccept = async id => {
     if (localStorage.token) {
       setToken(localStorage.token);
     }
-    console.log(id);
-    await this.props.deleteEvent(id);
 
-    const idi = this.props.match.params.id;
-    console.log(idi);
-    this.props.getEventCustomer(idi);
+    const formData = {
+      status: this.state.status
+    };
+
+    await this.props.acceptEvent(formData, id);
+
+    this.props.getEventMusician(this.props.profile._id);
+  };
+
+  handleSubmitReject = async id => {
+    if (localStorage.token) {
+      setToken(localStorage.token);
+    }
+
+    const formData = {
+      status: this.state.status2
+    };
+
+    await this.props.rejectEvent(formData, id);
+
+    this.props.getEventMusician(this.props.profile._id);
   };
 
   render() {
-    const bookedList = this.props.event.map(myevent => {
+    const eventList = this.props.event.map(schedule => {
       return (
         <tr>
           <td className="font-cart wider" style={{ textAlign: "center" }}>
-            <span>{myevent.musicianId.name}</span>
+            <span>{schedule.customerId.name}</span>
           </td>
           <td className="font-cart" style={{ textAlign: "center" }}>
-            <span>{myevent.category}</span>
+            <span>{schedule.category}</span>
           </td>
           <td className="font-cart" style={{ textAlign: "center" }}>
-            <span>{new Date(myevent.dateEvent).toLocaleString()}</span>
+            <span>{new Date(schedule.dateEvent).toLocaleString()}</span>
           </td>
           <td className="font-cart wider" style={{ textAlign: "center" }}>
             <span>
-              Rp {myevent.musicianId.price && Rupiah(myevent.musicianId.price)}
+              Rp{" "}
+              {schedule.musicianId.price && Rupiah(schedule.musicianId.price)}
               ,00
             </span>
           </td>
-          {/* <td className="font-cart" style={{ textAlign: "center" }}>
-            <span>{myevent.duration / 3600000} hours</span>
-          </td> */}
+
           <td className="font-cart" style={{ textAlign: "center" }}>
-            <span>{myevent.status}</span>
+            <span>{schedule.status}</span>
           </td>
           <td className="font-cart">
             <span className="button-action">
               {" "}
               <div className="dstyle-btn-group">
                 <Link
-                  to={`/eventdetail/${myevent._id}`}
+                  to={`/eventdetail/${schedule._id}`}
                   className="button-edit"
                 >
                   <i class="fa fa-info"></i>
                 </Link>
               </div>
               <div className="dstyle-btn-group">
-                <Link to={`/eventedit/${myevent._id}`} className="button-edit">
-                  <i className="fa fa-edit"></i>
+                <Link to="#" className="button-edit">
+                  <i
+                    class="fa fa-check"
+                    onClick={() => this.handleSubmitAccept(schedule._id)}
+                  ></i>
                 </Link>
               </div>
               <div className="dstyle-btn-group">
                 <Link to="#" className="button-edit">
                   <i
-                    className="fa fa-trash"
-                    onClick={() => this.handleDelete(myevent._id)}
+                    className="fa fa-close"
+                    onClick={() => this.handleSubmitReject(schedule._id)}
                   ></i>
                 </Link>
               </div>
@@ -90,10 +117,10 @@ class BookedList extends Component {
           <div className="main-content-wrapper d-flex clearfix">
             <div className="cart-table-area bookedlist">
               <div className="container-fluid">
-                <div className="row">
+                <div className="row" style={{ justifyContent: "center" }}>
                   <div className="col-12 col-lg-8">
                     <div className="cart-title">
-                      <h2>BOOKED LIST</h2>
+                      <h2 style={{ textAlign: "center" }}>EVENT SCHEDULE</h2>
                     </div>
                     <div className="cart-table clearfix">
                       <table className="table table-responsive">
@@ -118,16 +145,14 @@ class BookedList extends Component {
                             <th style={{ textAlign: "center" }}>Action</th>
                           </tr>
                         </thead>
-                        <tbody>{bookedList}</tbody>
+                        <tbody>{eventList}</tbody>
                       </table>
                     </div>
                   </div>
-                  <PaymentCard event={this.props.event} />
                 </div>
               </div>
             </div>
           </div>
-          <NewsLetter />
         </span>
       </div>
     );
@@ -136,11 +161,12 @@ class BookedList extends Component {
 
 const mapStateToProps = state => {
   return {
-    event: state.eventReducer.event
+    event: state.eventReducer.event,
+    profile: state.profileReducer.profile
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getEventCustomer, deleteEvent }
-)(BookedList);
+  { getEventMusician, acceptEvent, rejectEvent, getProfile }
+)(EventSchedule);
