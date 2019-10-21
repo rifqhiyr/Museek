@@ -2,107 +2,76 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import setToken from "../helpers/setToken";
-import {
-  getEventMusician,
-  acceptEvent,
-  rejectEvent
-} from "../store/actions/eventAction";
-import { getProfile } from "../store/actions/dataAction";
+import { getEventCustomer, deleteEvent } from "../store/actions/eventAction";
 import Rupiah from "./Rupiah";
 import "../assets/scss/BookedList.scss";
+import NewsLetter from "./NewsLetter";
 
-class EventSchedule extends Component {
-  state = {
-    status: "acepted",
-    status2: "rejected"
-  };
-
-  componentDidMount = async () => {
+class BookingHistory extends Component {
+  componentDidMount() {
     if (localStorage.token) {
       setToken(localStorage.token);
     }
     const id = this.props.match.params.id;
     console.log(id);
-    await this.props.getEventMusician(id);
-    this.props.getProfile();
-  };
+    this.props.getEventCustomer(id);
+  }
 
-  handleSubmitAccept = async id => {
+  handleDelete = async id => {
     if (localStorage.token) {
       setToken(localStorage.token);
     }
+    console.log(id);
+    await this.props.deleteEvent(id);
 
-    const formData = {
-      status: this.state.status
-    };
-
-    await this.props.acceptEvent(formData, id);
-
-    this.props.getEventMusician(this.props.profile._id);
-  };
-
-  handleSubmitReject = async id => {
-    if (localStorage.token) {
-      setToken(localStorage.token);
-    }
-
-    const formData = {
-      status: this.state.status2
-    };
-
-    await this.props.rejectEvent(formData, id);
-
-    this.props.getEventMusician(this.props.profile._id);
+    const idi = this.props.match.params.id;
+    console.log(idi);
+    this.props.getEventCustomer(idi);
   };
 
   render() {
-    const eventList = this.props.event.map(schedule => {
+    const bookedList = this.props.event.map(myevent => {
       return (
         <tr>
           <td className="font-cart wider" style={{ textAlign: "center" }}>
-            <span>{schedule.customerId.name}</span>
+            <span>{myevent.musicianId.name}</span>
           </td>
           <td className="font-cart" style={{ textAlign: "center" }}>
-            <span>{schedule.category}</span>
+            <span>{myevent.category}</span>
           </td>
           <td className="font-cart" style={{ textAlign: "center" }}>
-            <span>{new Date(schedule.dateEvent).toLocaleString()}</span>
+            <span>{new Date(myevent.dateEvent).toLocaleString()}</span>
           </td>
           <td className="font-cart wider" style={{ textAlign: "center" }}>
             <span>
-              Rp{" "}
-              {schedule.musicianId.price && Rupiah(schedule.musicianId.price)}
+              Rp {myevent.musicianId.price && Rupiah(myevent.musicianId.price)}
               ,00
             </span>
           </td>
-
           <td className="font-cart" style={{ textAlign: "center" }}>
-            <span>{schedule.status}</span>
+            <span>{myevent.status}</span>
           </td>
           <td className="font-cart">
             <span className="button-action">
               {" "}
               <div className="dstyle-btn-group">
                 <Link
-                  to={`/eventdetail/${schedule._id}`}
+                  to={`/eventdetail/${myevent._id}`}
                   className="button-edit"
                 >
                   <i class="fa fa-info"></i>
                 </Link>
               </div>
               <div className="dstyle-btn-group">
-                <Link to="#" className="button-edit">
-                  <i
-                    class="fa fa-check"
-                    onClick={() => this.handleSubmitAccept(schedule._id)}
-                  ></i>
+                <Link to={`/eventedit/${myevent._id}`} className="button-edit">
+                  <i className="fa fa-edit"></i>
                 </Link>
               </div>
               <div className="dstyle-btn-group">
                 <Link to="#" className="button-edit">
                   <i
-                    className="fa fa-close"
-                    onClick={() => this.handleSubmitReject(schedule._id)}
+                    className="fa fa-trash"
+                    onClick={() => this.handleDelete(myevent._id)}
                   ></i>
                 </Link>
               </div>
@@ -118,11 +87,14 @@ class EventSchedule extends Component {
             <div className="cart-table-area bookedlist">
               <div className="container-fluid">
                 <div className="row" style={{ justifyContent: "center" }}>
-                  <div className="col-12 col-lg-8">
+                  <div className="col-12 col-lg-12">
                     <div className="cart-title">
-                      <h2 style={{ textAlign: "center" }}>EVENT SCHEDULE</h2>
+                      <h2 style={{ textAlign: "center" }}>BOOKING HISTORY</h2>
                     </div>
-                    <div className="cart-table clearfix">
+                    <div
+                      className="cart-table clearfix"
+                      style={{ marginTop: "50px" }}
+                    >
                       <table className="table table-responsive">
                         <thead>
                           <tr>
@@ -130,7 +102,7 @@ class EventSchedule extends Component {
                               style={{ textAlign: "center" }}
                               className="wider"
                             >
-                              Customer Name
+                              Musician
                             </th>{" "}
                             <th style={{ textAlign: "center" }}>Event Name</th>
                             <th style={{ textAlign: "center" }}>Event Date</th>
@@ -145,7 +117,7 @@ class EventSchedule extends Component {
                             <th style={{ textAlign: "center" }}>Action</th>
                           </tr>
                         </thead>
-                        <tbody>{eventList}</tbody>
+                        <tbody>{bookedList}</tbody>
                       </table>
                     </div>
                     <div className="dstyle-btn-group button-right mt-100">
@@ -161,6 +133,7 @@ class EventSchedule extends Component {
               </div>
             </div>
           </div>
+          <NewsLetter />
         </span>
       </div>
     );
@@ -169,12 +142,11 @@ class EventSchedule extends Component {
 
 const mapStateToProps = state => {
   return {
-    event: state.eventReducer.event,
-    profile: state.profileReducer.profile
+    event: state.eventReducer.event
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getEventMusician, acceptEvent, rejectEvent, getProfile }
-)(EventSchedule);
+  { getEventCustomer, deleteEvent }
+)(BookingHistory);

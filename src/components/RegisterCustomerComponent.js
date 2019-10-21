@@ -31,7 +31,7 @@ class RegisterCustomerComponent extends Component {
 
     this.props.register(formData);
     alert("You have been registered..");
-    this.props.history.push("/login");
+    this.props.history.push("/signin");
   };
 
   render() {
@@ -78,7 +78,7 @@ class RegisterCustomerComponent extends Component {
             </button>
 
             <p className="message">
-              <Link to="/login">sudah punya akun?</Link>
+              <Link to="/signin">sudah punya akun?</Link>
             </p>
           </form>
         </div>
