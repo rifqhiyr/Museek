@@ -1,0 +1,81 @@
+@import "./Variables";
+@import "theme_color";
+
+.bg-color-nav {
+  background-color: $bg-color;
+}
+
+.navbar {
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  width: 210px;
+}
+.navigasi-a {
+  text-transform: uppercase;
+  margin-right: 10px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+  color: $color-dark-1;
+  &:hover {
+    color: $color-primary;
+  }
+}
+.navigasi-a:hover::after {
+  content: "";
+  display: block;
+  border-bottom: 3px solid yellow;
+  width: 50%;
+  margin: auto;
+  padding-bottom: 5px;
+  margin-bottom: -8px;
+}
+
+.btn-header {
+  text-transform: uppercase;
+  margin: 0 10px;
+  height: 80%;
+  background: $color-primary;
+  border-radius: 10rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.25rem 1.25rem;
+  &:hover {
+    background-color: $color-primary-2;
+  }
+}
+
+// desktop version
+@media (min-width: 992px) {
+  .navigasi-a {
+    text-transform: uppercase;
+    margin-right: 10px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    color: $color-dark-1;
+    &:hover {
+      color: $color-primary;
+    }
+  }
+  .navigasi-b {
+    text-transform: uppercase;
+    margin-right: 10px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    color: $color-dark-1;
+    &:hover {
+      color: $color-primary;
+    }
+  }
+  .navigasi-a :hover::after {
+    content: "";
+    display: block;
+    border-bottom: 3px solid $color-secondary-1;
+    width: 50%;
+    margin: auto;
+    padding-bottom: 5px;
+    margin-bottom: -8px;
+  }
+}

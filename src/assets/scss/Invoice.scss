@@ -1,0 +1,117 @@
+@import "./Variables";
+@import "theme_color";
+
+.invo-box {
+  padding: 0;
+  .invoice-header {
+    background-color: $color-secondary-1;
+    border: 1px solid;
+    .invoice-box-head {
+      .invoice-img {
+        width: 210px;
+      }
+    }
+  }
+  .invoice-boxtwo {
+    background-color: $color-dark-1;
+    padding: 10px 20px;
+    .invoice-boxtwo-t {
+      color: $color-secondary-3;
+      padding: 20px 0;
+    }
+    .invoice-row {
+      .invoice-col-right {
+        background-color: $color-secondary-1;
+        .card-title {
+          color: $color-dark-2;
+        }
+      }
+      .invoice-col-left {
+        background-color: $color-secondary-1;
+        .card-title {
+          color: $color-dark-2;
+        }
+      }
+    }
+    .invoice-card-box {
+      margin: 20px 0;
+      .invoice-card-title {
+        color: $color-dark-2;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .invo-box {
+    margin: 20px 0;
+    .invoice-header {
+      background-color: $color-secondary-1;
+      border: 1px solid;
+      .invoice-box-head {
+        display: flex;
+        justify-content: space-between;
+        .invoice-img {
+          width: 210px;
+        }
+      }
+    }
+    .invoice-boxtwo {
+      background-color: $color-dark-1;
+      padding: 10px 20px;
+      .invoice-boxtwo-t {
+        color: $color-secondary-3;
+        padding: 20px 0;
+      }
+      .invoice-row {
+        .invoice-col-right {
+          background-color: $color-secondary-1;
+          .card-title {
+            color: $color-dark-2;
+          }
+        }
+        .invoice-col-left {
+          background-color: $color-secondary-1;
+          .card-title {
+            color: $color-dark-2;
+          }
+        }
+      }
+      .invoice-card-box {
+        margin: 20px 0;
+        .invoice-card-title {
+          color: $color-dark-2;
+        }
+      }
+    }
+  }
+}
+
+.invo-box .invoice-boxtwo {
+  background-color: $bg-color;
+  padding: 10px 20px;
+}
+
+.h-1-invoice {
+  color: $text-color;
+  text-align: center;
+  margin: 30px;
+}
+
+.h-5-invoice {
+  color: $text-color;
+  font-weight: bolder;
+}
+
+.p-invoice {
+  color: $text-color;
+}
+
+.hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.417);
+}
+
+.card-body.inv {
+  padding: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.417);
+}

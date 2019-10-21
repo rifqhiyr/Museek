@@ -1,0 +1,22 @@
+@import "theme_color";
+
+.pagination .page-item.active .page-link {
+  color: $text-color;
+  box-shadow: none;
+  background-color: $head-button;
+}
+
+.pagination .page-item .page-link:hover {
+  background-color: $head-button;
+  color: $bg-color;
+}
+
+.pagination {
+  @media (max-width: 767.98px) {
+    margin-bottom: 50px;
+  }
+}
+
+.pagination .page-item .page-link {
+  border: 1px solid $bg-color;
+}
