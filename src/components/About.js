@@ -37,6 +37,7 @@ class About extends Component {
             <h2 className="underline jumbo-heading about-h2">Meet Our Team</h2>
 
             <div className="row about-row">
+              ``
               <div className="col-sm-12 col-lg-4">
                 <h1>kiri</h1>
                 <p>
