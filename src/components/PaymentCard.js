@@ -1,9 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import setToken from "../helpers/setToken";
+import { getProfile } from "../store/actions/dataAction";
 import Rupiah from "./Rupiah";
 import "../assets/scss/PaymentCard.scss";
 
-export default class Pagination extends Component {
+class PaymentCard extends Component {
+  componentDidMount() {
+    if (localStorage.token) {
+      setToken(localStorage.token);
+    }
+    this.props.getProfile();
+  }
+
   render() {
     const prices = this.props.event.reduce((tot, arr) => {
       return tot + arr.musicianId.price;
@@ -28,7 +38,10 @@ export default class Pagination extends Component {
             </li>
           </ul>
           <div className="cart-btn mt-100">
-            <Link to="/bookingform" className="btn dstyle-btn w-100">
+            <Link
+              to={`/invoice=${this.props.profile._id}`}
+              className="btn dstyle-btn w-100"
+            >
               Checkout
             </Link>
           </div>
@@ -37,3 +50,14 @@ export default class Pagination extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    profile: state.profileReducer.profile
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { getProfile }
+)(PaymentCard);
