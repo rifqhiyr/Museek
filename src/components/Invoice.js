@@ -52,8 +52,14 @@ class Invoice extends Component {
       );
     });
 
-    const prices = this.props.event.reduce((tot, arr) => {
-      return arr.status !== "acepted" && tot + arr.musicianId.price;
+    const filt = this.props.event.filter(
+      musician => musician.status === "acepted"
+    );
+
+    console.log(filt);
+
+    const sum = filt.reduce((tot, arr) => {
+      return tot + arr.musicianId && arr.musicianId.price;
     }, 0);
 
     const { name, email, address, city, country } = this.props.profile;
@@ -145,10 +151,7 @@ class Invoice extends Component {
                             >
                               TOTAL PRICE
                             </th>
-                            <th className="inv">
-                              Rp {Rupiah(prices)}
-                              ,00
-                            </th>
+                            <th className="inv">Rp {Rupiah(sum)},00</th>
                           </tr>
                         </thead>
                       </table>

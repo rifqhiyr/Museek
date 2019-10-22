@@ -9,13 +9,14 @@ import PaymentCard from "./PaymentCard";
 import NewsLetter from "./NewsLetter";
 
 class BookedList extends Component {
-  componentDidMount() {
+  async componentDidMount() {
     if (localStorage.token) {
       setToken(localStorage.token);
     }
     const id = this.props.match.params.id;
     console.log(id);
-    this.props.getEventCustomer(id);
+    await this.props.getEventCustomer(id);
+    await this.props.event;
   }
 
   handleDelete = async id => {
@@ -31,59 +32,66 @@ class BookedList extends Component {
   };
 
   render() {
-    const bookedList = this.props.event.map(myevent => {
-      return (
-        <tr>
-          <td className="font-cart wider" style={{ textAlign: "center" }}>
-            <span>{myevent.musicianId.name}</span>
-          </td>
-          <td className="font-cart" style={{ textAlign: "center" }}>
-            <span>{myevent.category}</span>
-          </td>
-          <td className="font-cart" style={{ textAlign: "center" }}>
-            <span>{new Date(myevent.dateEvent).toLocaleString()}</span>
-          </td>
-          <td className="font-cart wider" style={{ textAlign: "center" }}>
-            <span>
-              Rp {myevent.musicianId.price && Rupiah(myevent.musicianId.price)}
-              ,00
-            </span>
-          </td>
-          {/* <td className="font-cart" style={{ textAlign: "center" }}>
+    // console.log(this.props.event);
+    const bookedList =
+      this.props.event &&
+      this.props.event.map(myevent => {
+        return (
+          <tr>
+            <td className="font-cart wider" style={{ textAlign: "center" }}>
+              <span>{myevent.musicianId.name}</span>
+            </td>
+            <td className="font-cart" style={{ textAlign: "center" }}>
+              <span>{myevent.category}</span>
+            </td>
+            <td className="font-cart" style={{ textAlign: "center" }}>
+              <span>{new Date(myevent.dateEvent).toLocaleString()}</span>
+            </td>
+            <td className="font-cart wider" style={{ textAlign: "center" }}>
+              <span>
+                Rp{" "}
+                {myevent.musicianId.price && Rupiah(myevent.musicianId.price)}
+                ,00
+              </span>
+            </td>
+            {/* <td className="font-cart" style={{ textAlign: "center" }}>
             <span>{myevent.duration / 3600000} hours</span>
           </td> */}
-          <td className="font-cart" style={{ textAlign: "center" }}>
-            <span>{myevent.status}</span>
-          </td>
-          <td className="font-cart">
-            <span className="button-action">
-              {" "}
-              <div className="dstyle-btn-group">
-                <Link
-                  to={`/eventdetail/${myevent._id}`}
-                  className="button-edit"
-                >
-                  <i class="fa fa-info"></i>
-                </Link>
-              </div>
-              <div className="dstyle-btn-group">
-                <Link to={`/eventedit/${myevent._id}`} className="button-edit">
-                  <i className="fa fa-edit"></i>
-                </Link>
-              </div>
-              <div className="dstyle-btn-group">
-                <Link to="#" className="button-edit">
-                  <i
-                    className="fa fa-trash"
-                    onClick={() => this.handleDelete(myevent._id)}
-                  ></i>
-                </Link>
-              </div>
-            </span>
-          </td>
-        </tr>
-      );
-    });
+            <td className="font-cart" style={{ textAlign: "center" }}>
+              <span>{myevent.status}</span>
+            </td>
+            <td className="font-cart">
+              <span className="button-action">
+                {" "}
+                <div className="dstyle-btn-group">
+                  <Link
+                    to={`/eventdetail/${myevent._id}`}
+                    className="button-edit"
+                  >
+                    <i class="fa fa-info"></i>
+                  </Link>
+                </div>
+                <div className="dstyle-btn-group">
+                  <Link
+                    to={`/eventedit/${myevent._id}`}
+                    className="button-edit"
+                  >
+                    <i className="fa fa-edit"></i>
+                  </Link>
+                </div>
+                <div className="dstyle-btn-group">
+                  <Link to="#" className="button-edit">
+                    <i
+                      className="fa fa-trash"
+                      onClick={() => this.handleDelete(myevent._id)}
+                    ></i>
+                  </Link>
+                </div>
+              </span>
+            </td>
+          </tr>
+        );
+      });
     return (
       <div>
         <span>

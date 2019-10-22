@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import setToken from "./../helpers/setToken";
 import {
@@ -8,21 +8,36 @@ import {
   getFav,
   addFav
 } from "../store/actions/dataAction";
+import { getEventCustomer } from "../store/actions/eventAction";
 import Picture from "./Picture";
 import Rupiah from "./Rupiah";
 import "../assets/scss/MusicianList.scss";
 
 class MusicianList extends Component {
-  componentDidMount() {
+  async componentDidMount() {
     if (localStorage.token) {
       setToken(localStorage.token);
     }
-    this.props.getProfile();
+    await this.props.getProfile();
+    await this.props.getEventCustomer(this.props.profile._id);
   }
 
-  handleSubmit = async e => {
-    e.preventDefault();
+  handleAdd = id => {
+    const data = this.props.event.map(ev => ev.musicianId._id);
+    console.log(data);
+    if (data.indexOf(id) === -1) {
+      this.props.history.push({
+        pathname: `/bookingform`,
+        state: {
+          id: id
+        }
+      });
+    } else {
+      alert("musician has been added!");
+    }
+  };
 
+  handleSubmit = async id => {
     if (localStorage.token) {
       setToken(localStorage.token);
     }
@@ -35,10 +50,8 @@ class MusicianList extends Component {
       } else {
         const formData = {
           customerId: this.props.profile._id,
-          musicianId: e.target.value
+          musicianId: id
         };
-        console.log(this.props.profile._id);
-        console.log(e.currentTarget.value);
         this.props.addFav(formData);
         alert("Musician have been saved to Favorite");
       }
@@ -57,6 +70,7 @@ class MusicianList extends Component {
     );
 
     const listMusician = currentCards.map(musician => {
+      // console.log(musician._id);
       return (
         <div className="col-12 col-md-4 col-xl-4">
           <div className="single-product-wrapper" key={musician._id}>
@@ -98,31 +112,30 @@ class MusicianList extends Component {
                 </Link>
               </div>
 
-              {/* <div className="ratings-cart text-right">
-                <div className="cart">
-                  <Link
-                    to={{
-                      pathname: "/bookingform",
-                      state: [{ musicianId: musician._id }]
-                    }}
-                    data-toggle="tooltip"
-                    data-placement="left"
-                    title="Add Event"
-                  >
-                    <img src="img/core-img/cart.png" alt="" />
-                  </Link>
-                </div>
-              </div> */}
               <div className="ratings-cart text-right">
                 <div className="cart">
                   <Link
-                    to=""
+                    to="#"
+                    // This.props.event.musicianId.filter(musi => musi._id !== musician._id)
+                    // pathname: "/bookingform",
+                    // state: { musicianId: musician._id }
+
+                    onClick={() => this.handleAdd(musician._id)}
                     data-toggle="tooltip"
                     data-placement="left"
-                    title="Add Favorite"
-                    name="musicianId"
-                    value={musician._id}
-                    onClick={this.handleSubmit}
+                    title="Add Event"
+                    style={{ margin: "10px" }}
+                  >
+                    <img src="img/core-img/cart.png" alt="" />
+                  </Link>
+
+                  <Link
+                    to="#"
+                    onClick={() => this.handleSubmit(musician._id)}
+                    data-toggle="tooltip"
+                    data-placement="left"
+                    title="Add to Favorite"
+                    style={{ margin: "10px" }}
                   >
                     <img src="img/core-img/favorites.png" alt="" />
                   </Link>
@@ -140,11 +153,12 @@ class MusicianList extends Component {
 const mapStateToProps = state => {
   return {
     musicians: state.listMusicianReducer.musicians,
-    profile: state.profileReducer.profile
+    profile: state.profileReducer.profile,
+    event: state.eventReducer.event
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getProfile, getMusician, getFav, addFav }
-)(MusicianList);
+  { getProfile, getMusician, getFav, addFav, getEventCustomer }
+)(withRouter(MusicianList));

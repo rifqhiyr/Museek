@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import setToken from "./../helpers/setToken";
 import { getProfile } from "../store/actions/dataAction";
-import { addEvent } from "../store/actions/eventAction";
+import { addEvent, getEventCustomer } from "../store/actions/eventAction";
 import "../assets/scss/BookingForm.scss";
 import NewsLetter from "./NewsLetter";
 
@@ -13,7 +13,7 @@ class BookingForm extends Component {
     location: "",
     category: "Birthday",
     validationError: "",
-    musicianId: this.props.location.state.musicianId,
+    musicianId: this.props.location,
     eventList: ["Birthday", "Wedding", "Engagement", "Percussion", "Reunion"]
   };
 
@@ -30,7 +30,7 @@ class BookingForm extends Component {
     });
   };
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
 
     if (localStorage.token) {
@@ -52,13 +52,14 @@ class BookingForm extends Component {
         };
         this.props.addEvent(formData);
         alert("Event booking have been saved");
-
+        await this.props.getEventCustomer(); //biar setelah pindah halaman, langsung reload
         this.props.history.push(`/bookedlist=${this.props.profile._id}`);
       }
     }
   };
 
   render() {
+    console.log(this.props.location);
     const dataList = this.state.eventList.map(event => {
       return (
         <option key={event} value={event}>
@@ -66,6 +67,7 @@ class BookingForm extends Component {
         </option>
       );
     });
+
     return (
       <div>
         <div className="container edit main-footer">
@@ -147,5 +149,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getProfile, addEvent }
+  { getProfile, addEvent, getEventCustomer }
 )(BookingForm);
