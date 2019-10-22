@@ -66,7 +66,7 @@ class DetailComponent extends Component {
                   </div>
                   <div className="detail--col-box">
                     <div className="detail-desc">
-                      <h2 className="detail-desc-tittle">description</h2>
+                      <h2 className="detail-desc-tittle">Description</h2>
                       <p className="detail-desc-body">
                         Lorem Ipsum is simply dummy text of the printing and
                         typesetting industry. Lorem Ipsum has been the
