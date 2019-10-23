@@ -13,7 +13,7 @@ class BookingForm extends Component {
     location: "",
     category: "",
     validationError: "",
-    musicianId: "",
+    musicianId: this.props.location.state.id,
     eventList: ["Birthday", "Wedding", "Engagement", "Percussion", "Reunion"]
   };
 
@@ -62,6 +62,7 @@ class BookingForm extends Component {
 
   render() {
     console.log(this.props.location);
+
     const dataList = this.state.eventList.map(event => {
       return (
         <option key={event} value={event}>

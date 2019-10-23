@@ -1,14 +1,23 @@
 import React, { Component } from "react";
-import "../assets/scss/Header.scss";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import setToken from "../helpers/setToken";
+import { getProfile } from "../store/actions/dataAction";
+import "../assets/scss/Header.scss";
 import { logout } from "../store/actions/authAction";
 
 class Header extends Component {
+  componentDidMount() {
+    if (localStorage.token) {
+      setToken(localStorage.token);
+    }
+    this.props.getProfile();
+  }
+
   handleSubmit = async e => {
     e.preventDefault();
     this.props.logout();
-    alert("bye bye bitches");
+    alert("Thank You for Coming MuSeek");
     this.props.history.push("/logout");
   };
 
@@ -97,7 +106,7 @@ class Header extends Component {
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item Active">
                     <Link
-                      to="/homepage"
+                      to="/about"
                       className="nav-link navigasi-a"
                       href="#tentangkami"
                     >
@@ -106,43 +115,63 @@ class Header extends Component {
                   </li>
                   <li>
                     <Link
-                      to="/about"
+                      to="/musicianpage"
                       className="nav-link navigasi-a"
                       href="#tentangkami"
                     >
-                      Detail<span className="sr-only">(current)</span>
+                      Musician List<span className="sr-only">(current)</span>
                     </Link>
                   </li>
-                  <li className="nav-item Active dropdown">
-                    <Link
-                      class="nav-link dropdown-toggle navigasi-b"
-                      href="#"
-                      id="navbarDropdown"
-                      role="button"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      my profile
-                    </Link>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <Link class="dropdown-item" to="/pageprofile">
-                        see profile
+
+                  {this.props.profile.role === "customer" ? (
+                    <li className="nav-item Active dropdown">
+                      <Link
+                        class="nav-link dropdown-toggle navigasi-b"
+                        to="/profile"
+                        id="navbarDropdown"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        my profile
                       </Link>
-                      <div class="dropdown-divider">pantek</div>
-                      <Link class="dropdown-item" to="/bookedlist">
-                        bookedlist
+                      <div
+                        class="dropdown-menu"
+                        aria-labelledby="navbarDropdown"
+                      >
+                        <Link
+                          class="dropdown-item"
+                          to={`/bookedlist=${this.props.profile._id}`}
+                        >
+                          booked list
+                        </Link>
+                        <div class="dropdown-divider">pantek</div>
+                        <Link class="dropdown-item" to={`/favorite`}>
+                          favorite
+                        </Link>
+
+                        <Link
+                          class="dropdown-item"
+                          to={`/invoice=${this.props.profile._id}`}
+                        >
+                          invoice
+                        </Link>
+                      </div>
+                    </li>
+                  ) : (
+                    <li>
+                      <Link
+                        to="/profile"
+                        className="nav-link navigasi-a"
+                        href="#tentangkami"
+                      >
+                        My profile<span className="sr-only">(current)</span>
                       </Link>
-                      <Link class="dropdown-item" to="/favourite">
-                        Favourite
-                      </Link>
-                      <Link class="dropdown-item" to="/search">
-                        Search
-                      </Link>
-                    </div>
-                  </li>
+                    </li>
+                  )}
                 </ul>
-                <Link to="/logout">
+                <Link to="/">
                   <button
                     onClick={this.handleSubmit}
                     className="btn btn-header"
@@ -161,11 +190,12 @@ class Header extends Component {
 
 const mapStateToProps = state => {
   return {
-    isAuthenticated: state.authReducer.isAuthenticated
+    isAuthenticated: state.authReducer.isAuthenticated,
+    profile: state.profileReducer.profile
   };
 };
 
 export default connect(
   mapStateToProps,
-  { logout }
+  { logout, getProfile }
 )(withRouter(Header));

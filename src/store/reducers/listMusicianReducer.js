@@ -2,7 +2,9 @@ const initialState = {
   musicians: [],
   musicianById: {},
   privacy: {},
-  sort: ""
+  sort: "",
+  category: "",
+  filteredMusicians: []
 };
 
 export default function(state = initialState, action) {
@@ -13,7 +15,8 @@ export default function(state = initialState, action) {
       return {
         ...state,
         ...payload,
-        musicians: payload
+        musicians: payload,
+        filteredMusicians: payload
       };
     case "GET_MUSICIAN_DETAIL":
       return {
@@ -30,8 +33,15 @@ export default function(state = initialState, action) {
     case "BY_PRICE":
       return {
         ...state,
-        musicians: payload.musicians,
+        filteredMusicians: payload.musicians,
         sort: payload.sort
+      };
+    case "BY_CATEGORY":
+      console.log(payload);
+      return {
+        ...state,
+        filteredMusicians: payload.musicians,
+        category: payload.category
       };
     default:
       return state;
