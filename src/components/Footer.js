@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "../assets/scss/Footer.scss";
 
 class Footer extends Component {
@@ -19,24 +20,24 @@ class Footer extends Component {
               <h4 className="footer-title">Tentang Museek</h4>
               <ul className="list-unstyled">
                 <li className="footer-li">
-                  <a className="footer-a" href="a">
+                  <Link className="footer-a" to="/about">
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li className="footer-li">
-                  <a className="footer-a" href="a">
-                    Service
-                  </a>
+                  <Link className="footer-a" to="/privacy">
+                    Privacy Policy
+                  </Link>
                 </li>
                 <li className="footer-li">
-                  <a className="footer-a" href="a">
+                  <Link className="footer-a" to="#">
                     Genre{" "}
-                  </a>
+                  </Link>
                 </li>
                 <li className="footer-li">
-                  <a className="footer-a" href="a">
+                  <Link className="footer-a" to="#">
                     Contact
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -48,33 +49,33 @@ class Footer extends Component {
                   <span className="footer-sosmed">
                     <i class="fa fa-instagram"></i>
                   </span>
-                  <a className="footer-a" href="a">
+                  <Link className="footer-a" href="a">
                     Instagram
-                  </a>
+                  </Link>
                 </li>
                 <li className="footer-li">
                   <span className="footer-sosmed">
                     <i class="fa fa-facebook-square"></i>
                   </span>
-                  <a className="footer-a" href="a">
+                  <Link className="footer-a" href="a">
                     facebook
-                  </a>
+                  </Link>
                 </li>
                 <li className="footer-li">
                   <span className="footer-sosmed">
                     <i class="fa fa-twitter-square"></i>
                   </span>
-                  <a className="footer-a" href="a">
+                  <Link className="footer-a" href="a">
                     twitter
-                  </a>
+                  </Link>
                 </li>
                 <li className="footer-li">
                   <span className="footer-sosmed">
                     <i class="fa fa-youtube"></i>
                   </span>
-                  <a className="footer-a" href="a">
+                  <Link className="footer-a" href="a">
                     youtube
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

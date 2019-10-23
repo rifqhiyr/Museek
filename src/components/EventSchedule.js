@@ -13,7 +13,7 @@ import "../assets/scss/BookedList.scss";
 
 class EventSchedule extends Component {
   state = {
-    status: "acepted",
+    status: "accepted",
     status2: "rejected"
   };
 

@@ -22,7 +22,7 @@ class Invoice extends Component {
   render() {
     const invoiceData = this.props.event.map(inv => {
       return (
-        inv.status === "acepted" && (
+        inv.status === "accepted" && (
           <tr>
             <td className="font-cart inv">
               <span>{inv.musicianId.name}</span>
@@ -46,14 +46,14 @@ class Invoice extends Component {
 
     const noData = this.props.event.map(empty => {
       return (
-        empty.status !== "acepted" && (
+        empty.status !== "accepted" && (
           <p className="no-data">No invoice data!</p>
         )
       );
     });
 
     const filt = this.props.event.filter(
-      musician => musician.status === "acepted"
+      musician => musician.status === "accepted"
     );
 
     console.log(filt);
@@ -71,7 +71,7 @@ class Invoice extends Component {
             <div className="cart-table-area bookedlist">
               <div className="container-fluid margin-inv">
                 <div className="row" style={{ justifyContent: "center" }}>
-                  <div className="col-12 col-lg-8">
+                  <div className="col-12 col-lg-10">
                     <div className="cart-title">
                       <h2 style={{ textAlign: "center" }}>INVOICE</h2>
                     </div>
@@ -138,7 +138,7 @@ class Invoice extends Component {
                   </div>
                 </div>
                 <div className="row" style={{ justifyContent: "center" }}>
-                  <div className="col-12 col-lg-8">
+                  <div className="col-12 col-lg-10">
                     <div className="cart-table clearfix">
                       <table className="table table-responsive">
                         <thead>
@@ -156,7 +156,7 @@ class Invoice extends Component {
                         </thead>
                       </table>
                     </div>
-                    <div>{noData.slice(0, 1)}</div>
+                    <div>{noData.slice(0, 0)}</div>
                     <div className="dstyle-btn-group button-right mt-100">
                       <Link
                         to={`/bookedlist=${this.props.profile._id}`}
