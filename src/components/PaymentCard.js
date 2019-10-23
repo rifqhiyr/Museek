@@ -15,9 +15,19 @@ class PaymentCard extends Component {
   }
 
   render() {
-    const prices = this.props.event.reduce((tot, arr) => {
-      return tot + arr.musicianId.price;
+    const filt = this.props.event.filter(
+      musician => musician.status === "accepted"
+    );
+
+    console.log(filt);
+
+    const prices = filt.reduce((tot, arr) => {
+      return tot + arr.musicianId && arr.musicianId.price;
     }, 0);
+
+    // const prices = this.props.event.reduce((tot, arr) => {
+    //   return tot + arr.musicianId.price;
+    // }, 0);
     return (
       <div className="col-12 col-lg-4">
         <div className="cart-summary">

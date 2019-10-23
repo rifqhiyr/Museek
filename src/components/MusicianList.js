@@ -26,12 +26,13 @@ class MusicianList extends Component {
     const data = this.props.event.map(ev => ev.musicianId._id);
     console.log(data);
     if (data.indexOf(id) === -1) {
-      this.props.history.push({
-        pathname: `/bookingform`,
-        state: {
-          id: id
-        }
-      });
+      // this.props.history.push({
+      //   pathname: `/bookingform/`,
+      //   state: {
+      //     id: id
+      //   }
+      // });
+      console.log("oke");
     } else {
       alert("musician has been added!");
     }
@@ -84,7 +85,7 @@ class MusicianList extends Component {
               <i className="fa fa-star" aria-hidden="true" />
               <i className="fa fa-star" aria-hidden="true" />
               <i className="fa fa-star" aria-hidden="true" />
-              <i className="circle left"></i> <i className="circle right"></i>
+              {/* <i className="circle left"></i> <i className="circle right"></i> */}
             </div>
 
             <div className="product-description d-flex align-items-center justify-content-between">
@@ -115,11 +116,11 @@ class MusicianList extends Component {
               <div className="ratings-cart text-right">
                 <div className="cart">
                   <Link
-                    to="#"
-                    // This.props.event.musicianId.filter(musi => musi._id !== musician._id)
-                    // pathname: "/bookingform",
-                    // state: { musicianId: musician._id }
-
+                    to={{
+                      pathname: "/bookingform",
+                      state: { musicianId: musician._id }
+                    }}
+                    // to="#"
                     onClick={() => this.handleAdd(musician._id)}
                     data-toggle="tooltip"
                     data-placement="left"
@@ -152,7 +153,7 @@ class MusicianList extends Component {
 
 const mapStateToProps = state => {
   return {
-    musicians: state.listMusicianReducer.musicians,
+    musicians: state.listMusicianReducer.filteredMusicians,
     profile: state.profileReducer.profile,
     event: state.eventReducer.event
   };
