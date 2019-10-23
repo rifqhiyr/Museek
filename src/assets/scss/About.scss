@@ -1,93 +1,77 @@
 @import "./Variables";
 
-.about {
-  background-color: $color-secondary-3;
-  padding: 0px;
+.about-wrraper {
+  text-align: center;
+  padding: 2rem 0 3rem;
   margin: auto;
-  .about-boxone {
-    padding: 50px 0;
-    .about-h {
-      padding: 20px 0;
-      margin: 15px 0;
-      color: $color-dark-1;
-    }
-    .about-p {
-      margin: 20px 0;
-      padding: 20px 0;
-      color: $color-dark-1;
-    }
-    .about-row {
-      margin: 50px 0;
-      padding: 80px 0;
-      background-color: $color-secondary-3;
-      color: $color-dark-2;
-      .about-col-text {
-        margin: 0 30px;
+  .container {
+    .about-tittle {
+      padding: 2rem 0 1rem;
+      box-shadow: 0.1rem 0.1rem 0.1rem $color-secondary-2-1;
+      .about-tittle-header {
+        margin: 2rem 0;
+        padding: 1rem 0 2rem;
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-weight: 800;
       }
-      .about-col-img {
+      .about-tittle-p {
+        padding: 0 0.2rem 1rem;
         margin: auto;
-        .about-img {
-          width: 100%;
+        font-size: 1.5rem;
+        color: wheat;
+      }
+    }
+    .about-content-wrapper {
+      box-shadow: 0.1rem 0.1rem 0.1rem $color-secondary-2-1;
+      margin: 2rem 0;
+      padding: 2rem 1.5rem;
+      .about-content-tittle {
+        padding: 1rem 0 2rem;
+        margin: 2rem 0;
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
+      .about-content-col {
+        .about-content {
+          .content-header {
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+          }
+          .about-content-body {
+            color: wheat;
+          }
         }
       }
     }
-  }
-  .about-boxtwo {
-    padding: 50px 0;
-    .about-h2 {
-      text-align: center;
-      font-size: 3rem;
-    }
-    .about-h {
-      padding: 20px 0;
-      margin: 15px 0;
-      color: $color-dark-1;
-    }
-    .about-p {
-      margin: 20px 0;
-      padding: 20px 0;
-      color: $color-dark-1;
-    }
-    .about-row {
-      margin: 50px 0;
-      padding: 80px 0;
-      background-color: $color-secondary-3;
-      color: $color-dark-2;
-      .about-col-text {
-        margin: 0 30px;
+    .about-client-wrapper {
+      box-shadow: 0.1rem 0.1rem 0.1rem $color-secondary-2-1;
+      margin: 2rem 0;
+      padding: 2rem 1.5rem;
+      .about-client-tittle {
+        padding: 1rem 0 1rem;
+        margin: 2rem 0;
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-weight: 800;
       }
-      .about-col-img {
-        margin: auto;
-        .about-img {
-          width: 100%;
-        }
-      }
-    }
-  }
-  .about-boxthree {
-    padding: 50px 0;
-    .about-h {
-      padding: 20px 0;
-      margin: 15px 0;
-      color: $color-dark-1;
-    }
-    .about-p {
-      margin: 20px 0;
-      padding: 20px 0;
-      color: $color-dark-1;
-    }
-    .about-row {
-      margin: 50px 0;
-      padding: 80px 0;
-      background-color: $color-secondary-3;
-      color: $color-dark-2;
-      .about-col-text {
-        margin: 0 30px;
-      }
-      .about-col-img {
-        margin: auto;
-        .about-img {
-          width: 100%;
+
+      .about-client-col {
+        .about-client {
+          margin: 1rem 0 2rem;
+          .client-header {
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+          }
+          .about-client-body {
+            color: wheat;
+          }
         }
       }
     }

@@ -1,140 +1,102 @@
 @import "./Variables.scss";
 
-.detail {
-  background-color: $color-secondary-2;
-  position: relative;
-  padding: 2%;
-  width: 100%;
-  height: 100%;
-  .detail--div__title {
-    padding: 2rem;
-    text-align: center;
-    .detail-h1 {
-      box-shadow: 5px 10px 18px $color-secondary-2;
-      width: 90%;
-      margin: auto;
-      border-radius: 2rem;
-      padding: 1%;
-      color: $color-primary;
-      background-color: $color-secondary-3;
-    }
-  }
-  .detail-row {
-    .detail-col-left {
-      .detail-div--img {
-        .detail-img {
-          border-radius: 2rem;
-          box-shadow: 5px 10px 18px $color-secondary-3;
-        }
-      }
-    }
-    .detail-col-right {
-      margin: 3% 0;
-      .detail-content {
-        background-color: black;
-        border-radius: 2rem;
-        text-align: start;
-        width: 100%;
-        height: 100%;
-        padding: 6%;
-        box-shadow: 5px 10px 18px $color-secondary-3;
-        .detail-div--content {
-          display: flex;
-          .detail-p {
-            color: yellow;
-            .detail-contain-span {
-              font-size: 1.5rem;
+.detail-wrapper {
+  margin: auto;
+  padding: 2rem 0 3rem;
+  .container {
+    .detail {
+      .row {
+        .detail--col-left {
+          height: 45rem;
+          padding: 2rem 1rem;
+          box-shadow: 0.1rem 0.1rem 0.1rem $color-secondary-2-1;
+
+          .detail--col-tittle {
+            background-color: $color-primary-2;
+            // width: 80%;
+            padding: 0.3rem 0.2rem;
+            border-top-right-radius: 4rem;
+            border-bottom-right-radius: 4rem;
+            margin: 1rem 0 2rem;
+            .detail--col-tittle-header {
+              text-align: start;
+              text-transform: uppercase;
+              font-size: 1.4rem;
+              margin: 0 0.8rem;
+              color: $color-secondary-3;
+              width: 80%;
             }
           }
-        }
-      }
-    }
-  }
-  .detail-box {
-    background: black;
-    margin: 2% 0;
-    padding: 6%;
-    border-radius: 2rem;
-    box-shadow: 5px 10px 18px $color-secondary-3;
-  }
-  .detail-p {
-    color: yellow;
-    .detail-contain-span {
-      font-size: 1.5rem;
-    }
-  }
-  .detail-btn {
-    margin: 3rem 2rem;
-    display: flex;
-    justify-content: flex-end;
-  }
-}
-
-@media (min-width: 992px) {
-  .detail {
-    background-color: $color-secondary-2;
-    position: relative;
-    // box-shadow: 5px 10px 18px $color-secondary-3;
-
-    // border-radius: 2rem;
-    height: 100%;
-    .detail--div__title {
-      padding: 2rem;
-      text-align: center;
-      .detail-h1 {
-        box-shadow: 5px 10px 18px $color-secondary-3;
-        width: 30%;
-        margin: auto;
-      }
-    }
-    .detail-row {
-      .detail-col-left {
-        .detail-div--img {
-          .detail-img {
-            border-radius: 2rem;
-            box-shadow: 5px 10px 18px $color-secondary-3;
-          }
-        }
-      }
-      .detail-col-right {
-        margin: 0 0;
-        .detail-content {
-          background-color: black;
-          border-radius: 2rem;
-          text-align: start;
-          width: 100%;
-          height: 100%;
-          padding: 2rem;
-          box-shadow: 5px 10px 18px $color-secondary-3;
-          .detail-div--content {
-            display: flex;
+          .detail--col-box {
             .detail-p {
-              color: yellow;
-              .detail-contain-span {
-                font-size: 1.5rem;
+              padding: 0 1rem;
+              .detail-sign {
+                font-size: 1.4rem;
+                margin: 0 0.5rem;
+                color: $color-primary-2;
+              }
+              .detail-sign-text {
+                font-size: 1.4rem;
+                margin: 0 0.5rem;
+                color: $color-primary-2;
               }
             }
           }
         }
+        .detail--col-right {
+          height: 100%;
+          padding: 2rem 1rem;
+          box-shadow: 0.1rem 0.1rem 0.1rem $color-secondary-2-1;
+          .detail--col-box {
+            display: flex;
+            flex-direction: row;
+            margin: 1rem 0;
+            .detail-fa {
+              font-size: 1.4rem;
+              margin: 0 0.5rem;
+              color: $color-primary-2;
+            }
+            .detail-sign-text {
+              display: flex;
+              flex-direction: row;
+              font-size: 1.4rem;
+
+              .detail-sign-genre {
+                text-transform: uppercase;
+                margin: 0 0.3rem;
+                height: 80%;
+                background: $color-primary-2;
+                border-radius: 2.3rem;
+                font-size: 0.85rem;
+                font-weight: 700;
+                padding: 0.5rem 1.4rem;
+                color: $color-secondary-3;
+              }
+            }
+            .detail-desc {
+              padding: 2rem 0.5rem;
+              box-shadow: 0.1rem 0.1rem 0.1rem $color-secondary-2-1;
+              width: 100%;
+              height: 18rem;
+              .detail-desc-tittle {
+                color: $color-secondary-3;
+                text-transform: uppercase;
+                font-weight: 500;
+              }
+
+              .detail-desc-body {
+                color: $color-dark-1-1;
+                padding: 0 1rem;
+              }
+            }
+          }
+          .btn-tombol {
+            position: relative;
+            text-align: end;
+            top: 3rem;
+          }
+        }
       }
-    }
-    .detail-box {
-      background: black;
-      margin: 3% 0;
-      padding: 2%;
-      border-radius: 2rem;
-      box-shadow: 5px 10px 18px $color-secondary-2;
-    }
-    .detail-p {
-      color: yellow;
-      .detail-contain-span {
-        font-size: 1.5rem;
-      }
-    }
-    .detail-btn {
-      margin: 3rem 2rem;
-      display: flex;
-      justify-content: flex-end;
     }
   }
 }

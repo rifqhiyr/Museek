@@ -5,102 +5,124 @@ class About extends Component {
   render() {
     return (
       <div>
-        <div className="jumbotron jumbotron-fluid about">
-          <div className="container about-boxone">
-            <h1 className="display-4 about-h"> About museek</h1>
-            <p className="lead about-p">
-              Our vision is to be the “Musician’s best friends”; to build a
-              place for everyone who wants to book various group of talented
-              musicians and a place for musicians to collabs with other
-              musicians.
-            </p>
-            <div className="row about-row">
-              <div className="col-sm-12 col-lg-4 about-col-text">
-                <p>
-                  For music enthusiast who wants to book a musician / collabs
-                  with musician, “MUseek” is a tech platform that provide a
-                  convenience to use musician’s services.
-                </p>
-              </div>
-              <div className="col-sm-12 col-lg-4 about-col-img">
-                <div>
-                  <img
-                    className="about-img"
-                    src={require("../assets/images/gigs2.jpg")}
-                    alt=""
-                  />
+        <div className="about-wrraper">
+          <div className="container">
+            <div className="about-tittle">
+              <header className="about-tittle-header underline">
+                About MUseek
+              </header>
+              <p className="about-tittle-p">
+                For music enthusiast who wants to book a musician / collabs with
+                musician, “MUseek” is a tech platform that provide a convenience
+                to use musician’s services. Our vision is to be the Musician’s
+                best friends. to build a place for everyone who wants to book
+                various group of talented musicians and a place for musicians to
+                collabs with other musicians.
+              </p>
+            </div>
+            <div className="about-content-wrapper">
+              <header className="about-content-tittle underline">
+                Meet our team
+              </header>
+              <div className="row">
+                <div className="col-12 col-md-4 col-lg-4 ">
+                  <div className="about-content-col">
+                    <div className="about-content">
+                      <figure className="figure">
+                        <img
+                          src={require("../assets/images/birthday.jpg")}
+                          className="figure-img img-fluid rounded"
+                          alt="..."
+                        />
+                      </figure>
+                      <header className="content-header">
+                        Front-End Developer
+                      </header>
+                      <div className="about-content-body">
+                        as front-end Developer we develop bla bla bla
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-12 col-md-4 col-lg-4 ">
+                  <div className="about-content-col">
+                    <div className="about-content">
+                      <figure className="figure">
+                        <img
+                          src={require("../assets/images/birthday.jpg")}
+                          className="figure-img img-fluid rounded"
+                          alt="..."
+                        />
+                      </figure>
+                      <header className="content-header">
+                        Back-End Developer
+                      </header>
+                      <div className="about-content-body">
+                        as Back-End Developer we develop bla bla bla
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-12 col-md-4 col-lg-4 ">
+                  <div className="about-content-col">
+                    <div className="about-content">
+                      <figure className="figure">
+                        <img
+                          src={require("../assets/images/birthday.jpg")}
+                          className="figure-img img-fluid rounded"
+                          alt="..."
+                        />
+                      </figure>
+                      <header className="content-header">
+                        React-Native Developer
+                      </header>
+                      <div className="about-content-body">
+                        as React-Native Developer we develop bla bla bla
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="container about-boxtwo">
-            <h2 className="underline jumbo-heading about-h2">Meet Our Team</h2>
-
-            <div className="row about-row">
-              <div className="col-sm-12 col-lg-4">
-                <h1>kiri</h1>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book. It has survived not only five centuries, but
-                  also the leap into electronic typesetting, remaining e
-                </p>
-              </div>
-              <div className="col-sm-12 col-lg-4">
-                <h1>tengah</h1>
-                <p>
-                  making it look like readable English. Many desktop publishing
-                  packages and web page editors now use Lorem Ipsum as their
-                  default model text, and a search for 'lorem ipsum' Lorem Ipsum
-                  is
-                </p>
-              </div>
-              <div className="col-sm-12 col-lg-4">
-                <h1>kanan</h1>
-                <p>
-                  Why do we use it? It is a long established fact that a reader
-                  will be distracted by the readable content of a page when
-                  looking at its layout. The point of using Lorem Ipsum is that
-                  readable English. Many desktop publishing packages and web
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="container about-boxthree">
-            <div className="row about-row">
-              <div className="col-sm-12 col-lg-4 about-col-text">
-                <p>
-                  For music enthusiast who wants to book a musician / collabs
-                  with musician, “MUseek” is a tech platform that provide a
-                  convenience to use musician’s services.
-                </p>
-              </div>
-              <div className="col-sm-12 col-lg-4 about-col-img">
-                <div>
-                  <img
-                    className="about-img"
-                    src={require("../assets/images/gigs2.jpg")}
-                    alt=""
-                  />
+            <div className="about-client-wrapper">
+              <header className="about-client-tittle underline">
+                our Priority
+              </header>
+              <div className="row">
+                <div className="col-12 col-md-6 col-lg-6">
+                  <div className="about-client-col">
+                    <div className="about-client">
+                      <figure className="figure">
+                        <img
+                          src={require("../assets/images/profile1.jpg")}
+                          className="figure-img img-fluid rounded"
+                          alt="..."
+                        />
+                      </figure>
+                      <header className="client-header">Customer</header>
+                      <div className="about-client-body">
+                        Customer is our Priority, because bla bla bla ...
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="row about-row">
-              <div className="col-sm-12 col-lg-4 about-col-img">
-                <img
-                  className="about-img"
-                  src={require("../assets/images/gigs2.jpg")}
-                  alt=""
-                />
-              </div>
-              <div className="col-sm-12 col-lg-4 about-col-text">
-                <p>
-                  For music enthusiast who wants to book a musician / collabs
-                  with musician, “MUseek” is a tech platform that provide a
-                  convenience to use musician’s services.
-                </p>
+                <div className="col-12 col-md-6 col-lg-6">
+                  <div className="about-client-col">
+                    <div className="about-client">
+                      <figure className="figure">
+                        <img
+                          src={require("../assets/images/profile1.jpg")}
+                          className="figure-img img-fluid rounded"
+                          alt="..."
+                        />
+                      </figure>
+                      <header className="client-header">Musician</header>
+                      <div className="about-client-body">
+                        Musician is our Priority because bla bla bla ..
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

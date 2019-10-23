@@ -29,6 +29,7 @@ import EventEdit from "./components/EventEdit";
 import EventSchedule from "./components/EventSchedule";
 import InvoiceHistory from "./components/InvoiceHistory";
 import BookingHistory from "./components/BookingHistory";
+import PageProfile from "./components/PageProfile";
 import Favorite from "./components/Favorite";
 
 class App extends Component {
@@ -61,6 +62,7 @@ class App extends Component {
           <Route path="/eventdetail/:id" exact component={EventDetail} />
           <Route path="/eventedit/:id" exact component={EventEdit} />
           <Route path="/eventschedule=:id" exact component={EventSchedule} />
+          <Route path="/pageprofile" exact component={PageProfile} />
           <Route path="/favorite" exact component={Favorite} />
           <Footer />
         </Router>
