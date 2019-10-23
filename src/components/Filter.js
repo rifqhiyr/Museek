@@ -26,7 +26,7 @@ class Filter extends Component {
               className="product-sorting d-flex"
               style={{ marginRight: "-600px" }}
             >
-              <div className="sort-by-date d-flex align-items-center mr-15">
+              <div className="sort-by-date d-flex align-items-center">
                 <p>Sort by</p>
                 <form action="#" method="get">
                   <select
@@ -47,7 +47,7 @@ class Filter extends Component {
             </div>
 
             <div className="product-sorting d-flex">
-              <div className="sort-by-date d-flex align-items-center mr-15">
+              <div className="sort-by-date d-flex align-items-center">
                 {/* <p>Sort by</p> */}
                 <form action="#" method="get">
                   <select

@@ -127,17 +127,17 @@ class Header extends Component {
                     <li className="nav-item Active dropdown">
                       <Link
                         class="nav-link dropdown-toggle navigasi-b"
-                        to="/profile"
+                        to="/pageprofile"
                         id="navbarDropdown"
                         role="button"
                         data-toggle="dropdown"
                         aria-haspopup="true"
                         aria-expanded="false"
                       >
-                        my profile
+                        see profile
                       </Link>
                       <div
-                        class="dropdown-menu"
+                        class="dropdown-menu "
                         aria-labelledby="navbarDropdown"
                       >
                         <Link
@@ -146,11 +146,11 @@ class Header extends Component {
                         >
                           booked list
                         </Link>
-                        <div class="dropdown-divider">pantek</div>
-                        <Link class="dropdown-item" to={`/favorite`}>
+                        <Link class="dropdown-item" to="/favorite">
                           favorite
                         </Link>
 
+                        <div class="dropdown-divider"></div>
                         <Link
                           class="dropdown-item"
                           to={`/invoice=${this.props.profile._id}`}

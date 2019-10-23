@@ -26,41 +26,41 @@ class EventDetail extends Component {
 
     return (
       <div className="container">
-        <div className="detail">
+        <div className="detail-event">
           <div
-            className="row detail-row "
+            className="row detail-event-row "
             style={{ display: "flex", justifyContent: "center" }}
           >
-            <div className="col-12 col-lg-6 detail-col-right ">
-              <div className="detail-content detail main-footer">
-                <h1 className="h-1">EVENT DETAIL</h1>
+            <div className="col-12 col-lg-6 detail-event-col-right ">
+              <div className="detail-event-content detail-event main-footer">
+                <h1 className="h-1">EVENT detail-event</h1>
 
-                <div className="detail-div--content">
-                  <p className="detail-p">Status : {status}</p>
+                <div className="detail-event-div--content">
+                  <p className="detail-event-p">Status : {status}</p>
                 </div>
-                <div className="detail-div--content">
-                  <p className="detail-p">Event Category : {category}</p>
+                <div className="detail-event-div--content">
+                  <p className="detail-event-p">Event Category : {category}</p>
                 </div>
-                <div className="detail-div--content">
-                  <p className="detail-p">
+                <div className="detail-event-div--content">
+                  <p className="detail-event-p">
                     Date Event : {new Date(dateEvent).toLocaleString()}
                   </p>
                 </div>
-                <div className="detail-div--content">
-                  <p className="detail-p">Duration : {duration} hours</p>
+                <div className="detail-event-div--content">
+                  <p className="detail-event-p">Duration : {duration} hours</p>
                 </div>
-                <div className="detail-div--content">
-                  <p className="detail-p">Event Location : {location}</p>
+                <div className="detail-event-div--content">
+                  <p className="detail-event-p">Event Location : {location}</p>
                 </div>
-                <div className="detail-div--content">
-                  <p className="detail-p">
+                <div className="detail-event-div--content">
+                  <p className="detail-event-p">
                     Total Price : Rp {musicianId && Rupiah(musicianId.price)},00
                   </p>
                 </div>
-                <div className="detail-div--content">
+                <div className="detail-event-div--content">
                   {this.props.profile.role === "customer" && (
-                    <Link to={`/detail/${musicianId && musicianId._id}`}>
-                      <p className="detail-p">Musician Detail</p>{" "}
+                    <Link to={`/detail-event/${musicianId && musicianId._id}`}>
+                      <p className="detail-event-p">Musician Detail</p>{" "}
                     </Link>
                   )}
                 </div>

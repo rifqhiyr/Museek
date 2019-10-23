@@ -1,6 +1,6 @@
 @import "theme_color";
 
-.detail .detail--div__title .detail-h1.detail {
+.detail-event .detail-event--div__title .detail-event-h1.detail-event {
   margin: auto;
   border-radius: 1rem;
   padding: 1%;
@@ -15,16 +15,19 @@
   }
 }
 
-.detail
-  .detail-row
-  .detail-col-right
-  .detail-content
-  .detail-div--content
-  .detail-p {
+.detail-event
+  .detail-event-row
+  .detail-event-col-right
+  .detail-event-content
+  .detail-event-div--content
+  .detail-event-p {
   color: $text-color;
 }
 
-.detail .detail-row .detail-col-right .detail-content.detail {
+.detail-event
+  .detail-event-row
+  .detail-event-col-right
+  .detail-event-content.detail-event {
   background-color: $bg-color;
   border-radius: 1rem;
   text-align: start;
@@ -46,7 +49,15 @@
   margin-bottom: 30px;
 }
 
-.detail .detail-row .detail-col-right .detail-content .detail-div--content.detail {
+.detail-event
+  .detail-event-row
+  .detail-event-col-right
+  .detail-event-content
+  .detail-event-div--content.detail-event {
   display: flex;
   justify-content: center;
+}
+
+.detail-event .detail-event-row .detail-event-col-right {
+  margin: 5rem 0;
 }

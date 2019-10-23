@@ -46,6 +46,12 @@
   }
 }
 
+.dropdown-menu {
+  z-index: 1000;
+  position: absolute;
+  top: 40px;
+}
+
 // desktop version
 @media (min-width: 992px) {
   .navigasi-a {
@@ -77,4 +83,10 @@
     padding-bottom: 5px;
     margin-bottom: -8px;
   }
+}
+
+.dropdown-menu {
+  z-index: 1000;
+  position: absolute;
+  top: 40px;
 }
