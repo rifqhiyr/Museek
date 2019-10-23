@@ -14,7 +14,9 @@ class ForgotPassword extends Component {
               alt=""
             />
             <h1 className="fp-heading">Forgot Your Password? </h1>
-            <p>No worries! Enter your email and we will send you a reset.</p>
+            <p style={{ color: "white" }}>
+              No worries! Enter your email and we will send you a reset.
+            </p>
           </div>
 
           <form className="fp-form">
@@ -25,9 +27,12 @@ class ForgotPassword extends Component {
               placeholder="type email"
             />
           </form>
-          <Link to="/forgotpassword">
-            <button className="btn tombol fp-btn">Send Request</button>
-          </Link>
+
+          <div className="dstyle-btn-group">
+            <Link to={`/forgotpassword`} className="btn dstyle-btn btn-profile">
+              SEND REQUEST
+            </Link>
+          </div>
         </div>
       </div>
     );

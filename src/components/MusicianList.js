@@ -85,11 +85,13 @@ class MusicianList extends Component {
 
 const mapStateToProps = state => {
   return {
-    musicians: state.listMusicianReducer.musicians
+    musicians: state.listMusicianReducer.musicians,
+    profile: state.profileReducer.profile,
+    event: state.eventReducer.event
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { getMusician }
-)(MusicianList);
+// export default connect(
+//   mapStateToProps,
+//   { getProfile, getMusician, getFav, addFav, getEventCustomer }
+// )(withRouter(MusicianList));

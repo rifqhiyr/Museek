@@ -36,6 +36,19 @@ export const getMusician = () => async dispatch => {
   }
 };
 
+export const getMusicianDetail = id => async dispatch => {
+  try {
+    const res = await axios.get(`https://museek.herokuapp.com/api/user/${id}`);
+    console.log(res.data);
+    dispatch({
+      type: "GET_MUSICIAN_DETAIL",
+      payload: res.data
+    });
+  } catch (error) {
+    console.log(error.response.data);
+  }
+};
+
 export const getProfile = () => async dispatch => {
   try {
     const res = await axios.get(
@@ -47,5 +60,55 @@ export const getProfile = () => async dispatch => {
     });
   } catch (error) {
     console.log(error.response.data);
+  }
+};
+
+export const getPrivacy = () => async dispatch => {
+  try {
+    const res = await axios.get(
+      "https://museek.herokuapp.com/api/privacy-policy"
+    );
+
+    console.log(res.data);
+    dispatch({
+      type: "GET_PRIVACY",
+      payload: res.data
+    });
+  } catch (error) {
+    console.log(error.response.data);
+  }
+};
+
+export const getFav = () => async dispatch => {
+  try {
+    const res = await axios.get("https://museek.herokuapp.com/api/favorite");
+
+    console.log(res.data);
+    dispatch({
+      type: "GET_FAV",
+      payload: res.data
+    });
+  } catch (error) {
+    console.log(error.response.data);
+  }
+};
+
+export const addFav = formData => async dispatch => {
+  try {
+    const res = await axios.post(
+      "https://museek.herokuapp.com/api/favorite",
+      formData
+    );
+    console.log(res.data);
+    dispatch({
+      type: "ADD_FAV_SUCCESS",
+      payload: res.data
+    });
+  } catch (error) {
+    console.log(error.response.data);
+    dispatch({
+      type: "ADD_FAV_FAIL",
+      payload: error.response.data
+    });
   }
 };

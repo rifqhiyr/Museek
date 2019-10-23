@@ -1,29 +1,49 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux";
+import { getPrivacy } from "../store/actions/dataAction";
 import "../assets/scss/Privacy.scss";
 
 class Privacy extends Component {
+  componentDidMount() {
+    this.props.getPrivacy();
+  }
   render() {
     return (
       <div className="container-fluid privacy">
         <div className="privacy-box">
-          <nav id="navbar-example2" className="navbar navbar-light bg-light">
+          <nav
+            id="navbar-example2"
+            className="navbar navbar-light"
+            style={{ backgroundColor: "#1a1a1d" }}
+          >
             <a className="navbar-brand" href="#a">
-              Privacy and Policies
+              <h4 style={{ color: "#ffffff" }}>Privacy and Policies</h4>
             </a>
-            <ul className="nav nav-pills">
+            {/* <ul className="nav nav-pills">
               <li className="nav-item">
-                <a className="nav-link" href="#Pengantar">
+                <a
+                  className="nav-link"
+                  href="#Pengantar"
+                  style={{ color: "#ffffff" }}
+                >
                   Pengantar
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#Tentang Kebijakan ini">
+                <a
+                  className="nav-link"
+                  href="#Tentang Kebijakan ini"
+                  style={{ color: "#ffffff" }}
+                >
                   Tentang Kebijakan ini
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#Hak">
+                <a
+                  className="nav-link"
+                  href="#Hak"
+                  style={{ color: "#ffffff" }}
+                >
                   Hak dan preferensi
                 </a>
               </li>
@@ -35,6 +55,7 @@ class Privacy extends Component {
                   role="button"
                   aria-haspopup="true"
                   aria-expanded="false"
+                  style={{ color: "#ffffff" }}
                 >
                   Dropdown
                 </a>
@@ -51,10 +72,17 @@ class Privacy extends Component {
                   </a>
                 </div>
               </li>
-            </ul>
+            </ul> */}
           </nav>
-          <div data-spy="scroll" data-target="#navbar-example2" data-offset={0}>
-            <h4 id="Pengantar">Pengantar</h4>
+          <div
+            data-spy="scroll"
+            data-target="#navbar-example2"
+            data-offset={0}
+            style={{ padding: "20px " }}
+          >
+            <h5 id="Tentang Kebijakan ini">About this Policies</h5>
+            <p>{this.props.privacy.content}</p>
+            {/* <h4 id="Pengantar">Pengantar</h4>
 
             <p>
               Thanks for choosing Spotify!
@@ -175,7 +203,7 @@ class Privacy extends Component {
             <h4 id="two">two</h4>
             <p>...</p>
             <h4 id="three">three</h4>
-            <p>...</p>
+            <p>...</p> */}
           </div>
         </div>
       </div>
@@ -183,4 +211,13 @@ class Privacy extends Component {
   }
 }
 
-export default Privacy;
+const mapStateToProps = state => {
+  return {
+    privacy: state.listMusicianReducer.privacy
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { getPrivacy }
+)(Privacy);

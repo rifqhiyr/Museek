@@ -1,5 +1,7 @@
 const initialState = {
   musicians: [],
+  musicianById: {},
+  privacy: {},
   sort: ""
 };
 
@@ -12,6 +14,18 @@ export default function(state = initialState, action) {
         ...state,
         ...payload,
         musicians: payload
+      };
+    case "GET_MUSICIAN_DETAIL":
+      return {
+        ...state,
+        ...payload,
+        musicianById: payload
+      };
+    case "GET_PRIVACY":
+      return {
+        ...state,
+        ...payload,
+        privacy: payload
       };
     case "BY_PRICE":
       return {

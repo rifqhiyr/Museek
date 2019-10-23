@@ -69,6 +69,14 @@ class ProfilePage extends Component {
                             {role === "musician" && (
                               <span>
                                 <p className="p-profile">
+                                  Genres:{" "}
+                                  {this.props.profile.genre &&
+                                    this.props.profile.genre
+                                      .toString()
+                                      .split(",")
+                                      .join(", ")}
+                                </p>
+                                <p className="p-profile">
                                   Skills:{" "}
                                   {this.props.profile.skill &&
                                     this.props.profile.skill
@@ -105,6 +113,14 @@ class ProfilePage extends Component {
                             </div>
                             {role === "customer" ? (
                               <span>
+                                <div className="dstyle-btn-group button-right">
+                                  <Link
+                                    to="/favorite"
+                                    className="btn dstyle-btn btn-profile"
+                                  >
+                                    FAVORITE
+                                  </Link>
+                                </div>
                                 <div className="dstyle-btn-group button-right">
                                   <Link
                                     to={`/bookinghistory=${this.props.profile._id}`}

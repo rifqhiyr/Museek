@@ -30,6 +30,7 @@ import EventSchedule from "./components/EventSchedule";
 import InvoiceHistory from "./components/InvoiceHistory";
 import BookingHistory from "./components/BookingHistory";
 import PageProfile from "./components/PageProfile";
+import Favorite from "./components/Favorite";
 
 class App extends Component {
   render() {
@@ -40,7 +41,7 @@ class App extends Component {
           <Route path="/" exact component={LandingPage} />
           <Route path="/homepage" exact component={HomePage} />
           <Route path="/about" exact component={About} />
-          <Route path="/detail" exact component={DetailComponent} />
+          <Route path="/detail/:id" exact component={DetailComponent} />
           <Route path="/edit" exact component={ProfileEdit} />
           <Route path="/profile" exact component={ProfilePage} />
           <Route exact path="/musicianpage" component={MusicianPage} />
@@ -62,6 +63,7 @@ class App extends Component {
           <Route path="/eventedit/:id" exact component={EventEdit} />
           <Route path="/eventschedule=:id" exact component={EventSchedule} />
           <Route path="/pageprofile" exact component={PageProfile} />
+          <Route path="/favorite" exact component={Favorite} />
           <Footer />
         </Router>
       </Provider>

@@ -23,7 +23,19 @@ class ProfileEdit extends Component {
     validationError: "",
     description: "",
     skills: [],
-    lists: ["Singer", "Guitar", "Drum", "Percussion", "Keyboard"]
+    lists: ["Singer", "Guitar", "Drum", "Percussion", "Keyboard"],
+    genres: [],
+    listGenre: [
+      "Jazz",
+      "Dangdut",
+      "Musical Theatre",
+      "Rock",
+      "Hip Hop",
+      "Classical",
+      "Country",
+      "Heavy Metal",
+      "Pop"
+    ]
   };
 
   componentDidMount() {
@@ -62,7 +74,8 @@ class ProfileEdit extends Component {
       city: this.state.city,
       country: this.state.country,
       description: this.state.description,
-      skill: this.state.skills
+      skill: this.state.skills,
+      genre: this.state.genres
     };
 
     this.props.editUser(formData);
@@ -102,6 +115,20 @@ class ProfileEdit extends Component {
     if (this.state.skills.includes(e.target.value) === true) {
       this.setState({
         skills: this.state.skills.filter(skill => skill !== e.target.value)
+      });
+    }
+  };
+
+  addgenre = e => {
+    if (this.state.genres.includes(e.target.value) === false) {
+      this.setState({
+        genres: [...this.state.genres, e.target.value]
+      });
+    }
+
+    if (this.state.genres.includes(e.target.value) === true) {
+      this.setState({
+        genres: this.state.genre.filter(genre => genre !== e.target.value)
       });
     }
   };
@@ -294,7 +321,7 @@ class ProfileEdit extends Component {
             )}
             {role === "customer" && (
               <div className="col-12 col-lg-6 edit-col-right respon-table">
-                <form className="edit-form edit-skill">
+                <form className="edit-form">
                   <p className="edit-p">Address</p>
                   <input
                     className="input-form"
@@ -345,7 +372,7 @@ class ProfileEdit extends Component {
             )}
             {role === "musician" && (
               <div className="col-12 col-lg-6 edit-col-right respon-table">
-                <form className="edit-form edit-skill">
+                <form className="edit-form">
                   <p className="edit-p">Price</p>
                   <input
                     className="input-form"
@@ -381,6 +408,27 @@ class ProfileEdit extends Component {
                           type="button"
                           value={list}
                           onClick={this.addskill}
+                        />
+                      );
+                    })}
+                  </div>
+                  <p className="edit-p">Genre</p>
+                  <input
+                    className="input-form"
+                    type="text"
+                    placeholder="Pick genre"
+                    value={this.state.genres.map(sk => {
+                      return sk;
+                    })}
+                  />
+                  <div className="skill-btn-box">
+                    {this.state.listGenre.map(list => {
+                      return (
+                        <input
+                          className="btn tombol skill-btn"
+                          type="button"
+                          value={list}
+                          onClick={this.addgenre}
                         />
                       );
                     })}
