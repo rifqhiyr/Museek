@@ -7,13 +7,13 @@
     .detail {
       .row {
         .detail--col-left {
-          height: 100%;
+          height: 45rem;
           padding: 2rem 1rem;
           box-shadow: 0.1rem 0.1rem 0.1rem $color-secondary-2-1;
 
           .detail--col-tittle {
             background-color: $color-primary-2;
-            width: 40%;
+            // width: 80%;
             padding: 0.3rem 0.2rem;
             border-top-right-radius: 4rem;
             border-bottom-right-radius: 4rem;
@@ -21,21 +21,22 @@
             .detail--col-tittle-header {
               text-align: start;
               text-transform: uppercase;
-              font-size: 2rem;
+              font-size: 1.4rem;
               margin: 0 0.8rem;
               color: $color-secondary-3;
+              width: 80%;
             }
           }
           .detail--col-box {
             .detail-p {
               padding: 0 1rem;
               .detail-sign {
-                font-size: 2rem;
+                font-size: 1.4rem;
                 margin: 0 0.5rem;
                 color: $color-primary-2;
               }
               .detail-sign-text {
-                font-size: 2rem;
+                font-size: 1.4rem;
                 margin: 0 0.5rem;
                 color: $color-primary-2;
               }
@@ -51,13 +52,14 @@
             flex-direction: row;
             margin: 1rem 0;
             .detail-fa {
-              font-size: 2rem;
+              font-size: 1.4rem;
               margin: 0 0.5rem;
               color: $color-primary-2;
             }
             .detail-sign-text {
               display: flex;
               flex-direction: row;
+              font-size: 1.4rem;
 
               .detail-sign-genre {
                 text-transform: uppercase;
@@ -74,6 +76,8 @@
             .detail-desc {
               padding: 2rem 0.5rem;
               box-shadow: 0.1rem 0.1rem 0.1rem $color-secondary-2-1;
+              width: 100%;
+              height: 18rem;
               .detail-desc-tittle {
                 color: $color-secondary-3;
                 text-transform: uppercase;

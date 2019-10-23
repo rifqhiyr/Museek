@@ -126,8 +126,8 @@ class Header extends Component {
                       my profile
                     </Link>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <Link class="dropdown-item" to="/edit">
-                        edit profile
+                      <Link class="dropdown-item" to="/pageprofile">
+                        see profile
                       </Link>
                       <div class="dropdown-divider">pantek</div>
                       <Link class="dropdown-item" to="/bookedlist">
