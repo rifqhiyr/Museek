@@ -21,56 +21,54 @@ class Filter extends Component {
                 </Link>
               </div>
             </div>
-
-            <div
-              className="product-sorting d-flex"
-              style={{ marginRight: "-600px" }}
-            >
-              <div className="sort-by-date d-flex align-items-center">
-                <p>Sort by</p>
-                <form action="#" method="get">
-                  <select
-                    value={this.props.sort}
-                    onChange={e =>
-                      this.props.sortMusicians(
-                        this.props.musicians,
-                        e.target.value
-                      )
-                    }
-                  >
-                    <option value="">Price</option>
-                    <option value="lowest">Lowest to highest</option>
-                    <option value="highest">Highest to lowest</option>
-                  </select>
-                </form>
+            <div style={{ display: "flex" }}>
+              <div className="product-sorting d-flex">
+                <div className="sort-by-date d-flex align-items-center">
+                  <p>Sort by</p>
+                  <form action="#" method="get">
+                    <select
+                      value={this.props.sort}
+                      onChange={e =>
+                        this.props.sortMusicians(
+                          this.props.musicians,
+                          e.target.value
+                        )
+                      }
+                    >
+                      <option value="">Price</option>
+                      <option value="lowest">Lowest to highest</option>
+                      <option value="highest">Highest to lowest</option>
+                    </select>
+                  </form>
+                </div>
               </div>
-            </div>
 
-            <div className="product-sorting d-flex">
-              <div className="sort-by-date d-flex align-items-center">
-                {/* <p>Sort by</p> */}
-                <form action="#" method="get">
-                  <select
-                    value={this.props.category}
-                    onChange={e =>
-                      this.props.filterMusicians(
-                        this.props.musicians,
-                        e.target.value
-                      )
-                    }
-                  >
-                    <option value="">All</option>
-                    <option value="Jazz">Jazz</option>
-                    <option value="Dangdut">Dangdut</option>
-                    <option value="Musical Theatre">Musical Theatre</option>
-                    <option value="Rock">Rock</option>
-                    <option value="Hip Hop">Hip Hop</option>
-                    <option value="Classical">Classical</option>
-                    <option value="Country">Country</option>
-                    <option value="Heavy Metal">Heavy Metal</option>
-                    <option value="Pop">Pop</option>
-                  </select>
-                </form>
+              <div className="product-sorting d-flex">
+                <div className="sort-by-date d-flex align-items-center">
+                  <p>Sort by</p>
+                  <form action="#" method="get">
+                    <select
+                      value={this.props.category}
+                      onChange={e =>
+                        this.props.filterMusicians(
+                          this.props.musicians,
+                          e.target.value
+                        )
+                      }
+                    >
+                      <option value="">All</option>
+                      <option value="Jazz">Jazz</option>
+                      <option value="Dangdut">Dangdut</option>
+                      <option value="Musical Theatre">Musical Theatre</option>
+                      <option value="Rock">Rock</option>
+                      <option value="Hip Hop">Hip Hop</option>
+                      <option value="Classical">Classical</option>
+                      <option value="Country">Country</option>
+                      <option value="Heavy Metal">Heavy Metal</option>
+                      <option value="Pop">Pop</option>
+                    </select>
+                  </form>
+                </div>
               </div>
             </div>
           </div>

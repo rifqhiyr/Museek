@@ -17,8 +17,7 @@ export default class Genre extends Component {
                   alt=""
                 />
                 <div className="service-genre-caption">
-                  <h1 className="service-category">Genre</h1>
-                  <p className="service-category-name">Dangdut</p>
+                  <h1 className="service-category">Classical</h1>
                 </div>
               </Link>
             </div>
@@ -30,8 +29,7 @@ export default class Genre extends Component {
                   alt=""
                 />
                 <div className="service-genre-caption">
-                  <h1 className="service-category">Genre</h1>
-                  <p className="service-category-name">Dangdut</p>
+                  <h1 className="service-category">Country</h1>
                 </div>
               </Link>
             </div>
@@ -43,8 +41,7 @@ export default class Genre extends Component {
                   alt=""
                 />
                 <div className="service-genre-caption">
-                  <h1 className="service-category">Genre</h1>
-                  <p className="service-category-name">Dangdut</p>
+                  <h1 className="service-category">Dangdut</h1>
                 </div>
               </Link>
             </div>
@@ -56,8 +53,7 @@ export default class Genre extends Component {
                   alt=""
                 />
                 <div className="service-genre-caption">
-                  <h1 className="service-category">Genre</h1>
-                  <p className="service-category-name">Dangdut</p>
+                  <h1 className="service-category">Rock</h1>
                 </div>
               </Link>
             </div>
@@ -69,8 +65,7 @@ export default class Genre extends Component {
                   alt=""
                 />
                 <div className="service-genre-caption">
-                  <h1 className="service-category">Genre</h1>
-                  <p className="service-category-name">Dangdut</p>
+                  <h1 className="service-category">Jazz</h1>
                 </div>
               </Link>
             </div>
@@ -82,8 +77,7 @@ export default class Genre extends Component {
                   alt=""
                 />
                 <div className="service-genre-caption">
-                  <h1 className="service-category">Genre</h1>
-                  <p className="service-category-name">Dangdut</p>
+                  <h1 className="service-category">Hip-Hop</h1>
                 </div>
               </Link>
             </div>

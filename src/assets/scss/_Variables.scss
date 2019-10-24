@@ -46,6 +46,11 @@ $color-dark-2: #ffa500;
   margin-bottom: -8px;
 }
 
+.Active {
+  text-decoration: none;
+  color: white;
+}
+
 @media (min-width: 992px) {
   .tombol {
     text-transform: uppercase;

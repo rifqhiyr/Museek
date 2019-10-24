@@ -98,8 +98,7 @@ class DetailComponent extends Component {
                     </span>
 
                     <div className="detail-sign-text">
-                      {this.props.musician.rating === undefined ||
-                      this.props.musician.rating === null ||
+                      {this.props.musician.rating &&
                       this.props.musician.rating.length === 0
                         ? "No rating"
                         : this.props.musician.rating}
