@@ -34,7 +34,10 @@ class ProfileEdit extends Component {
       "Classical",
       "Country",
       "Heavy Metal",
-      "Pop"
+      "Pop",
+      "Acoustic",
+      "RnB",
+      "Koplo"
     ]
   };
 
@@ -247,7 +250,7 @@ class ProfileEdit extends Component {
                     value={this.state.password}
                     onChange={this.handleChange}
                   />
-                  <p className="edit-p">Gender</p>
+                  {/* <p className="edit-p">Gender</p>
                   <div className="edit-gender">
                     <label>
                       <input
@@ -269,13 +272,13 @@ class ProfileEdit extends Component {
                       />{" "}
                       Female
                     </label>
-                  </div>
+                  </div> */}
 
                   <p className="edit-p">Address</p>
                   <input
                     className="input-form"
                     type="text"
-                    placeholder=" alamat"
+                    placeholder=" address"
                     name="address"
                     value={this.state.address}
                     onChange={this.handleChange}

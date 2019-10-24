@@ -49,7 +49,7 @@ class Header extends Component {
               </button>
               <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ml-auto">
-                  <li className="nav-item Active">
+                  <li className="nav-item Active ">
                     <Link
                       to="/about"
                       className="nav-link navigasi-a"
@@ -69,7 +69,7 @@ class Header extends Component {
                     </Link>
                   </li>
                 </ul>
-                <Link to="/signin">
+                <Link className="head-link" to="/signin">
                   <button className="btn btn-header">sign in</button>
                 </Link>
               </div>
@@ -174,7 +174,7 @@ class Header extends Component {
                     </li>
                   )}
                 </ul>
-                <Link to="/">
+                <Link className="head-link" to="/">
                   <button
                     onClick={this.handleSubmit}
                     className="btn btn-header"

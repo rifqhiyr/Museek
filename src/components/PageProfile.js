@@ -42,7 +42,11 @@ class PageProfile extends Component {
                   </figure>
                 </div>
                 <div className="profile-role">
-                  <h2 className="profile-role-h2">Musician</h2>
+                  {role === "musician" ? (
+                    <h2 className="profile-role-h2">Musician</h2>
+                  ) : (
+                    <h2 className="profile-role-h2">Customer</h2>
+                  )}
                 </div>
                 <div className="profile-desc">
                   <p className="profile-desc-text">
@@ -73,7 +77,7 @@ class PageProfile extends Component {
                   </div>
                   <p className="profile-p">{this.props.profile.email}</p>
                 </div>
-                <div className="profile-box">
+                {/* <div className="profile-box">
                   <div className="profile-box-tittle">
                     <span className="box-fa">
                       <i class="fa fa-venus-mars"></i>
@@ -81,7 +85,7 @@ class PageProfile extends Component {
                     <h3 className="profile-h3">gender</h3>
                   </div>
                   <p className="profile-p">{this.props.profile.gender}</p>
-                </div>
+                </div> */}
                 <div className="profile-box">
                   <div className="profile-box-tittle">
                     <span className="box-fa">
@@ -99,13 +103,15 @@ class PageProfile extends Component {
                     <div className="profile-box">
                       <div className="profile-box-tittle">
                         <span className="box-fa">
-                          <i class="fa fa-dollar"></i>
+                          <i class="fa fa-money"></i>
                         </span>
                         <h3 className="profile-h3">price/ hours</h3>
                       </div>
                       <p className="profile-p">
+                        Rp{" "}
                         {this.props.profile.price &&
                           Rupiah(this.props.profile.price)}
+                        ,00
                       </p>
                     </div>
                     <div className="profile-box">
