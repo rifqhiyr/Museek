@@ -1,0 +1,96 @@
+@import "theme_color";
+
+.main-content-wrapper .header-area {
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  position: relative;
+  z-index: 1;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 320px;
+  flex: 0 0 320px;
+  width: 320px;
+  max-width: 320px;
+  background-color: $bg-over;
+  padding: 60px 75px;
+}
+
+.main-content-wrapper .header-area .dstyle-nav li a {
+  font-size: 14px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  padding: 20px 0;
+  display: block;
+  line-height: 0.9;
+  color: $text-color;
+  font-weight: normal;
+}
+
+.main-content-wrapper .header-area .dstyle-nav li a:hover {
+  color: $head-button;
+}
+
+.main-content-wrapper .header-area .dstyle-nav li a::after {
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  width: 30px;
+  height: 3px;
+  position: absolute;
+  top: 50%;
+  margin-top: -1.5px;
+  left: -150px;
+  background-color: $head-button;
+  z-index: 10;
+  content: "";
+}
+
+.main-content-wrapper .header-area .cart-fav-search a {
+  display: block;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 15px 0;
+  color: $text-color;
+  line-height: 1;
+}
+
+.main-content-wrapper .header-area .cart-fav-search a:hover {
+  color: $head-button;
+}
+
+.dstyle-btn {
+  display: inline-block;
+  min-width: 160px;
+  height: 55px;
+  color: $bg-over;
+  border: none;
+  border-radius: 0;
+  padding: 0 7px;
+  font-size: 18px;
+  line-height: 56px;
+  background-color: $head-button;
+  font-weight: 400;
+}
+
+.dstyle-btn:hover {
+  background-color: $hover-color;
+}
+
+.responsive1 {
+  @media (max-width: 767.98px) {
+    display: none;
+  }
+}
+
+.main-content-wrapper .dstyle_product_area {
+  @media only screen and (max-width: 767px) {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+    padding-top: 20px;
+  }
+}
