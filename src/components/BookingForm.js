@@ -11,9 +11,9 @@ class BookingForm extends Component {
     dateEvent: "",
     duration: "",
     location: "",
-    category: "",
+    category: "Birthday",
     validationError: "",
-    musicianId: this.props.location.state.id,
+    musicianId: this.props.location.state.musicianId,
     eventList: ["Birthday", "Wedding", "Engagement", "Percussion", "Reunion"]
   };
 
@@ -30,7 +30,7 @@ class BookingForm extends Component {
     });
   };
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
 
     if (localStorage.token) {
@@ -48,13 +48,11 @@ class BookingForm extends Component {
           duration: this.state.duration,
           location: this.state.location,
           category: this.state.category,
-          musicianId:
-            this.props.location.state && this.props.location.state.musicianId
+          musicianId: this.state.musicianId
         };
-
         this.props.addEvent(formData);
         alert("Event booking have been saved");
-
+        await this.props.getEventCustomer(); //biar setelah pindah halaman, langsung reload
         this.props.history.push(`/bookedlist=${this.props.profile._id}`);
       }
     }

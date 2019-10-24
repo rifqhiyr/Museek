@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import setToken from "./../helpers/setToken";
-import { eventEdit } from "../store/actions/eventAction";
+import { eventEdit, getEventCustomer } from "../store/actions/eventAction";
 import { getProfile } from "../store/actions/dataAction";
 import propTypes from "prop-types";
 import "../assets/scss/ProfileEdit.scss";
@@ -33,7 +33,7 @@ class EventEdit extends Component {
     });
   }
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
 
     if (localStorage.token) {
@@ -48,6 +48,7 @@ class EventEdit extends Component {
     const id = this.props.match.params.id;
     this.props.eventEdit(formData, id);
     alert("Event data have been edited");
+    await this.props.getEventCustomer();
     this.props.history.push(`/bookedlist=${this.props.profile._id}`);
   };
 
@@ -129,5 +130,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { eventEdit, getProfile }
+  { eventEdit, getProfile, getEventCustomer }
 )(withRouter(EventEdit));

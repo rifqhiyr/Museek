@@ -33,7 +33,7 @@ class EventDetail extends Component {
           >
             <div className="col-12 col-lg-6 detail-event-col-right ">
               <div className="detail-event-content detail-event main-footer">
-                <h1 className="h-1">EVENT detail-event</h1>
+                <h1 className="h-1">EVENT DETAIL</h1>
 
                 <div className="detail-event-div--content">
                   <p className="detail-event-p">Status : {status}</p>

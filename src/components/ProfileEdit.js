@@ -438,7 +438,7 @@ class ProfileEdit extends Component {
             )}
           </div>
           <div className="edit-button profil">
-            <Link to="/profile">
+            <Link to="/pageprofile">
               <button className="btn dstyle-btn btn-profile">
                 BACK TO PROFILE
               </button>

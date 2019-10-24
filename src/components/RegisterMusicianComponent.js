@@ -40,7 +40,9 @@ class RegisterMusicianComponent extends Component {
         <div className="form">
           <h1 className="regis-heading">Daftar</h1>
           <div className="regis-as">
-            <h2 className="regis-title">musician</h2>
+            <h2 className="regis-title" style={{ color: "white" }}>
+              musician
+            </h2>
           </div>
 
           <form className="register-form">
@@ -80,7 +82,7 @@ class RegisterMusicianComponent extends Component {
 
             <p className="message">
               <Link to="/signin">
-                <span className="message-l">alrady have account?</span>
+                <span className="message-l">already have account?</span>
               </Link>
             </p>
           </form>

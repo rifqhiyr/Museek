@@ -1,18 +1,32 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { getMusicianDetail } from "../store/actions/dataAction";
+import setToken from "./../helpers/setToken";
+import { getProfile, getMusicianDetail } from "../store/actions/dataAction";
 import Rupiah from "./Rupiah";
 import Picture from "./Picture";
-
 import "../assets/scss/DetailComponent.scss";
 
 class DetailComponent extends Component {
-  componentDidMount() {
+  async componentDidMount() {
+    if (localStorage.token) {
+      setToken(localStorage.token);
+    }
+    await this.props.getProfile();
     const id = this.props.match.params.id;
     console.log(id);
     this.props.getMusicianDetail(id);
   }
+
+  handleAdd = id => {
+    const data = this.props.event.map(ev => ev.musicianId._id);
+    console.log(data);
+    if (data.indexOf(id) === -1) {
+      console.log("oke");
+    } else {
+      alert("musician has been added!");
+    }
+  };
 
   render() {
     return (
@@ -67,8 +81,8 @@ class DetailComponent extends Component {
                       </span>
                       <div>
                         <span className="detail-sign-text">
-                          {this.props.musician.address},
-                          {this.props.musician.city},
+                          {this.props.musician.address},{" "}
+                          {this.props.musician.city},{" "}
                           {this.props.musician.country}
                         </span>
                       </div>
@@ -126,14 +140,35 @@ class DetailComponent extends Component {
                   </div>
                   <div className="detail--col-box">
                     <div className="detail-desc">
-                      <h2 className="detail-desc-tittle">Description</h2>
-                      <p className="detail-desc-body">
+                      <h4
+                        className="detail-desc-tittle"
+                        style={{ color: "#dbcf21", fontWeight: "bolder" }}
+                      >
+                        Description
+                      </h4>
+                      <p
+                        className="detail-desc-body"
+                        style={{ color: "white", fontWeight: "bolder" }}
+                      >
                         {this.props.musician.description}
                       </p>
                     </div>
                   </div>
                   <div className="btn-tombol">
-                    <button className="btn tombol"> book now</button>
+                    <Link
+                      to={{
+                        pathname: "/bookingform",
+                        state: { musicianId: this.props.musician._id }
+                      }}
+                      // to="#"
+                      onClick={() => this.handleAdd(this.props.musician._id)}
+                      data-toggle="tooltip"
+                      data-placement="left"
+                      title="Add Event"
+                      style={{ margin: "10px" }}
+                    >
+                      <button className="btn tombol"> book now</button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -147,11 +182,12 @@ class DetailComponent extends Component {
 
 const mapStateToProps = state => {
   return {
-    musician: state.listMusicianReducer.musicianById
+    musician: state.listMusicianReducer.musicianById,
+    event: state.eventReducer.event
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getMusicianDetail }
+  { getProfile, getMusicianDetail }
 )(withRouter(DetailComponent));

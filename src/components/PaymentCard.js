@@ -22,7 +22,7 @@ class PaymentCard extends Component {
     console.log(filt);
 
     const prices = filt.reduce((tot, arr) => {
-      return tot + arr.musicianId && arr.musicianId.price;
+      return tot + arr.musicianId.price;
     }, 0);
 
     // const prices = this.props.event.reduce((tot, arr) => {

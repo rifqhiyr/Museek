@@ -140,33 +140,36 @@ class Header extends Component {
                         class="dropdown-menu "
                         aria-labelledby="navbarDropdown"
                       >
+                        <Link class="dropdown-item" to="/pageprofile">
+                          my profile
+                        </Link>
                         <Link
                           class="dropdown-item"
                           to={`/bookedlist=${this.props.profile._id}`}
                         >
                           booked list
                         </Link>
-                        <Link class="dropdown-item" to="/favorite">
-                          favorite
-                        </Link>
 
-                        <div class="dropdown-divider"></div>
+                        {/* <div class="dropdown-divider"></div> */}
                         <Link
                           class="dropdown-item"
                           to={`/invoice=${this.props.profile._id}`}
                         >
                           invoice
                         </Link>
+                        <Link class="dropdown-item" to="/favorite">
+                          favorite
+                        </Link>
                       </div>
                     </li>
                   ) : (
                     <li>
                       <Link
-                        to="/profile"
+                        to="/pageprofile"
                         className="nav-link navigasi-a"
                         href="#tentangkami"
                       >
-                        My profile<span className="sr-only">(current)</span>
+                        profile<span className="sr-only">(current)</span>
                       </Link>
                     </li>
                   )}

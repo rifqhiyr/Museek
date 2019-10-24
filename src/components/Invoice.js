@@ -59,7 +59,7 @@ class Invoice extends Component {
     console.log(filt);
 
     const sum = filt.reduce((tot, arr) => {
-      return tot + arr.musicianId && arr.musicianId.price;
+      return tot + arr.musicianId.price;
     }, 0);
 
     const { name, email, address, city, country } = this.props.profile;
@@ -134,7 +134,7 @@ class Invoice extends Component {
                         <tbody>{invoiceData}</tbody>
                       </table>
                     </div>
-                    <div>{noData.slice(0, 1)}</div>
+                    {/* <div>{noData.slice(0, 1)}</div> */}
                   </div>
                 </div>
                 <div className="row" style={{ justifyContent: "center" }}>

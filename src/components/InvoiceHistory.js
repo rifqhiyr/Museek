@@ -32,7 +32,7 @@ class InvoiceHistory extends Component {
   render() {
     const invoiceHistory = this.props.event.map(myevent => {
       return (
-        myevent.status === "acepted" && (
+        myevent.status === "accepted" && (
           <tr>
             <td className="font-cart wider" style={{ textAlign: "center" }}>
               <span>{myevent.musicianId.name}</span>
@@ -122,7 +122,7 @@ class InvoiceHistory extends Component {
                     </div>
                     <div className="dstyle-btn-group button-right mt-100">
                       <Link
-                        to={`/profile`}
+                        to={`/pageprofile`}
                         className="btn dstyle-btn btn-profile"
                       >
                         BACK TO PROFILE

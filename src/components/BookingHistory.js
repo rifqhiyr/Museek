@@ -122,7 +122,7 @@ class BookingHistory extends Component {
                     </div>
                     <div className="dstyle-btn-group button-right mt-100">
                       <Link
-                        to={`/profile`}
+                        to={`/pageprofile`}
                         className="btn dstyle-btn btn-profile"
                       >
                         BACK TO PROFILE

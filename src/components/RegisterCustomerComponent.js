@@ -40,7 +40,9 @@ class RegisterCustomerComponent extends Component {
         <div className="form">
           <h1 className="regis-heading">Daftar</h1>
           <div className="regis-as">
-            <h2 className="regis-title">customer</h2>
+            <h2 className="regis-title" style={{ color: "white" }}>
+              customer
+            </h2>
           </div>
 
           <form className="register-form" onSubmit={this.handleSubmit}>
@@ -78,7 +80,9 @@ class RegisterCustomerComponent extends Component {
             </button>
 
             <p className="message">
-              <Link to="/signin">sudah punya akun?</Link>
+              <Link to="/signin" style={{ color: "white" }}>
+                already have account?
+              </Link>
             </p>
           </form>
         </div>

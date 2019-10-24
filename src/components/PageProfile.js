@@ -18,7 +18,7 @@ class PageProfile extends Component {
   }
 
   render() {
-    // const { role } = this.props.profile;
+    const { role } = this.props.profile;
 
     return (
       <div className="profile-wrapper">
@@ -46,8 +46,9 @@ class PageProfile extends Component {
                 </div>
                 <div className="profile-desc">
                   <p className="profile-desc-text">
-                    <span className="desc-text-span">"..</span>
-                    {this.props.profile.description}.."
+                    <span className="desc-text-span">
+                      {role === "musician" && this.props.profile.description}
+                    </span>
                   </p>
                 </div>
               </div>
@@ -93,58 +94,80 @@ class PageProfile extends Component {
                     {this.props.profile.country}
                   </p>
                 </div>
-                <div className="profile-box">
-                  <div className="profile-box-tittle">
-                    <span className="box-fa">
-                      <i class="fa fa-dollar"></i>
-                    </span>
-                    <h3 className="profile-h3">price/ hours</h3>
+                {role === "musician" && (
+                  <div>
+                    <div className="profile-box">
+                      <div className="profile-box-tittle">
+                        <span className="box-fa">
+                          <i class="fa fa-dollar"></i>
+                        </span>
+                        <h3 className="profile-h3">price/ hours</h3>
+                      </div>
+                      <p className="profile-p">
+                        {this.props.profile.price &&
+                          Rupiah(this.props.profile.price)}
+                      </p>
+                    </div>
+                    <div className="profile-box">
+                      <div className="profile-box-tittle">
+                        <span className="box-fa">
+                          <i class="fa fa-play-circle"></i>
+                        </span>
+                        <h3 className="profile-h3">skill</h3>
+                      </div>
+                      <p className="profile-p">
+                        {this.props.profile.skill &&
+                          this.props.profile.skill
+                            .toString()
+                            .split(",")
+                            .join(", ")}
+                      </p>
+                    </div>
+                    <div className="profile-box">
+                      <div className="profile-box-tittle">
+                        <span className="box-fa">
+                          <i class="fa fa-music"></i>
+                        </span>
+                        <h3 className="profile-h3">Genre</h3>
+                      </div>
+                      <p className="profile-p">
+                        {this.props.profile.genre &&
+                          this.props.profile.genre
+                            .toString()
+                            .split(",")
+                            .join(", ")}
+                      </p>
+                    </div>
                   </div>
-                  <p className="profile-p">
-                    {this.props.profile.price &&
-                      Rupiah(this.props.profile.price)}
-                  </p>
-                </div>
-                <div className="profile-box">
-                  <div className="profile-box-tittle">
-                    <span className="box-fa">
-                      <i class="fa fa-play-circle"></i>
-                    </span>
-                    <h3 className="profile-h3">skill</h3>
-                  </div>
-                  <p className="profile-p">
-                    {this.props.profile.skill &&
-                      this.props.profile.skill
-                        .toString()
-                        .split(",")
-                        .join(", ")}
-                  </p>
-                </div>
-                <div className="profile-box">
-                  <div className="profile-box-tittle">
-                    <span className="box-fa">
-                      <i class="fa fa-music"></i>
-                    </span>
-                    <h3 className="profile-h3">Genre</h3>
-                  </div>
-                  <p className="profile-p">
-                    {this.props.profile.genre &&
-                      this.props.profile.genre
-                        .toString()
-                        .split(",")
-                        .join(", ")}
-                  </p>
-                </div>
+                )}
               </div>
             </div>
           </div>
           <div className="profile-btn">
-            <Link to={`/eventschedule=${this.props.profile._id}`}>
-              <button className="btn tombol p-btn">event schedule</button>
-            </Link>
-            <Link to="/edit">
-              <button className="btn tombol p-btn">edit profile</button>
-            </Link>
+            <span>
+              <Link to="/edit">
+                <button className="btn tombol p-btn">edit profile</button>
+              </Link>
+            </span>
+            {role === "customer" ? (
+              <span>
+                <Link to="/favorite">
+                  <button className="btn tombol p-btn">favorite</button>
+                </Link>
+                <Link to={`/bookinghistory=${this.props.profile._id}`}>
+                  <button className="btn tombol p-btn">booking history</button>
+                </Link>
+                <Link to={`/invoicehistory=${this.props.profile._id}`}>
+                  <button className="btn tombol p-btn">invoice history</button>
+                </Link>
+              </span>
+            ) : (
+              <span>
+                <Link to={`/eventschedule=${this.props.profile._id}`}>
+                  <button className="btn tombol p-btn">event schedule</button>
+                </Link>
+              </span>
+            )}
           </div>
         </div>
       </div>
