@@ -152,25 +152,35 @@ class PageProfile extends Component {
           <div className="profile-btn">
             <span>
               <Link to="/edit">
-                <button className="btn tombol p-btn">edit profile</button>
+                <button className="btn dstyle-btn btn-profile">
+                  EDIT PROFILE
+                </button>
               </Link>
             </span>
             {role === "customer" ? (
               <span>
                 <Link to="/favorite">
-                  <button className="btn tombol p-btn">favorite</button>
+                  <button className="btn dstyle-btn btn-profile">
+                    FAVORITE
+                  </button>
                 </Link>
                 <Link to={`/bookinghistory=${this.props.profile._id}`}>
-                  <button className="btn tombol p-btn">booking history</button>
+                  <button className="btn dstyle-btn btn-profile">
+                    BOOKING HISTORY
+                  </button>
                 </Link>
                 <Link to={`/invoicehistory=${this.props.profile._id}`}>
-                  <button className="btn tombol p-btn">invoice history</button>
+                  <button className="btn dstyle-btn btn-profile">
+                    INVOICE HISTORY
+                  </button>
                 </Link>
               </span>
             ) : (
               <span>
                 <Link to={`/eventschedule=${this.props.profile._id}`}>
-                  <button className="btn tombol p-btn">event schedule</button>
+                  <button className="btn dstyle-btn btn-profile">
+                    EVENT SCHEDULE
+                  </button>
                 </Link>
               </span>
             )}
