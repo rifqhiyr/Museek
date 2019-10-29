@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import setToken from "../helpers/setToken";
 import { getProfile } from "../store/actions/dataAction";
+import swal from "sweetalert";
 import "../assets/scss/Header.scss";
 import { logout } from "../store/actions/authAction";
 
@@ -17,8 +18,8 @@ class Header extends Component {
   handleSubmit = async e => {
     e.preventDefault();
     this.props.logout();
-    alert("Thank You for Coming MuSeek");
-    this.props.history.push("/logout");
+    swal("MuSeek says:", "Thank You for Coming MuSeek");
+    this.props.history.push("/");
   };
 
   render() {
