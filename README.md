@@ -1,6 +1,6 @@
 # MUSEEK
 
-> This project aims to make MUSEEK Web using Reat JS.
+> Platform to connect people who loves music and need musician for their event. Providing everyone who has musical skill to become a musician and to build a place for everyone who wants to book various group of talented musicians.
 
 ## Installation
 
@@ -24,7 +24,7 @@ $ yarn start
 
 ## Built With
 
-I used HTML, Bootstrap, and React JS in building this program
+I used HTML, Bootstrap, and React JS, Redux Thunk in building this program
 
 ## Contributing
 
