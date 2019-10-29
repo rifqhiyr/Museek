@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import setToken from "../helpers/setToken";
 import { getProfile } from "../store/actions/dataAction";
 import "../assets/scss/ProfilePage.scss";
+import "../assets/scss/ProfilePage.scss";
 import NewsLetter from "./NewsLetter";
 import Picture from "./Picture";
 import Rupiah from "./Rupiah";
@@ -77,7 +78,7 @@ class ProfilePage extends Component {
                                       .join(", ")}
                                 </p>
                                 <p className="p-profile">
-                                  Skills:{" "}
+                                  Instruments:{" "}
                                   {this.props.profile.skill &&
                                     this.props.profile.skill
                                       .toString()

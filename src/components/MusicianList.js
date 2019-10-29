@@ -12,6 +12,7 @@ import { getEventCustomer } from "../store/actions/eventAction";
 import Picture from "./Picture";
 import Rupiah from "./Rupiah";
 import "../assets/scss/MusicianList.scss";
+import "../assets/scss/HomePage.scss";
 
 class MusicianList extends Component {
   async componentDidMount() {

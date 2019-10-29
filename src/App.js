@@ -6,11 +6,9 @@ import store from "./store";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import LandingPage from "./components/LandingPage";
-import HomePage from "./components/HomePage";
 import About from "./components/About";
 import DetailComponent from "./components/DetailComponent";
 import ProfileEdit from "./components/ProfileEdit";
-import ProfilePage from "./components/ProfilePage";
 import MusicianPage from "./components/MusicianPage";
 import BookedList from "./components/BookedList";
 import BookingForm from "./components/BookingForm";
@@ -21,7 +19,6 @@ import Upload from "./components/Upload";
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
 import ForgotPassword from "./components/ForgotPassword";
-import Logout from "./components/Logout";
 import VerificationEmail from "./components/VerificationEmail";
 import Privacy from "./components/Privacy";
 import EventDetail from "./components/EventDetail";
@@ -39,11 +36,9 @@ class App extends Component {
         <Router>
           <Header />
           <Route path="/" exact component={LandingPage} />
-          <Route path="/homepage" exact component={HomePage} />
           <Route path="/about" exact component={About} />
           <Route path="/detail/:id" exact component={DetailComponent} />
           <Route path="/edit" exact component={ProfileEdit} />
-          <Route path="/profile" exact component={ProfilePage} />
           <Route exact path="/musicianpage" component={MusicianPage} />
           <Route exact path="/bookedlist=:id" component={BookedList} />
           <Route exact path="/bookinghistory=:id" component={BookingHistory} />
@@ -56,7 +51,6 @@ class App extends Component {
           <Route path="/signin" exact component={Signin} />
           <Route path="/signup" exact component={Signup} />
           <Route path="/forgotpassword" exact component={ForgotPassword} />
-          <Route path="/logout" exact component={Logout} />
           <Route path="/verification" exact component={VerificationEmail} />
           <Route path="/privacy" exact component={Privacy} />
           <Route path="/eventdetail/:id" exact component={EventDetail} />

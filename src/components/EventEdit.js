@@ -5,6 +5,7 @@ import setToken from "./../helpers/setToken";
 import { eventEdit, getEventCustomer } from "../store/actions/eventAction";
 import { getProfile } from "../store/actions/dataAction";
 import propTypes from "prop-types";
+import NewsLetter from "./NewsLetter";
 import "../assets/scss/ProfileEdit.scss";
 
 class EventEdit extends Component {
@@ -112,6 +113,7 @@ class EventEdit extends Component {
             </button>
           </div>
         </div>
+        <NewsLetter />
       </div>
     );
   }

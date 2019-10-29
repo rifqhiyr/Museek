@@ -1,5 +1,6 @@
 $color-primary: #ffee54;
-$color-primary-2: #dbcf21;
+// $color-primary-2: #dbcf21;
+$color-primary-2: #ffee54;
 
 $color-secondary-1: #1a1a1d;
 $color-secondary-2: #383838;
@@ -8,7 +9,8 @@ $color-secondary-3: #000000;
 
 $color-dark-1: #ffffff;
 $color-dark-1-1: #f5deb3;
-$color-dark-2: #ffa500;
+// $color-dark-2: #ffa500;
+$color-dark-2: rgba(134, 134, 134, 0.7);
 
 // utility
 .tombol {
@@ -22,6 +24,7 @@ $color-dark-2: #ffa500;
   border-radius: 20px;
   &:hover {
     background-color: $color-dark-2;
+    color: #ffffff;
     cursor: pointer;
   }
 }

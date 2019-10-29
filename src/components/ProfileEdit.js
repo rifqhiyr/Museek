@@ -170,7 +170,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="text"
-                    placeholder=" name"
+                    placeholder=" Name"
                     name="name"
                     value={this.state.name}
                     onChange={this.handleChange}
@@ -179,7 +179,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="email"
-                    placeholder=" email"
+                    placeholder=" E-mail"
                     name="email"
                     value={this.state.email}
                     onChange={this.handleChange}
@@ -188,7 +188,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="password"
-                    placeholder=" password"
+                    placeholder=" Password"
                     name="password"
                     value={this.state.password}
                     onChange={this.handleChange}
@@ -226,7 +226,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="text"
-                    placeholder=" name"
+                    placeholder=" Name"
                     name="name"
                     value={this.state.name}
                     onChange={this.handleChange}
@@ -235,7 +235,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="email"
-                    placeholder=" email"
+                    placeholder=" E-mail"
                     name="email"
                     value={this.state.email}
                     onChange={this.handleChange}
@@ -244,7 +244,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="password"
-                    placeholder=" password"
+                    placeholder=" Password"
                     name="password"
                     value={this.state.password}
                     onChange={this.handleChange}
@@ -277,7 +277,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="text"
-                    placeholder=" address"
+                    placeholder=" Address"
                     name="address"
                     value={this.state.address}
                     onChange={this.handleChange}
@@ -328,7 +328,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="text"
-                    placeholder=" alamat"
+                    placeholder=" Address"
                     name="address"
                     value={this.state.address}
                     onChange={this.handleChange}
@@ -379,7 +379,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="number"
-                    placeholder="price"
+                    placeholder="Price"
                     name="price"
                     value={this.state.price}
                     onChange={this.handleChange}
@@ -388,7 +388,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="text"
-                    placeholder=" description"
+                    placeholder=" Description"
                     name="description"
                     value={this.state.description}
                     onChange={this.handleChange}
@@ -418,7 +418,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="text"
-                    placeholder="Pick genre"
+                    placeholder="Pick Genre"
                     value={this.state.genres.map(sk => {
                       return sk;
                     })}
