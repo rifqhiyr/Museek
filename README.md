@@ -24,7 +24,7 @@ $ yarn start
 
 ## Built With
 
-I used HTML, Bootstrap, and React JS, Redux Thunk in building this program
+I used HTML, Bootstrap, React JS, and Redux Thunk in building this program
 
 ## Contributing
 
