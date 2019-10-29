@@ -31,7 +31,7 @@ class Signin extends Component {
       this.props.history.push("/");
     } else {
       console.log(this.props.isAuthenticated);
-      swal("MuSeek says:", "Invalid username or password", "warning");
+      swal("MuSeek says:", "Invalid username or password", "error");
     }
   };
   render() {

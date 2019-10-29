@@ -52,7 +52,7 @@ class App extends Component {
       swal("MuSeek says:", "uploading success", "success");
     } catch (error) {
       console.log("error", error.response.data);
-      swal("MuSeek says:", "uploading failed", "warning");
+      swal("MuSeek says:", "uploading failed", "error");
     }
   };
 
