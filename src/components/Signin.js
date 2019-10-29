@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { login } from "../store/actions/authAction";
 import { connect } from "react-redux";
+import swal from "sweetalert";
 import "../assets/scss/Signin.scss";
 
 class Signin extends Component {
@@ -30,7 +31,7 @@ class Signin extends Component {
       this.props.history.push("/");
     } else {
       console.log(this.props.isAuthenticated);
-      alert("Invalid username or password");
+      swal("MuSeek says:", "Invalid username or password", "warning");
     }
   };
   render() {

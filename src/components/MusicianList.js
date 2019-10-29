@@ -9,6 +9,7 @@ import {
   addFav
 } from "../store/actions/dataAction";
 import { getEventCustomer } from "../store/actions/eventAction";
+import swal from "sweetalert";
 import Picture from "./Picture";
 import Rupiah from "./Rupiah";
 import "../assets/scss/MusicianList.scss";
@@ -35,7 +36,7 @@ class MusicianList extends Component {
       // });
       console.log("oke");
     } else {
-      alert("musician has been added!");
+      swal("MuSeek says:", "musician had been added before!", "warning");
     }
   };
 
@@ -45,17 +46,25 @@ class MusicianList extends Component {
     }
 
     if (localStorage.token == null) {
-      return alert("Please login as a customer before adding favorite");
+      return swal(
+        "MuSeek says:",
+        "Please login as a customer before adding favorite",
+        "info"
+      );
     } else {
       if (this.props.profile.role === "musician") {
-        return alert("Please login as a customer before adding favorite");
+        return swal(
+          "MuSeek says:",
+          "Please login as a customer before adding favorite",
+          "info"
+        );
       } else {
         const formData = {
           customerId: this.props.profile._id,
           musicianId: id
         };
         this.props.addFav(formData);
-        alert("Musician have been saved to Favorite");
+        swal("MuSeek says:", "Musician has been saved to Favorite", "success");
       }
     }
   };

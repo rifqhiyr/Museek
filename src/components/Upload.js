@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
 import setToken from "../helpers/setToken";
 import "../assets/scss/Upload.scss";
 
@@ -26,7 +27,7 @@ class App extends Component {
 
   fileUploadHandler = async () => {
     if (this.state.selectedFile == null) {
-      return alert("you have not uploaded");
+      return swal("MuSeek says:", "you have not uploaded", "warning");
     }
 
     if (localStorage.token) {
@@ -48,10 +49,10 @@ class App extends Component {
         data
       );
       console.log(res.data);
-      alert("upload success");
+      swal("MuSeek says:", "uploading success", "success");
     } catch (error) {
       console.log("error", error.response.data);
-      alert("upload fail");
+      swal("MuSeek says:", "uploading failed", "warning");
     }
   };
 
@@ -62,7 +63,7 @@ class App extends Component {
     console.log(file.size);
     if (file.size > size) {
       err = file.type + "is too large, please pick a smaller file\n";
-      alert(err);
+      swal("MuSeek says:", err, "warning");
     }
     return true;
   };

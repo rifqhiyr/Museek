@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import setToken from "./../helpers/setToken";
 import { getProfile } from "../store/actions/dataAction";
 import { editUser } from "../store/actions/dataAction";
+import swal from "sweetalert";
 import Districts from "../assets/data/list_of_area/Districts";
 import Regencies from "../assets/data/list_of_area/regencies.json";
 import Provinces from "../assets/data/list_of_area/provinces.json";
@@ -81,7 +82,7 @@ class ProfileEdit extends Component {
     };
 
     this.props.editUser(formData);
-    alert("Musician data have been saved");
+    swal("MuSeek says:", "Musician data have been saved", "success");
     this.props.history.push("/upload");
   };
 
@@ -103,7 +104,7 @@ class ProfileEdit extends Component {
     };
 
     this.props.editUser(formData);
-    alert("Customer data have been saved");
+    swal("MuSeek says:", "Customer data have been saved", "success");
     this.props.history.push("/upload");
   };
 

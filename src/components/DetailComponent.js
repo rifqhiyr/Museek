@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import setToken from "./../helpers/setToken";
 import { getProfile, getMusicianDetail } from "../store/actions/dataAction";
+import swal from "sweetalert";
 import Rupiah from "./Rupiah";
 import Picture from "./Picture";
 import "../assets/scss/DetailComponent.scss";
@@ -25,7 +26,7 @@ class DetailComponent extends Component {
     if (data.indexOf(id) === -1) {
       console.log("oke");
     } else {
-      alert("musician has been added!");
+      swal("MuSeek says:", "musician had been added before!", "warning");
     }
   };
 
