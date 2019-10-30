@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import setToken from "./../helpers/setToken";
 import { getProfile } from "../store/actions/dataAction";
 import { addEvent, getEventCustomer } from "../store/actions/eventAction";
+import swal from "sweetalert";
 import "../assets/scss/BookingForm.scss";
 import NewsLetter from "./NewsLetter";
 
@@ -38,10 +39,18 @@ class BookingForm extends Component {
     }
 
     if (localStorage.token == null) {
-      return alert("Please login as a customer before adding event");
+      return swal(
+        "MuSeek says:",
+        "Please login as a customer before adding event",
+        "info"
+      );
     } else {
       if (this.props.profile.role === "musician") {
-        return alert("Please login as a customer before adding event");
+        return swal(
+          "MuSeek says:",
+          "Please login as a customer before adding event",
+          "info"
+        );
       } else {
         const formData = {
           dateEvent: this.state.dateEvent,
@@ -51,7 +60,7 @@ class BookingForm extends Component {
           musicianId: this.state.musicianId
         };
         this.props.addEvent(formData);
-        alert("Event booking have been saved");
+        swal("MuSeek says:", "Event booking has been saved", "success");
         await this.props.getEventCustomer(); //biar setelah pindah halaman, langsung reload
         this.props.history.push(`/bookedlist=${this.props.profile._id}`);
       }

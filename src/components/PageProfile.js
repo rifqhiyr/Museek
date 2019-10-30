@@ -8,6 +8,7 @@ import Picture from "./Picture";
 import Rupiah from "./Rupiah";
 
 import "../assets/scss/PageProfile.scss";
+import "../assets/scss/ProfilePage.scss";
 
 class PageProfile extends Component {
   componentDidMount() {
@@ -31,11 +32,6 @@ class PageProfile extends Component {
               <div class="col-left">
                 <div className="profile-pict">
                   <figure className="figure">
-                    {/* <img
-                        src={require("../assets/images/profile1.jpg")}
-                        className="figure-img img-fluid rounded"
-                        alt="..."
-                      /> */}
                     <Link to="/upload">
                       <Picture picture={this.props.profile} giveBorder={true} />
                     </Link>
@@ -49,11 +45,11 @@ class PageProfile extends Component {
                   )}
                 </div>
                 <div className="profile-desc">
-                  <p className="profile-desc-text">
+                  <h5 className="profile-desc-text">
                     <span className="desc-text-span">
                       {role === "musician" && this.props.profile.description}
                     </span>
-                  </p>
+                  </h5>
                 </div>
               </div>
             </div>
@@ -64,7 +60,7 @@ class PageProfile extends Component {
                     <span className="box-fa">
                       <i class="fa fa-id-card"></i>
                     </span>
-                    <h3 className="profile-h3">Full name</h3>
+                    <h3 className="profile-h3">Full Name</h3>
                   </div>
                   <p className="profile-p">{this.props.profile.name}</p>
                 </div>
@@ -73,25 +69,27 @@ class PageProfile extends Component {
                     <span className="box-fa">
                       <i class="fa fa-envelope"></i>
                     </span>
-                    <h3 className="profile-h3">email address</h3>
+                    <h3 className="profile-h3">Email Address</h3>
                   </div>
                   <p className="profile-p">{this.props.profile.email}</p>
                 </div>
-                {/* <div className="profile-box">
-                  <div className="profile-box-tittle">
-                    <span className="box-fa">
-                      <i class="fa fa-venus-mars"></i>
-                    </span>
-                    <h3 className="profile-h3">gender</h3>
+                {role === "customer" && (
+                  <div className="profile-box">
+                    <div className="profile-box-tittle">
+                      <span className="box-fa">
+                        <i class="fa fa-venus-mars"></i>
+                      </span>
+                      <h3 className="profile-h3">gender</h3>
+                    </div>
+                    <p className="profile-p">{this.props.profile.gender}</p>
                   </div>
-                  <p className="profile-p">{this.props.profile.gender}</p>
-                </div> */}
+                )}
                 <div className="profile-box">
                   <div className="profile-box-tittle">
                     <span className="box-fa">
                       <i class="fa fa-map-marker"></i>
                     </span>
-                    <h3 className="profile-h3">address</h3>
+                    <h3 className="profile-h3">Address</h3>
                   </div>
                   <p className="profile-p">
                     {this.props.profile.address}, {this.props.profile.city},{" "}
@@ -105,7 +103,7 @@ class PageProfile extends Component {
                         <span className="box-fa">
                           <i class="fa fa-money"></i>
                         </span>
-                        <h3 className="profile-h3">price/ hours</h3>
+                        <h3 className="profile-h3">Price/ event</h3>
                       </div>
                       <p className="profile-p">
                         Rp{" "}
@@ -119,7 +117,7 @@ class PageProfile extends Component {
                         <span className="box-fa">
                           <i class="fa fa-play-circle"></i>
                         </span>
-                        <h3 className="profile-h3">skill</h3>
+                        <h3 className="profile-h3">Instruments</h3>
                       </div>
                       <p className="profile-p">
                         {this.props.profile.skill &&
@@ -152,25 +150,35 @@ class PageProfile extends Component {
           <div className="profile-btn">
             <span>
               <Link to="/edit">
-                <button className="btn tombol p-btn">edit profile</button>
+                <button className="btn dstyle-btn btn-profile">
+                  EDIT PROFILE
+                </button>
               </Link>
             </span>
             {role === "customer" ? (
               <span>
                 <Link to="/favorite">
-                  <button className="btn tombol p-btn">favorite</button>
+                  <button className="btn dstyle-btn btn-profile">
+                    FAVORITE
+                  </button>
                 </Link>
                 <Link to={`/bookinghistory=${this.props.profile._id}`}>
-                  <button className="btn tombol p-btn">booking history</button>
+                  <button className="btn dstyle-btn btn-profile">
+                    BOOKING HISTORY
+                  </button>
                 </Link>
                 <Link to={`/invoicehistory=${this.props.profile._id}`}>
-                  <button className="btn tombol p-btn">invoice history</button>
+                  <button className="btn dstyle-btn btn-profile">
+                    INVOICE HISTORY
+                  </button>
                 </Link>
               </span>
             ) : (
               <span>
                 <Link to={`/eventschedule=${this.props.profile._id}`}>
-                  <button className="btn tombol p-btn">event schedule</button>
+                  <button className="btn dstyle-btn btn-profile">
+                    EVENT SCHEDULE
+                  </button>
                 </Link>
               </span>
             )}

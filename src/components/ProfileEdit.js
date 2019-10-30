@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import setToken from "./../helpers/setToken";
 import { getProfile } from "../store/actions/dataAction";
 import { editUser } from "../store/actions/dataAction";
+import swal from "sweetalert";
 import Districts from "../assets/data/list_of_area/Districts";
 import Regencies from "../assets/data/list_of_area/regencies.json";
 import Provinces from "../assets/data/list_of_area/provinces.json";
@@ -72,7 +73,6 @@ class ProfileEdit extends Component {
       email: this.state.email,
       password: this.state.password,
       price: this.state.price,
-      gender: this.state.gender,
       address: this.state.address,
       city: this.state.city,
       country: this.state.country,
@@ -82,7 +82,7 @@ class ProfileEdit extends Component {
     };
 
     this.props.editUser(formData);
-    alert("Musician data have been saved");
+    swal("MuSeek says:", "Musician data have been saved", "success");
     this.props.history.push("/upload");
   };
 
@@ -104,7 +104,7 @@ class ProfileEdit extends Component {
     };
 
     this.props.editUser(formData);
-    alert("Customer data have been saved");
+    swal("MuSeek says:", "Customer data have been saved", "success");
     this.props.history.push("/upload");
   };
 
@@ -171,7 +171,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="text"
-                    placeholder=" name"
+                    placeholder=" Name"
                     name="name"
                     value={this.state.name}
                     onChange={this.handleChange}
@@ -180,7 +180,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="email"
-                    placeholder=" email"
+                    placeholder=" E-mail"
                     name="email"
                     value={this.state.email}
                     onChange={this.handleChange}
@@ -189,7 +189,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="password"
-                    placeholder=" password"
+                    placeholder=" Password"
                     name="password"
                     value={this.state.password}
                     onChange={this.handleChange}
@@ -200,7 +200,7 @@ class ProfileEdit extends Component {
                       <input
                         className="input-radio"
                         type="radio"
-                        name="male"
+                        name="gender"
                         value="male"
                         onChange={this.onSiteChanged}
                       />{" "}
@@ -210,7 +210,7 @@ class ProfileEdit extends Component {
                       <input
                         className="input-radio"
                         type="radio"
-                        name="female"
+                        name="gender"
                         value="female"
                         onChange={this.onSiteChanged}
                       />{" "}
@@ -227,7 +227,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="text"
-                    placeholder=" name"
+                    placeholder=" Name"
                     name="name"
                     value={this.state.name}
                     onChange={this.handleChange}
@@ -236,7 +236,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="email"
-                    placeholder=" email"
+                    placeholder=" E-mail"
                     name="email"
                     value={this.state.email}
                     onChange={this.handleChange}
@@ -245,7 +245,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="password"
-                    placeholder=" password"
+                    placeholder=" Password"
                     name="password"
                     value={this.state.password}
                     onChange={this.handleChange}
@@ -278,7 +278,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="text"
-                    placeholder=" address"
+                    placeholder=" Address"
                     name="address"
                     value={this.state.address}
                     onChange={this.handleChange}
@@ -329,7 +329,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="text"
-                    placeholder=" alamat"
+                    placeholder=" Address"
                     name="address"
                     value={this.state.address}
                     onChange={this.handleChange}
@@ -380,7 +380,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="number"
-                    placeholder="price"
+                    placeholder="Price"
                     name="price"
                     value={this.state.price}
                     onChange={this.handleChange}
@@ -389,16 +389,16 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="text"
-                    placeholder=" description"
+                    placeholder=" Description"
                     name="description"
                     value={this.state.description}
                     onChange={this.handleChange}
                   />
-                  <p className="edit-p">Skill</p>
+                  <p className="edit-p">Instruments</p>
                   <input
                     className="input-form"
                     type="text"
-                    placeholder="Pick skill"
+                    placeholder="Pick Instruments"
                     value={this.state.skills.map(sk => {
                       return sk;
                     })}
@@ -419,7 +419,7 @@ class ProfileEdit extends Component {
                   <input
                     className="input-form"
                     type="text"
-                    placeholder="Pick genre"
+                    placeholder="Pick Genre"
                     value={this.state.genres.map(sk => {
                       return sk;
                     })}

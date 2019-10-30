@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { register } from "../store/actions/authAction";
+import swal from "sweetalert";
 import propTypes from "prop-types";
 import "../assets/scss/RegisterComponent.scss";
 
@@ -30,7 +31,7 @@ class RegisterCustomerComponent extends Component {
     };
 
     this.props.register(formData);
-    alert("You have been registered..");
+    swal("MuSeek says:", "You have been registered..", "success");
     this.props.history.push("/signin");
   };
 

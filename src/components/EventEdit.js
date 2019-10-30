@@ -4,7 +4,9 @@ import { connect } from "react-redux";
 import setToken from "./../helpers/setToken";
 import { eventEdit, getEventCustomer } from "../store/actions/eventAction";
 import { getProfile } from "../store/actions/dataAction";
+import swal from "sweetalert";
 import propTypes from "prop-types";
+import NewsLetter from "./NewsLetter";
 import "../assets/scss/ProfileEdit.scss";
 
 class EventEdit extends Component {
@@ -47,7 +49,7 @@ class EventEdit extends Component {
     };
     const id = this.props.match.params.id;
     this.props.eventEdit(formData, id);
-    alert("Event data have been edited");
+    swal("MuSeek says:", "Event data have been edited", "success");
     await this.props.getEventCustomer();
     this.props.history.push(`/bookedlist=${this.props.profile._id}`);
   };
@@ -112,6 +114,7 @@ class EventEdit extends Component {
             </button>
           </div>
         </div>
+        <NewsLetter />
       </div>
     );
   }
