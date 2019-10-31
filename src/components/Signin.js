@@ -37,39 +37,102 @@ class Signin extends Component {
   render() {
     return (
       <div>
-        <div className="container login-page">
-          <div className="form">
-            <h1 className="signin-heading">Sign in</h1>
-            <form className="login-form">
-              <input
-                className="signin-input"
-                type="email"
-                placeholder="email"
-                name="email"
-                value={this.state.email}
-                onChange={this.handleChange}
-              />
-              <input
-                className="signin-input"
-                type="password"
-                placeholder="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.handleChange}
-              />
-
-              <button className="signin-btn" onClick={this.handleSubmit}>
-                Masuk
-              </button>
-              <p className="message">
-                <Link to="/forgotpassword">
-                  <span className="message-l">forgot password</span>
-                </Link>
-                <Link to="/signup">
-                  <span className="message-l">not have account yet?</span>
-                </Link>
-              </p>
-            </form>
+        <div className="r-signup--wrapper">
+          <div className="container">
+            <div className="r-signup">
+              <div className="row">
+                <div className="col-12 col-md-6 col-lg-6 p-0">
+                  <div className="r-col-left">
+                    <div className="r-img">
+                      <span className="r-signup-span">
+                        <i className="fa fa-user-plus"></i>
+                      </span>
+                    </div>
+                    <h2 className="r-h2">
+                      Get accsess to your orders, wishlist and recomendations
+                    </h2>
+                    <div className="r-signup-btn">
+                      <Link to="/signup">
+                        <button className="btn tombol"> sign up</button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-12 col-md-6 col-lg-6 p-0">
+                  <div className="r-col-right">
+                    <div className="r-img">
+                      <img
+                        className="r-logo"
+                        src={require("../assets/images/logo.png")}
+                        alt=""
+                      />
+                    </div>
+                    <form className="r-signin--form">
+                      <div className="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input
+                          type="email"
+                          className="form-control"
+                          id="exampleInputEmail1"
+                          aria-describedby="emailHelp"
+                          placeholder="Enter email"
+                          name="email"
+                          value={this.state.email}
+                          onChange={this.handleChange}
+                        />
+                        <small id="emailHelp" className="form-text text-muted">
+                          We'll never share your email with anyone else.
+                        </small>
+                      </div>
+                      <div className="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input
+                          type="password"
+                          className="form-control"
+                          id="exampleInputPassword1"
+                          placeholder="Password"
+                          name="password"
+                          value={this.state.password}
+                          onChange={this.handleChange}
+                        />
+                      </div>
+                      <div
+                        style={{
+                          margin: "1rem 0",
+                          display: "flex",
+                          justifyContent: "space-between"
+                        }}
+                        className="form-check"
+                      >
+                        <input
+                          type="checkbox"
+                          className="form-check-input"
+                          id="exampleCheck1"
+                        />
+                        <label className="form-check-label" for="exampleCheck1">
+                          remember me
+                        </label>
+                        <Link
+                          style={{ fontSize: "1.1rem", color: "white" }}
+                          to="/forgotpassword"
+                        >
+                          forgot password
+                        </Link>
+                      </div>
+                      <div className="r-signup-btn">
+                        <button
+                          type="submit"
+                          className="btn tombol r-signup-btn"
+                          onClick={this.handleSubmit}
+                        >
+                          Sign in
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
