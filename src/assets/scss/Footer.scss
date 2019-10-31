@@ -1,6 +1,7 @@
 @import "./Variables";
 
 .main-footer {
+  position: relative;
   background-color: $color-secondary-1;
   background-image: -webkit-linear-gradient(
     -28deg,
