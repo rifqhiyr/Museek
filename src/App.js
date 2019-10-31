@@ -48,7 +48,7 @@ class App extends Component {
           <Route path="/registermusician" exact component={RegisterMusician} />
           <Route path="/registercustomer" exact component={RegisterCustomer} />
           <Route path="/upload" exact component={Upload} />
-          <Route path="/signin" exact component={Signin} />
+          <Route path="/Signin" exact component={Signin} />
           <Route path="/signup" exact component={Signup} />
           <Route path="/forgotpassword" exact component={ForgotPassword} />
           <Route path="/verification" exact component={VerificationEmail} />
