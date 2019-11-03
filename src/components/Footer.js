@@ -5,7 +5,7 @@ import "../assets/scss/Footer.scss";
 class Footer extends Component {
   render() {
     return (
-      <footer className="jumbotron jumbotron-fluid main-footer">
+      <footer className="main-footer">
         <div className="container footer-box">
           <div className="row footer-row">
             <div className="col-12 col-lg-3 footer-col">

@@ -28,6 +28,7 @@ import InvoiceHistory from "./components/InvoiceHistory";
 import BookingHistory from "./components/BookingHistory";
 import PageProfile from "./components/PageProfile";
 import Favorite from "./components/Favorite";
+import BookForm from "./components/BookForm";
 
 class App extends Component {
   render() {
@@ -43,6 +44,7 @@ class App extends Component {
           <Route exact path="/bookedlist=:id" component={BookedList} />
           <Route exact path="/bookinghistory=:id" component={BookingHistory} />
           <Route exact path="/bookingform" component={BookingForm} />
+          <Route exact path="/bookform" component={BookForm} />
           <Route path="/invoice=:id" exact component={Invoice} />
           <Route path="/invoicehistory=:id" exact component={InvoiceHistory} />
           <Route path="/registermusician" exact component={RegisterMusician} />

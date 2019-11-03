@@ -1,7 +1,8 @@
 @import "./Variables";
 
 .main-footer {
-  position: relative;
+  position: absolute;
+  width: 100%;
   background-color: $color-secondary-1;
   background-image: -webkit-linear-gradient(
     -28deg,
@@ -17,7 +18,6 @@
     #292423 60%,
     #292423 60%
   );
-  margin: auto;
   .footer-box {
     margin: auto;
 
