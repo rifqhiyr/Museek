@@ -1,8 +1,83 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import setToken from "./../helpers/setToken";
+import { getProfile } from "../store/actions/dataAction";
+import { addEvent, getEventCustomer } from "../store/actions/eventAction";
+import swal from "sweetalert";
+import NewsLetter from "./NewsLetter";
+
 import "../assets/scss/BookForm.scss";
 
 class BookForm extends Component {
+  state = {
+    dateEvent: "",
+    duration: "",
+    location: "",
+    category: "Birthday",
+    validationError: "",
+    musicianId: this.props.location.state.musicianId,
+    eventList: ["Birthday", "Wedding", "Engagement", "Percussion", "Reunion"]
+  };
+
+  componentDidMount() {
+    if (localStorage.token) {
+      setToken(localStorage.token);
+    }
+    this.props.getProfile();
+  }
+
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  handleSubmit = async e => {
+    e.preventDefault();
+
+    if (localStorage.token) {
+      setToken(localStorage.token);
+    }
+
+    if (localStorage.token == null) {
+      return swal(
+        "MuSeek says:",
+        "Please login as a customer before adding event",
+        "info"
+      );
+    } else {
+      if (this.props.profile.role === "musician") {
+        return swal(
+          "MuSeek says:",
+          "Please login as a customer before adding event",
+          "info"
+        );
+      } else {
+        const formData = {
+          dateEvent: this.state.dateEvent,
+          duration: this.state.duration,
+          location: this.state.location,
+          category: this.state.category,
+          musicianId: this.state.musicianId
+        };
+        this.props.addEvent(formData);
+        swal("MuSeek says:", "Event booking has been saved", "success");
+        await this.props.getEventCustomer(); //biar setelah pindah halaman, langsung reload
+        this.props.history.push(`/bookedlist=${this.props.profile._id}`);
+      }
+    }
+  };
+
   render() {
+    console.log(this.props.location);
+
+    const dataList = this.state.eventList.map(event => {
+      return (
+        <option key={event} value={event}>
+          {event}
+        </option>
+      );
+    });
     return (
       <div className="book-wrapper">
         <div className="container">
@@ -13,29 +88,25 @@ class BookForm extends Component {
                   <h2 className="r-book-title">Add Event</h2>
                   <form className="r-form">
                     <div className="form-row">
-                      <div className="form-group col-md-6">
-                        <label style={{ color: "black" }} htmlFor="inputState">
-                          Event Category
-                        </label>
-                        <select id="inputState" className="form-control">
-                          <option selected>Choose event...</option>
-                          <option>Wedding</option>
-                          <option>Birthday</option>
-                          <option>Engagement</option>
-                          <option>Percussion</option>
-                          <option>Reunion</option>
-                        </select>
-                      </div>
-                      <div className="form-group col-md-6">
+                      <div className="form-group col-md-12">
                         <label style={{ color: "black" }} htmlFor="inputState">
                           Category
                         </label>
-                        <select id="inputState" className="form-control">
-                          <option selected>choose Category...</option>
-                          <option>Jazz</option>
-                          <option>Rock</option>
-                          <option>Dangdut</option>
-                          <option>Classical</option>
+                        <select
+                          id="inputState"
+                          className="form-control"
+                          value={this.state.category}
+                          onChange={e =>
+                            this.setState({
+                              category: e.target.value,
+                              validationError:
+                                e.target.value === ""
+                                  ? "You must select event"
+                                  : ""
+                            })
+                          }
+                        >
+                          {dataList}
                         </select>
                       </div>
                     </div>
@@ -49,6 +120,9 @@ class BookForm extends Component {
                           id="inputState"
                           className="form-control"
                           type="date"
+                          name="dateEvent"
+                          value={this.state.dateEvent}
+                          onChange={this.handleChange}
                         />
                       </div>
 
@@ -60,6 +134,9 @@ class BookForm extends Component {
                           id="inputState"
                           className="form-control"
                           type="time"
+                          name="duration"
+                          value={this.state.duration}
+                          onChange={this.handleChange}
                         />
                       </div>
 
@@ -71,6 +148,9 @@ class BookForm extends Component {
                           id="inputState"
                           className="form-control"
                           type="time"
+                          name="duration"
+                          value={this.state.duration}
+                          onChange={this.handleChange}
                         />
                       </div>
                     </div>
@@ -84,6 +164,9 @@ class BookForm extends Component {
                         className="form-control"
                         id="inputAddress2"
                         placeholder="Apartment, studio, or floor"
+                        name="location"
+                        value={this.state.location}
+                        onChange={this.handleChange}
                       />
                     </div>
                     <div className="form-row">
@@ -149,13 +232,17 @@ class BookForm extends Component {
                     >
                       means you're okay with our{" "}
                       <span className="r-book-span">terms of service </span> and
-                      our <span className="r-book-span">Privacy policy</span>
+                      our <span className="r-book-span">privacy policy</span>
                     </label>
                   </div>
 
                   <div className="r-book-btn">
-                    <button type="submit" className="btn tombol">
-                      Sign in
+                    <button
+                      type="submit"
+                      className="btn tombol"
+                      onClick={this.handleSubmit}
+                    >
+                      Add Event
                     </button>
                   </div>
                 </div>
@@ -163,9 +250,19 @@ class BookForm extends Component {
             </div>
           </div>
         </div>
+        <NewsLetter />
       </div>
     );
   }
 }
 
-export default BookForm;
+const mapStateToProps = state => {
+  return {
+    profile: state.profileReducer.profile
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { getProfile, addEvent, getEventCustomer }
+)(BookForm);

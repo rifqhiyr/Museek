@@ -29,7 +29,7 @@ class MusicianList extends Component {
     console.log(data);
     if (data.indexOf(id) === -1) {
       // this.props.history.push({
-      //   pathname: `/bookingform/`,
+      //   pathname: `/bookform/`,
       //   state: {
       //     id: id
       //   }
@@ -127,7 +127,7 @@ class MusicianList extends Component {
                 <div className="cart">
                   <Link
                     to={{
-                      pathname: "/bookingform",
+                      pathname: "/bookform",
                       state: { musicianId: musician._id }
                     }}
                     // to="#"

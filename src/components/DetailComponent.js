@@ -164,7 +164,7 @@ class DetailComponent extends Component {
 
                       <Link
                         to={{
-                          pathname: "/bookingform",
+                          pathname: "/bookform",
                           state: { musicianId: this.props.musician._id }
                         }}
                         // to="#"

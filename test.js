@@ -45,7 +45,7 @@ const listMusician = currentCards.map(musician => {
             <div className="cart">
               <Link
                 to={{
-                  pathname: "/bookingform",
+                  pathname: "/bookform",
                   state: { musicianId: musician._id }
                 }}
                 // to="#"
