@@ -45,7 +45,10 @@ class PageProfile extends Component {
                   )}
                 </div>
                 <div className="profile-desc">
-                  <h5 className="profile-desc-text">
+                  <h5
+                    className="profile-desc-text"
+                    style={{ textAlign: "justify" }}
+                  >
                     <span className="desc-text-span">
                       {role === "musician" && this.props.profile.description}
                     </span>

@@ -104,24 +104,26 @@ class MusicianList extends Component {
               <div className="product-meta-data">
                 <div className="line" />
                 <Link to={`/detail/${musician._id}`}>
-                  <h6>{musician.name}</h6>
+                  <h6 className="h6">{musician.name}</h6>
                   {musician.price ? (
-                    <h6>Start from Rp {Rupiah(musician.price)},00/ Event</h6>
+                    <h6 className="h6">
+                      Start from Rp {Rupiah(musician.price)},00/ Event
+                    </h6>
                   ) : (
-                    <h6>
+                    <h6 className="h6">
                       <i>Price is not set by musician</i>
                     </h6>
                   )}
                   {/* {musician.skill.map((skill, index) => {
-                    return <h6 key="index">{(index ? "," : "") + skill}</h6>;
+                    return <h6 className="h6" key="index">{(index ? "," : "") + skill}</h6>;
                   })} */}
-                  {/* <h6>
+                  {/* <h6 className="h6">
                     {musician.skill
                       .toString()
                       .split(",")
                       .join(", ")}
                   </h6> */}
-                  <h6>{musician.city}</h6>
+                  <h6 className="h6">{musician.city}</h6>
                 </Link>
               </div>
 
