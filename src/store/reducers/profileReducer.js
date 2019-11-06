@@ -1,7 +1,8 @@
 const initialState = {
   profile: {},
   errors: [],
-  fav: []
+  fav: [],
+  loading: true
 };
 
 export default function(state = initialState, action) {
@@ -39,6 +40,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         errors: payload
+      };
+    case "DELETE_FAV":
+      return {
+        ...state,
+        ...payload,
+        fav: state.event.filter(favRemain => favRemain._id !== payload)
       };
     default:
       return state;

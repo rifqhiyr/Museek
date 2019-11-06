@@ -66,7 +66,7 @@ class EventSchedule extends Component {
             <span>{schedule.category}</span>
           </td>
           <td className="font-cart" style={{ textAlign: "center" }}>
-            <span>{new Date(schedule.dateEvent).toLocaleString()}</span>
+            <span>{new Date(schedule.dateEvent).toLocaleDateString()}</span>
           </td>
           <td className="font-cart wider" style={{ textAlign: "center" }}>
             <span>

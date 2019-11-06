@@ -4,7 +4,9 @@ const initialState = {
   privacy: {},
   sort: "",
   category: "",
-  filteredMusicians: []
+  filteredMusicians: [],
+  loading: true,
+  loading2: true
 };
 
 export default function(state = initialState, action) {
@@ -16,13 +18,15 @@ export default function(state = initialState, action) {
         ...state,
         ...payload,
         musicians: payload,
-        filteredMusicians: payload
+        filteredMusicians: payload,
+        loading: false
       };
     case "GET_MUSICIAN_DETAIL":
       return {
         ...state,
         ...payload,
-        musicianById: payload
+        musicianById: payload,
+        loading2: false
       };
     case "GET_PRIVACY":
       return {

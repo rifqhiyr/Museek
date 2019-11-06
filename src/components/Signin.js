@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import { login } from "../store/actions/authAction";
 import { connect } from "react-redux";
 import swal from "sweetalert";
+import Loader from "./Loader";
 import "../assets/scss/Signin.scss";
 
 class Signin extends Component {
@@ -10,6 +11,12 @@ class Signin extends Component {
     email: "",
     password: ""
   };
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.props.login();
+    }, 2000);
+  }
 
   handleChange = e => {
     this.setState({
@@ -35,6 +42,7 @@ class Signin extends Component {
     }
   };
   render() {
+    if (this.props.loading) return <Loader />;
     return (
       <div>
         <div className="r-signup--wrapper">
@@ -45,15 +53,24 @@ class Signin extends Component {
                   <div className="r-col-left">
                     <div className="r-img">
                       <span className="r-signup-span">
-                        <i className="fa fa-user-plus"></i>
+                        <i
+                          className="fa fa-user-plus"
+                          style={{ color: "#1a1a1d" }}
+                        ></i>
                       </span>
                     </div>
-                    <h2 className="r-h2">
+                    <h2 className="r-h2" style={{ color: "black" }}>
                       Get accsess to your orders, wishlist and recomendations
                     </h2>
                     <div className="r-signup-btn">
                       <Link to="/signup">
-                        <button className="btn tombol"> sign up</button>
+                        <button
+                          className="btn tombol signin"
+                          style={{ backgroundColor: "#1a1a1d", color: "white" }}
+                        >
+                          {" "}
+                          sign up
+                        </button>
                       </Link>
                     </div>
                   </div>
@@ -142,7 +159,8 @@ class Signin extends Component {
 
 const mapStateToProps = state => {
   return {
-    isAuthenticated: state.authReducer.isAuthenticated
+    isAuthenticated: state.authReducer.isAuthenticated,
+    loading: state.authReducer.loading
   };
 };
 

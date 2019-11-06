@@ -10,6 +10,7 @@ import {
 } from "../store/actions/dataAction";
 import { getEventCustomer } from "../store/actions/eventAction";
 import swal from "sweetalert";
+import Loader from "./Loader";
 import Picture from "./Picture";
 import Rupiah from "./Rupiah";
 import "../assets/scss/MusicianList.scss";
@@ -70,6 +71,7 @@ class MusicianList extends Component {
   };
 
   render() {
+    if (this.props.loading) return <Loader />;
     const { currentPage, cardsPerPage } = this.props;
 
     //logic for displaying current cards
@@ -164,6 +166,7 @@ class MusicianList extends Component {
 const mapStateToProps = state => {
   return {
     musicians: state.listMusicianReducer.filteredMusicians,
+    loading: state.listMusicianReducer.loading,
     profile: state.profileReducer.profile,
     event: state.eventReducer.event
   };
