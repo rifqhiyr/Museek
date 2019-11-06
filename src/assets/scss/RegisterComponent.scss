@@ -1,71 +1,58 @@
 @import "./Variables";
-.register-page {
-  width: 23.5rem;
-  padding: 0;
-  margin: auto;
-  .form {
-    position: relative;
-    background-color: $color-secondary-1;
-    max-width: 400;
-    margin: 0 auto;
-    padding: 15px;
-    text-align: center;
-    border: 0px solid;
-    border-radius: 5px;
-    box-shadow: 5px 10px 18px $color-secondary-2;
-    .regis-heading {
-      color: $color-dark-1;
-      text-transform: uppercase;
-    }
-    .regis-as {
-      display: flex;
-      justify-content: space-evenly;
-      color: $color-dark-2;
-      .regis-title {
-        margin-top: 20px;
-        &:hover {
-          cursor: pointer;
-          color: $color-dark-1;
+
+.r-regis--wrapper {
+  position: relative;
+  height: 100%;
+  background-image: linear-gradient(
+    90deg,
+    $color-secondary-3 50%,
+    $color-primary 50%
+  );
+  .container {
+    background-color: unset;
+    .r-regis {
+      .row {
+        .r-col-left {
+          padding: 2rem;
+          height: 45rem;
+          background-color: $color-primary;
+          .r-img {
+            margin: 2rem 0;
+            text-align: center;
+            .r-regis-span {
+              font-size: 10rem;
+            }
+          }
+          .r-h2 {
+            font-size: 1rem;
+            text-align: center;
+            margin: 8rem 0 2.62rem;
+            color: white;
+          }
+          .r-regis-btn {
+            margin: 2rem 0 1rem;
+            text-align: center;
+          }
+          .r-signin--form {
+            .r-regis-btn {
+              margin: 2rem 0 1rem;
+            }
+          }
         }
-      }
-    }
-    .register-form {
-      padding-top: 30px;
-      .regis-input {
-        font-family: "roboto", sans-serif;
-        outline: 1px;
-        background-color: $color-dark-1;
-        border: 1px solid $color-secondary-1;
-        border-radius: 5px;
-        width: 100%;
-        margin: 0 0 15px;
-        padding: 15px;
-        box-sizing: border-box;
-        font-size: 18px;
-        text-align: center;
-      }
-      .regis-btn {
-        text-transform: uppercase;
-        background-color: $color-primary;
-        border: 1px solid $color-secondary-1;
-        margin-top: 30px;
-        width: 50%;
-        font-size: 14px;
-        font-weight: bold;
-        padding: 15px;
-        border-radius: 25px;
-        color: $color-secondary-1;
-        &:hover {
-          cursor: pointer;
-          background-color: $color-dark-1;
-        }
-      }
-      .message {
-        margin-top: 30px;
-        color: $color-dark-1;
-        text-decoration: none;
-        .message-l {
-          color: white;
+        .r-col-right {
+          padding: 2rem;
+          height: 45rem;
+          background-color: black;
+          .r-img {
+            margin: 2rem 0;
+            text-align: center;
+          }
+          .r-signin--form {
+            .r-regis-btn {
+              margin: 2rem 0 1rem;
+              text-align: center;
+            }
+          }
         }
       }
     }
@@ -73,73 +60,61 @@
 }
 
 @media (min-width: 992px) {
-  .register-page {
-    width: 400px;
-    padding: 10% 0;
-    margin: auto;
-    .form {
-      position: relative;
-      background-color: $color-secondary-1;
-      max-width: 400;
-      margin: 0 auto 100px;
-      padding: 15px;
-      text-align: center;
-      border: 0px solid;
-      border-radius: 5px;
-      box-shadow: 5px 10px 18px $color-secondary-2;
-      .regis-heading {
-        color: $color-dark-1;
-        text-transform: uppercase;
-      }
-      .regis-as {
-        display: flex;
-        justify-content: space-evenly;
-        color: $color-dark-2;
-        .regis-title {
-          margin-top: 20px;
-          &:hover {
-            cursor: pointer;
-            color: $color-dark-1;
+  .r-regis--wrapper {
+    position: relative;
+    height: 100%;
+    padding: 3rem 0;
+    background-image: linear-gradient(
+      90deg,
+      $color-secondary-3 50%,
+      $color-primary 50%
+    );
+    .container {
+      background-color: unset;
+      .r-regis {
+        padding: 7rem 8rem;
+        .row {
+          .r-col-left {
+            padding: 2rem;
+            height: 45rem;
+            background-color: $color-primary;
+            .r-img {
+              margin: 2rem 0;
+              text-align: center;
+              .r-regis-span {
+                font-size: 10rem;
+              }
+            }
+            .r-h2 {
+              font-size: 1rem;
+              text-align: center;
+              margin: 13.4rem 0 2.62rem;
+              color: white;
+            }
+            .r-regis-btn {
+              margin: 2rem 0 1rem;
+              text-align: center;
+            }
+            .r-signin--form {
+              .r-regis-btn {
+                margin: 2rem 0 1rem;
+              }
+            }
           }
-        }
-      }
-      .register-form {
-        padding-top: 30px;
-        .regis-input {
-          font-family: "roboto", sans-serif;
-          outline: 1px;
-          background-color: $color-dark-1;
-          border: 1px solid $color-secondary-1;
-          border-radius: 5px;
-          width: 100%;
-          margin: 0 0 15px;
-          padding: 15px;
-          box-sizing: border-box;
-          font-size: 18px;
-          text-align: center;
-        }
-        .regis-btn {
-          text-transform: uppercase;
-          background-color: $color-primary;
-          border: 1px solid $color-secondary-1;
-          margin-top: 30px;
-          width: 50%;
-          font-size: 14px;
-          font-weight: bold;
-          padding: 15px;
-          border-radius: 25px;
-          color: $color-secondary-1;
-          &:hover {
-            cursor: pointer;
-            background-color: $color-dark-1;
-          }
-        }
-        .message {
-          margin-top: 30px;
-          color: $color-dark-1;
-          text-decoration: none;
-          .message-l {
-            color: white;
+          .r-col-right {
+            padding: 2rem;
+            height: 45rem;
+            background-color: black;
+            .r-img {
+              margin: 2rem 0;
+              text-align: center;
+            }
+            .r-signin--form {
+              .r-regis-btn {
+                margin: 2rem 0 1rem;
+                text-align: center;
+              }
+            }
           }
         }
       }

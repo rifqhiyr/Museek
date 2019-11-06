@@ -37,55 +37,125 @@ class RegisterCustomerComponent extends Component {
 
   render() {
     return (
-      <div className="register-page">
-        <div className="form">
-          <h1 className="regis-heading">Daftar</h1>
-          <div className="regis-as">
-            <h2 className="regis-title" style={{ color: "white" }}>
-              customer
-            </h2>
+      <div>
+        <div className="r-regis--wrapper">
+          <div className="container">
+            <div className="r-regis">
+              <div className="row">
+                <div className="col-12 col-md-6 col-lg-6 p-0">
+                  <div className="r-col-left">
+                    <div className="r-img">
+                      <span className="r-regis-span">
+                        <i
+                          className="fa fa-user-plus"
+                          style={{ color: "#1a1a1d" }}
+                        ></i>
+                      </span>
+                    </div>
+                    <h2 className="r-h2" style={{ color: "black" }}>
+                      Get accsess to your orders, wishlist and recomendations
+                    </h2>
+                    <div className="r-regis-btn">
+                      <Link to="/signin">
+                        <button
+                          className="btn tombol signin"
+                          style={{ backgroundColor: "#1a1a1d", color: "white" }}
+                        >
+                          sign in
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-12 col-md-6 col-lg-6 p-0">
+                  <div className="r-col-right">
+                    <div className="r-img">
+                      <img
+                        className="r-logo"
+                        src={require("../assets/images/logo.png")}
+                        alt=""
+                      />
+                    </div>
+                    <form className="r-signin--form">
+                      <div className="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input
+                          type="email"
+                          className="form-control"
+                          id="exampleInputEmail1"
+                          aria-describedby="emailHelp"
+                          placeholder="Enter email"
+                          name="email"
+                          value={this.state.email}
+                          onChange={this.handleChange}
+                        />
+                        <small id="emailHelp" className="form-text text-muted">
+                          We'll never share your email with anyone else.
+                        </small>
+                      </div>
+                      <div className="form-group">
+                        <label for="exampleInputEmail1">User Name</label>
+                        <input
+                          type="email"
+                          className="form-control"
+                          id="exampleInputEmail1"
+                          aria-describedby="emailHelp"
+                          placeholder="User name"
+                          name="name"
+                          value={this.state.name}
+                          onChange={this.handleChange}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input
+                          type="password"
+                          className="form-control"
+                          id="exampleInputPassword1"
+                          placeholder="Password"
+                          name="password"
+                          value={this.state.password}
+                          onChange={this.handleChange}
+                        />
+                      </div>
+                      <div
+                        style={{
+                          margin: "1rem 0",
+                          display: "flex",
+                          justifyContent: "space-between"
+                        }}
+                        className="form-check"
+                      >
+                        <input
+                          type="checkbox"
+                          className="form-check-input"
+                          id="exampleCheck1"
+                        />
+                        <label className="form-check-label" for="exampleCheck1">
+                          remember me
+                        </label>
+                        <Link
+                          style={{ fontSize: "1.1rem", color: "white" }}
+                          to="/forgotpassword"
+                        >
+                          forgot password
+                        </Link>
+                      </div>
+                      <div className="r-regis-btn">
+                        <button
+                          type="submit"
+                          className="btn tombol r-regis-btn"
+                          onClick={this.handleSubmit}
+                        >
+                          Register
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <form className="register-form" onSubmit={this.handleSubmit}>
-            <input
-              className="regis-input"
-              type="text"
-              placeholder="your name"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-            <input
-              className="regis-input"
-              type="email"
-              placeholder="email"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-            <input
-              className="regis-input"
-              type="password"
-              placeholder="password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-            <button
-              type="button"
-              class="regis-btn btn btn-primary"
-              data-toggle="modal"
-              data-target="#exampleModal"
-            >
-              Daftar
-            </button>
-
-            <p className="message">
-              <Link to="/signin" style={{ color: "white" }}>
-                already have account?
-              </Link>
-            </p>
-          </form>
         </div>
       </div>
     );
