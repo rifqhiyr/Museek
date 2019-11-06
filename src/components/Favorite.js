@@ -46,7 +46,7 @@ class Favorite extends Component {
           <td className="font-cart wider">
             <span className="button-action">
               {" "}
-              <div className="dstyle-btn-group">
+              <div className="dstyle-btn-group mr-3">
                 <Link
                   to={`/detail/${fav.musicianId._id}`}
                   className="button-edit"
