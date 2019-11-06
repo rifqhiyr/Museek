@@ -238,7 +238,22 @@ class BookForm extends Component {
               </div>
               <div className="col-12 col-md-5 col-lg-5 p-0">
                 <div className="r-col-right">
-                  <div className="r-right-checkbox"></div>
+                  <div className="r-right-checkbox">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      id="gridCheck"
+                    />
+                    <label
+                      style={{ color: "white" }}
+                      className="form-check-label"
+                      htmlFor="gridCheck"
+                    >
+                      means you're okay with our{" "}
+                      <span className="r-book-span">terms of service </span> and
+                      our <span className="r-book-span">Privacy policy</span>
+                    </label>
+                  </div>
                   <div className="r-book-btn">
                     <button
                       type="submit"
