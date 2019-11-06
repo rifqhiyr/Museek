@@ -230,7 +230,7 @@ class BookForm extends Component {
 
                     <div className="r-book-btn">
                       <button type="submit" className="btn tombol tombol-book">
-                        Sign in
+                        Add Event
                       </button>
                     </div>
                   </div>
