@@ -4,33 +4,22 @@ import setToken from "./../helpers/setToken";
 import { getProfile } from "../store/actions/dataAction";
 import { addEvent, getEventCustomer } from "../store/actions/eventAction";
 import swal from "sweetalert";
-<<<<<<< HEAD
-import NewsLetter from "./NewsLetter";
-
-=======
 import Regencies from "../assets/data/list_of_area/regencies.json";
 import Provinces from "../assets/data/list_of_area/provinces.json";
 import NewsLetter from "./NewsLetter";
 import "../assets/scss/BookingForm.scss";
->>>>>>> f1495651846013ec1ff181f5ce48cd810691cb92
 import "../assets/scss/BookForm.scss";
 
 class BookForm extends Component {
   state = {
     dateEvent: "",
     duration: "",
-<<<<<<< HEAD
-    location: "",
-    category: "Birthday",
-    validationError: "",
-=======
     loc: [],
     location: "",
     city: "Simeulue",
     province: "Aceh",
     detailLocation: "",
     category: "Birthday",
->>>>>>> f1495651846013ec1ff181f5ce48cd810691cb92
     musicianId: this.props.location.state.musicianId,
     eventList: ["Birthday", "Wedding", "Engagement", "Percussion", "Reunion"]
   };
@@ -69,14 +58,11 @@ class BookForm extends Component {
           "info"
         );
       } else {
-<<<<<<< HEAD
-=======
         await this.state.loc.push(this.state.detailLocation);
         await this.state.loc.push(this.state.city);
         await this.state.loc.push(this.state.province);
         const loc = this.state.loc.toString();
         await this.setState({ location: loc });
->>>>>>> f1495651846013ec1ff181f5ce48cd810691cb92
         const formData = {
           dateEvent: this.state.dateEvent,
           duration: this.state.duration,
@@ -93,11 +79,7 @@ class BookForm extends Component {
   };
 
   render() {
-<<<<<<< HEAD
-    console.log(this.props.location);
-=======
     console.log(this.state.location);
->>>>>>> f1495651846013ec1ff181f5ce48cd810691cb92
 
     const dataList = this.state.eventList.map(event => {
       return (
@@ -106,8 +88,6 @@ class BookForm extends Component {
         </option>
       );
     });
-<<<<<<< HEAD
-=======
 
     const regencies = Regencies.map(regencie => {
       return (
@@ -124,7 +104,6 @@ class BookForm extends Component {
       );
     });
 
->>>>>>> f1495651846013ec1ff181f5ce48cd810691cb92
     return (
       <div className="book-wrapper">
         <div className="container">
@@ -135,9 +114,6 @@ class BookForm extends Component {
                   <h2 className="r-book-title">Add Event</h2>
                   <form className="r-form">
                     <div className="form-row">
-<<<<<<< HEAD
-                      <div className="form-group col-md-12">
-=======
                       <div className="form-group col-md-6">
                         <label style={{ color: "black" }} htmlFor="inputState">
                           Event Categories
@@ -156,28 +132,9 @@ class BookForm extends Component {
                         </select>
                       </div>
                       <div className="form-group col-md-6">
->>>>>>> f1495651846013ec1ff181f5ce48cd810691cb92
                         <label style={{ color: "black" }} htmlFor="inputState">
                           Event Date
                         </label>
-<<<<<<< HEAD
-                        <select
-                          id="inputState"
-                          className="form-control"
-                          value={this.state.category}
-                          onChange={e =>
-                            this.setState({
-                              category: e.target.value,
-                              validationError:
-                                e.target.value === ""
-                                  ? "You must select event"
-                                  : ""
-                            })
-                          }
-                        >
-                          {dataList}
-                        </select>
-=======
                         <br />
                         <input
                           id="inputState"
@@ -187,7 +144,6 @@ class BookForm extends Component {
                           value={this.state.dateEvent}
                           onChange={this.handleChange}
                         />
->>>>>>> f1495651846013ec1ff181f5ce48cd810691cb92
                       </div>
                     </div>
                     <div className="form-row">
@@ -352,11 +308,7 @@ class BookForm extends Component {
                       means you're okay with our{" "}
                       <span className="r-book-span">terms of service </span> and
                       our <span className="r-book-span">privacy policy</span>
-<<<<<<< HEAD
-                    </label>
-=======
                     </label> */}
->>>>>>> f1495651846013ec1ff181f5ce48cd810691cb92
                   </div>
 
                   <div className="r-book-btn">
