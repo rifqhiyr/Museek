@@ -17,7 +17,7 @@ class Footer extends Component {
             </div>
 
             <div className="col-12 col-lg-3 footer-col">
-              <h4 className="footer-title">Tentang Museek</h4>
+              <h4 className="footer-title">About Museek</h4>
               <ul className="list-unstyled">
                 <li className="footer-li">
                   <Link className="footer-a" to="/about">
@@ -43,7 +43,7 @@ class Footer extends Component {
             </div>
 
             <div className="col-12 col-lg-3 footer-col">
-              <h4 className="footer-title">Ikuti kami</h4>
+              <h4 className="footer-title">Follow Us</h4>
               <ul className="list-unstyled">
                 <li className="footer-li">
                   <span className="footer-sosmed">
@@ -81,7 +81,7 @@ class Footer extends Component {
             </div>
 
             <div className="col-12 col-lg-3 footer-col">
-              <h4 className="footer-title">Unduh</h4>
+              <h4 className="footer-title">Download</h4>
               <div className="footer-img-download">
                 <div>
                   <img
