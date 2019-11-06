@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import setToken from "../helpers/setToken";
-import { getFav } from "../store/actions/dataAction";
+import { getFav, deleteFav } from "../store/actions/dataAction";
 import Rupiah from "./Rupiah";
 import "../assets/scss/BookedList.scss";
 import NewsLetter from "./NewsLetter";
@@ -15,6 +15,14 @@ class Favorite extends Component {
 
     this.props.getFav();
   }
+
+  handleDelete = async id => {
+    if (localStorage.token) {
+      setToken(localStorage.token);
+    }
+    await this.props.deleteFav(id);
+    this.props.getFav();
+  };
 
   render() {
     const favs = this.props.fav.map(fav => {
@@ -44,6 +52,14 @@ class Favorite extends Component {
                   className="button-edit"
                 >
                   <i class="fa fa-info"></i>
+                </Link>
+              </div>
+              <div className="dstyle-btn-group">
+                <Link to="#" className="button-edit">
+                  <i
+                    className="fa fa-trash"
+                    onClick={() => this.handleDelete(fav._id)}
+                  ></i>
                 </Link>
               </div>
             </span>
@@ -132,5 +148,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getFav }
+  { getFav, deleteFav }
 )(Favorite);

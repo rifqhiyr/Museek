@@ -112,3 +112,19 @@ export const addFav = formData => async dispatch => {
     });
   }
 };
+
+export const deleteFav = id => async dispatch => {
+  try {
+    const res = await axios.delete(
+      `https://museek.herokuapp.com/api/favorite/${id}`
+    );
+    console.log(res.data);
+    console.log(id);
+    dispatch({
+      type: "DELETE_FAV",
+      payload: id
+    });
+  } catch (error) {
+    console.log(error.response);
+  }
+};
