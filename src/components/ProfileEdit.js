@@ -21,7 +21,6 @@ class ProfileEdit extends Component {
     address: "",
     city: "Simeulue",
     country: "Aceh",
-    validationError: "",
     description: "",
     skills: [],
     lists: ["Singer", "Guitar", "Drum", "Percussion", "Keyboard"],
@@ -131,7 +130,7 @@ class ProfileEdit extends Component {
 
     if (this.state.genres.includes(e.target.value) === true) {
       this.setState({
-        genres: this.state.genre.filter(genre => genre !== e.target.value)
+        genres: this.state.genres.filter(genre => genre !== e.target.value)
       });
     }
   };
@@ -292,11 +291,7 @@ class ProfileEdit extends Component {
                     value={this.state.city}
                     onChange={e =>
                       this.setState({
-                        city: e.target.value,
-                        validationError:
-                          e.target.value === ""
-                            ? "You must select your city"
-                            : ""
+                        city: e.target.value
                       })
                     }
                   >
@@ -309,11 +304,7 @@ class ProfileEdit extends Component {
                     value={this.state.country}
                     onChange={e =>
                       this.setState({
-                        country: e.target.value,
-                        validationError:
-                          e.target.value === ""
-                            ? "You must select your country"
-                            : ""
+                        country: e.target.value
                       })
                     }
                   >
@@ -343,11 +334,7 @@ class ProfileEdit extends Component {
                     value={this.state.city}
                     onChange={e =>
                       this.setState({
-                        city: e.target.value,
-                        validationError:
-                          e.target.value === ""
-                            ? "You must select your city"
-                            : ""
+                        city: e.target.value
                       })
                     }
                   >
@@ -360,11 +347,7 @@ class ProfileEdit extends Component {
                     value={this.state.country}
                     onChange={e =>
                       this.setState({
-                        country: e.target.value,
-                        validationError:
-                          e.target.value === ""
-                            ? "You must select your country"
-                            : ""
+                        country: e.target.value
                       })
                     }
                   >
