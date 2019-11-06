@@ -27,7 +27,7 @@ class Head extends Component {
     if (!this.props.isAuthenticated) {
       return (
         <div className="container">
-          <nav className="navbar navbar-expand-lg navbar-light">
+          <nav className="navbar navbar-expand-lg navbar-light sticky-top">
             <Link to="/" className="navbar-brand" href="#">
               <img
                 className="logo"
