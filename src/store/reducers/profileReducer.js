@@ -1,7 +1,8 @@
 const initialState = {
   profile: {},
   errors: [],
-  fav: []
+  fav: [],
+  loading: true
 };
 
 export default function(state = initialState, action) {

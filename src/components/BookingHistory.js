@@ -40,7 +40,7 @@ class BookingHistory extends Component {
             <span>{myevent.category}</span>
           </td>
           <td className="font-cart" style={{ textAlign: "center" }}>
-            <span>{new Date(myevent.dateEvent).toLocaleString()}</span>
+            <span>{new Date(myevent.dateEvent).toLocaleDateString()}</span>
           </td>
           <td className="font-cart wider" style={{ textAlign: "center" }}>
             <span>

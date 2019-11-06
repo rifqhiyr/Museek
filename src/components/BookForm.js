@@ -1,8 +1,109 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import setToken from "./../helpers/setToken";
+import { getProfile } from "../store/actions/dataAction";
+import { addEvent, getEventCustomer } from "../store/actions/eventAction";
+import swal from "sweetalert";
+import Regencies from "../assets/data/list_of_area/regencies.json";
+import Provinces from "../assets/data/list_of_area/provinces.json";
+import NewsLetter from "./NewsLetter";
+import "../assets/scss/BookingForm.scss";
 import "../assets/scss/BookForm.scss";
 
 class BookForm extends Component {
+  state = {
+    dateEvent: "",
+    duration: "",
+    loc: [],
+    location: "",
+    city: "Simeulue",
+    province: "Aceh",
+    detailLocation: "",
+    category: "Birthday",
+    musicianId: this.props.location.state.musicianId,
+    eventList: ["Birthday", "Wedding", "Engagement", "Percussion", "Reunion"]
+  };
+
+  componentDidMount() {
+    if (localStorage.token) {
+      setToken(localStorage.token);
+    }
+    this.props.getProfile();
+  }
+
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  handleSubmit = async e => {
+    e.preventDefault();
+
+    if (localStorage.token) {
+      setToken(localStorage.token);
+    }
+
+    if (localStorage.token == null) {
+      return swal(
+        "MuSeek says:",
+        "Please login as a customer before adding event",
+        "info"
+      );
+    } else {
+      if (this.props.profile.role === "musician") {
+        return swal(
+          "MuSeek says:",
+          "Please login as a customer before adding event",
+          "info"
+        );
+      } else {
+        await this.state.loc.push(this.state.detailLocation);
+        await this.state.loc.push(this.state.city);
+        await this.state.loc.push(this.state.province);
+        const loc = this.state.loc.toString();
+        await this.setState({ location: loc });
+        const formData = {
+          dateEvent: this.state.dateEvent,
+          duration: this.state.duration,
+          location: this.state.location,
+          category: this.state.category,
+          musicianId: this.state.musicianId
+        };
+        this.props.addEvent(formData);
+        swal("MuSeek says:", "Event booking has been saved", "success");
+        await this.props.getEventCustomer(); //biar setelah pindah halaman, langsung reload
+        this.props.history.push(`/bookedlist=${this.props.profile._id}`);
+      }
+    }
+  };
+
   render() {
+    console.log(this.state.location);
+
+    const dataList = this.state.eventList.map(event => {
+      return (
+        <option key={event} value={event}>
+          {event}
+        </option>
+      );
+    });
+
+    const regencies = Regencies.map(regencie => {
+      return (
+        <option key={regencie.name} value={regencie.name}>
+          {regencie.name}
+        </option>
+      );
+    });
+    const provinces = Provinces.map(province => {
+      return (
+        <option key={province.name} value={province.name}>
+          {province.name}
+        </option>
+      );
+    });
+
     return (
       <div className="book-wrapper">
         <div className="container">
@@ -15,51 +116,92 @@ class BookForm extends Component {
                     <div className="form-row">
                       <div className="form-group col-md-6">
                         <label style={{ color: "black" }} htmlFor="inputState">
-                          Event Category
+                          Event Categories
                         </label>
-                        <select id="inputState" className="form-control">
-                          <option selected>Choose event...</option>
-                          <option>Wedding</option>
-                          <option>Birthday</option>
-                          <option>Engagement</option>
-                          <option>Percussion</option>
-                          <option>Reunion</option>
+                        <select
+                          id="inputState"
+                          className="form-control"
+                          value={this.state.category}
+                          onChange={e =>
+                            this.setState({
+                              category: e.target.value
+                            })
+                          }
+                        >
+                          {dataList}
                         </select>
                       </div>
                       <div className="form-group col-md-6">
                         <label style={{ color: "black" }} htmlFor="inputState">
-                          Category
-                        </label>
-                        <select id="inputState" className="form-control">
-                          <option selected>choose Category...</option>
-                          <option>Jazz</option>
-                          <option>Rock</option>
-                          <option>Dangdut</option>
-                          <option>Classical</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="form-row">
-                      <div className="form-group col-md-6">
-                        <label style={{ color: "black" }} htmlFor="inputState">
-                          Event date
+                          Event Date
                         </label>
                         <br />
                         <input
                           id="inputState"
                           className="form-control"
                           type="date"
+                          name="dateEvent"
+                          value={this.state.dateEvent}
+                          onChange={this.handleChange}
                         />
                       </div>
-
-                      <div className="form-group col-md-3">
+                    </div>
+                    <div className="form-row">
+                      {/* <div className="form-group col-md-6">
                         <label style={{ color: "black" }} htmlFor="inputState">
+                          Event Date
+                        </label>
+                        <br />
+                        <input
+                          id="inputState"
+                          className="form-control"
+                          type="date"
+                          name="dateEvent"
+                          value={this.state.dateEvent}
+                          onChange={this.handleChange}
+                        />
+                      </div> */}
+
+                      <div className="form-group col-md-6">
+                        <label style={{ color: "black" }} htmlFor="inputState">
+                          Duration (Hours)
+                        </label>
+                        <input
+                          id="inputState"
+                          className="form-control"
+                          type="number"
+                          name="duration"
+                          value={this.state.duration}
+                          onChange={this.handleChange}
+                          placeholder="Duration"
+                          min="1"
+                          max="10"
+                        />
+                      </div>
+                      <div className="form-group col-md-6">
+                        <label style={{ color: "black" }} htmlFor="inputState">
+                          Detail Location
+                        </label>
+                        <input
+                          id="inputState"
+                          className="form-control"
+                          type="text"
+                          name="detailLocation"
+                          value={this.state.detailLocation}
+                          onChange={this.handleChange}
+                          placeholder="Detail Event Location"
+                        />
+                      </div>
+                      {/* <label style={{ color: "black" }} htmlFor="inputState">
                           Booking Time
                         </label>
                         <input
                           id="inputState"
                           className="form-control"
                           type="time"
+                          name="duration"
+                          value={this.state.duration}
+                          onChange={this.handleChange}
                         />
                       </div>
 
@@ -71,11 +213,14 @@ class BookForm extends Component {
                           id="inputState"
                           className="form-control"
                           type="time"
+                          name="duration"
+                          value={this.state.duration}
+                          onChange={this.handleChange}
                         />
-                      </div>
+                      </div> */}
                     </div>
 
-                    <div className="form-group">
+                    {/* <div className="form-group">
                       <label style={{ color: "black" }} htmlFor="inputAddress2">
                         Event Location
                       </label>
@@ -84,25 +229,38 @@ class BookForm extends Component {
                         className="form-control"
                         id="inputAddress2"
                         placeholder="Apartment, studio, or floor"
+                        name="location"
+                        value={this.state.location}
+                        onChange={this.handleChange}
                       />
-                    </div>
+                    </div> */}
                     <div className="form-row">
                       <div className="form-group col-md-6">
-                        <label style={{ color: "black" }} htmlFor="inputCity">
-                          City
-                        </label>
-                        <select id="inputState" className="form-control">
-                          <option selected>Choose...</option>
-                          <option>...</option>
+                        <label style={{ color: "black" }}>City</label>
+                        <select
+                          className="form-control"
+                          value={this.state.city}
+                          onChange={e =>
+                            this.setState({
+                              city: e.target.value
+                            })
+                          }
+                        >
+                          {regencies}
                         </select>
                       </div>
                       <div className="form-group col-md-6">
-                        <label style={{ color: "black" }} htmlFor="inputState">
-                          Province
-                        </label>
-                        <select id="inputState" className="form-control">
-                          <option selected>Choose...</option>
-                          <option>...</option>
+                        <label style={{ color: "black" }}>Province</label>
+                        <select
+                          className="form-control"
+                          value={this.state.province}
+                          onChange={e =>
+                            this.setState({
+                              province: e.target.value
+                            })
+                          }
+                        >
+                          {provinces}
                         </select>
                       </div>
                     </div>
@@ -137,7 +295,7 @@ class BookForm extends Component {
               <div className="col-12 col-md-5 col-lg-5 p-0">
                 <div className="r-col-right">
                   <div className="r-right-checkbox">
-                    <input
+                    {/* <input
                       className="form-check-input"
                       type="checkbox"
                       id="gridCheck"
@@ -149,13 +307,17 @@ class BookForm extends Component {
                     >
                       means you're okay with our{" "}
                       <span className="r-book-span">terms of service </span> and
-                      our <span className="r-book-span">Privacy policy</span>
-                    </label>
+                      our <span className="r-book-span">privacy policy</span>
+                    </label> */}
                   </div>
 
                   <div className="r-book-btn">
-                    <button type="submit" className="btn tombol">
-                      Sign in
+                    <button
+                      type="submit"
+                      className="btn tombol"
+                      onClick={this.handleSubmit}
+                    >
+                      Add Event
                     </button>
                   </div>
                 </div>
@@ -163,9 +325,19 @@ class BookForm extends Component {
             </div>
           </div>
         </div>
+        <NewsLetter />
       </div>
     );
   }
 }
 
-export default BookForm;
+const mapStateToProps = state => {
+  return {
+    profile: state.profileReducer.profile
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { getProfile, addEvent, getEventCustomer }
+)(BookForm);

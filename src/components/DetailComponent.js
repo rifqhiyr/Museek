@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import setToken from "./../helpers/setToken";
 import { getProfile, getMusicianDetail } from "../store/actions/dataAction";
 import swal from "sweetalert";
+import Loader from "./Loader";
 import Rupiah from "./Rupiah";
 import Picture from "./Picture";
 import "../assets/scss/DetailComponent.scss";
@@ -31,6 +32,7 @@ class DetailComponent extends Component {
   };
 
   render() {
+    if (this.props.loading) return <Loader />;
     return (
       <div>
         <div className="detail-wrapper">
@@ -164,7 +166,7 @@ class DetailComponent extends Component {
 
                       <Link
                         to={{
-                          pathname: "/bookingform",
+                          pathname: "/bookform",
                           state: { musicianId: this.props.musician._id }
                         }}
                         // to="#"
@@ -194,6 +196,7 @@ class DetailComponent extends Component {
 const mapStateToProps = state => {
   return {
     musician: state.listMusicianReducer.musicianById,
+    loading: state.listMusicianReducer.loading2,
     event: state.eventReducer.event
   };
 };
