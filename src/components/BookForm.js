@@ -4,17 +4,22 @@ import setToken from "./../helpers/setToken";
 import { getProfile } from "../store/actions/dataAction";
 import { addEvent, getEventCustomer } from "../store/actions/eventAction";
 import swal from "sweetalert";
+import Regencies from "../assets/data/list_of_area/regencies.json";
+import Provinces from "../assets/data/list_of_area/provinces.json";
 import NewsLetter from "./NewsLetter";
-
+import "../assets/scss/BookingForm.scss";
 import "../assets/scss/BookForm.scss";
 
 class BookForm extends Component {
   state = {
     dateEvent: "",
     duration: "",
+    loc: [],
     location: "",
+    city: "Simeulue",
+    province: "Aceh",
+    detailLocation: "",
     category: "Birthday",
-    validationError: "",
     musicianId: this.props.location.state.musicianId,
     eventList: ["Birthday", "Wedding", "Engagement", "Percussion", "Reunion"]
   };
@@ -53,6 +58,11 @@ class BookForm extends Component {
           "info"
         );
       } else {
+        await this.state.loc.push(this.state.detailLocation);
+        await this.state.loc.push(this.state.city);
+        await this.state.loc.push(this.state.province);
+        const loc = this.state.loc.toString();
+        await this.setState({ location: loc });
         const formData = {
           dateEvent: this.state.dateEvent,
           duration: this.state.duration,
@@ -69,7 +79,7 @@ class BookForm extends Component {
   };
 
   render() {
-    console.log(this.props.location);
+    console.log(this.state.location);
 
     const dataList = this.state.eventList.map(event => {
       return (
@@ -78,6 +88,22 @@ class BookForm extends Component {
         </option>
       );
     });
+
+    const regencies = Regencies.map(regencie => {
+      return (
+        <option key={regencie.name} value={regencie.name}>
+          {regencie.name}
+        </option>
+      );
+    });
+    const provinces = Provinces.map(province => {
+      return (
+        <option key={province.name} value={province.name}>
+          {province.name}
+        </option>
+      );
+    });
+
     return (
       <div className="book-wrapper">
         <div className="container">
@@ -86,11 +112,12 @@ class BookForm extends Component {
               <div className="col-12 col-md-7 col-lg-7 p-0">
                 <div className="r-col-left">
                   <h2 className="r-book-title">Add Event</h2>
+
                   <form className="r-form">
                     <div className="form-row">
-                      <div className="form-group col-md-12">
+                      <div className="form-group col-md-6">
                         <label style={{ color: "black" }} htmlFor="inputState">
-                          Category
+                          Event Categories
                         </label>
                         <select
                           id="inputState"
@@ -98,22 +125,16 @@ class BookForm extends Component {
                           value={this.state.category}
                           onChange={e =>
                             this.setState({
-                              category: e.target.value,
-                              validationError:
-                                e.target.value === ""
-                                  ? "You must select event"
-                                  : ""
+                              category: e.target.value
                             })
                           }
                         >
                           {dataList}
                         </select>
                       </div>
-                    </div>
-                    <div className="form-row">
                       <div className="form-group col-md-6">
                         <label style={{ color: "black" }} htmlFor="inputState">
-                          Event date
+                          Event Date
                         </label>
                         <br />
                         <input
@@ -125,9 +146,54 @@ class BookForm extends Component {
                           onChange={this.handleChange}
                         />
                       </div>
-
-                      <div className="form-group col-md-3">
+                    </div>
+                    <div className="form-row">
+                      {/* <div className="form-group col-md-6">
                         <label style={{ color: "black" }} htmlFor="inputState">
+                          Event Date
+                        </label>
+                        <br />
+                        <input
+                          id="inputState"
+                          className="form-control"
+                          type="date"
+                          name="dateEvent"
+                          value={this.state.dateEvent}
+                          onChange={this.handleChange}
+                        />
+                      </div> */}
+
+                      <div className="form-group col-md-6">
+                        <label style={{ color: "black" }} htmlFor="inputState">
+                          Duration (Hours)
+                        </label>
+                        <input
+                          id="inputState"
+                          className="form-control"
+                          type="number"
+                          name="duration"
+                          value={this.state.duration}
+                          onChange={this.handleChange}
+                          placeholder="Duration"
+                          min="1"
+                          max="10"
+                        />
+                      </div>
+                      <div className="form-group col-md-6">
+                        <label style={{ color: "black" }} htmlFor="inputState">
+                          Detail Location
+                        </label>
+                        <input
+                          id="inputState"
+                          className="form-control"
+                          type="text"
+                          name="detailLocation"
+                          value={this.state.detailLocation}
+                          onChange={this.handleChange}
+                          placeholder="Detail Event Location"
+                        />
+                      </div>
+                      {/* <label style={{ color: "black" }} htmlFor="inputState">
                           Booking Time
                         </label>
                         <input
@@ -152,10 +218,10 @@ class BookForm extends Component {
                           value={this.state.duration}
                           onChange={this.handleChange}
                         />
-                      </div>
+                      </div> */}
                     </div>
 
-                    <div className="form-group">
+                    {/* <div className="form-group">
                       <label style={{ color: "black" }} htmlFor="inputAddress2">
                         Event Location
                       </label>
@@ -168,28 +234,39 @@ class BookForm extends Component {
                         value={this.state.location}
                         onChange={this.handleChange}
                       />
-                    </div>
+                    </div> */}
                     <div className="form-row">
                       <div className="form-group col-md-6">
-                        <label style={{ color: "black" }} htmlFor="inputCity">
-                          City
-                        </label>
-                        <select id="inputState" className="form-control">
-                          <option selected>Choose...</option>
-                          <option>...</option>
+                        <label style={{ color: "black" }}>City</label>
+                        <select
+                          className="form-control"
+                          value={this.state.city}
+                          onChange={e =>
+                            this.setState({
+                              city: e.target.value
+                            })
+                          }
+                        >
+                          {regencies}
                         </select>
                       </div>
                       <div className="form-group col-md-6">
-                        <label style={{ color: "black" }} htmlFor="inputState">
-                          Province
-                        </label>
-                        <select id="inputState" className="form-control">
-                          <option selected>Choose...</option>
-                          <option>...</option>
+                        <label style={{ color: "black" }}>Province</label>
+                        <select
+                          className="form-control"
+                          value={this.state.province}
+                          onChange={e =>
+                            this.setState({
+                              province: e.target.value
+                            })
+                          }
+                        >
+                          {provinces}
                         </select>
                       </div>
                     </div>
                   </form>
+
                   <div className="r-right">
                     <div className="r-right-checkbox">
                       <input
@@ -220,7 +297,7 @@ class BookForm extends Component {
               <div className="col-12 col-md-5 col-lg-5 p-0">
                 <div className="r-col-right">
                   <div className="r-right-checkbox">
-                    <input
+                    {/* <input
                       className="form-check-input"
                       type="checkbox"
                       id="gridCheck"
@@ -233,7 +310,7 @@ class BookForm extends Component {
                       means you're okay with our{" "}
                       <span className="r-book-span">terms of service </span> and
                       our <span className="r-book-span">privacy policy</span>
-                    </label>
+                    </label> */}
                   </div>
 
                   <div className="r-book-btn">

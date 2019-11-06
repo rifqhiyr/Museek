@@ -11,7 +11,6 @@ import DetailComponent from "./components/DetailComponent";
 import ProfileEdit from "./components/ProfileEdit";
 import MusicianPage from "./components/MusicianPage";
 import BookedList from "./components/BookedList";
-// import BookingForm from "./components/BookingForm";
 import Invoice from "./components/Invoice";
 import RegisterMusician from "./components/RegisterMusician";
 import RegisterCustomer from "./components/RegisterCustomer";
@@ -43,7 +42,6 @@ class App extends Component {
           <Route exact path="/musicianpage" component={MusicianPage} />
           <Route exact path="/bookedlist=:id" component={BookedList} />
           <Route exact path="/bookinghistory=:id" component={BookingHistory} />
-          {/* <Route exact path="/bookingform" component={BookingForm} /> */}
           <Route exact path="/bookform" component={BookForm} />
           <Route path="/invoice=:id" exact component={Invoice} />
           <Route path="/invoicehistory=:id" exact component={InvoiceHistory} />

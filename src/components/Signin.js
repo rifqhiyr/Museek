@@ -15,7 +15,7 @@ class Signin extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.props.login();
-    }, 3000);
+    }, 2000);
   }
 
   handleChange = e => {
@@ -66,7 +66,7 @@ class Signin extends Component {
                       <Link to="/signup">
                         <button
                           className="btn tombol signin"
-                          style={{ backgroundColor: "white" }}
+                          style={{ backgroundColor: "#1a1a1d", color: "white" }}
                         >
                           {" "}
                           sign up

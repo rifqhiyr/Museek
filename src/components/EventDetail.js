@@ -47,7 +47,7 @@ class EventDetail extends Component {
                   </div>
                   <div className="detail-event-div--content">
                     <p className="detail-event-p">
-                      Date Event : {new Date(dateEvent).toLocaleString()}
+                      Date Event : {new Date(dateEvent).toLocaleDateString()}
                     </p>
                   </div>
                   <div className="detail-event-div--content">
@@ -57,7 +57,8 @@ class EventDetail extends Component {
                   </div>
                   <div className="detail-event-div--content">
                     <p className="detail-event-p">
-                      Event Location : {location}
+                      Event Location :{" "}
+                      {location && location.split(",").join(", ")}
                     </p>
                   </div>
                   <div className="detail-event-div--content">
