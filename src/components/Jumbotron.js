@@ -15,7 +15,7 @@ class Jumbotron extends Component {
             </h1>
             <p className="lead jumbo-paragraf">
               place for everyone who wants to book various group of talented
-              musicians and a place for musicians to collabs with other
+              musicians and a place for musicians to collaboration with other
               musicians
             </p>
           </div>

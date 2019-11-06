@@ -25,7 +25,7 @@ class DetailComponent extends Component {
     const data = this.props.event.map(ev => ev.musicianId._id);
     console.log(data);
     if (data.indexOf(id) === -1) {
-      console.log("oke");
+      console.log("ok");
     } else {
       swal("MuSeek says:", "musician had been added before!", "warning");
     }

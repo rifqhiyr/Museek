@@ -7,8 +7,8 @@ export default class Contact extends Component {
       <div className="container fluid contact">
         <div className="contact-title underline"> Let's get in touch!</div>
         <div className="contact-p">
-          Ready to start your next project with us? Give us a call or send us an
-          email and we will get back to you as soon as possible!
+          Ready to start your next project with us ? Give us a call or send us
+          an email and we will get back to you as soon as possible!
         </div>
         <div className="contact-content">
           <div className="contact-phone">

@@ -120,7 +120,14 @@ class EventSchedule extends Component {
                 <div className="row" style={{ justifyContent: "center" }}>
                   <div className="col-12 col-lg-8">
                     <div className="cart-title">
-                      <h2 style={{ textAlign: "center" }}>EVENT SCHEDULE</h2>
+                      <h2
+                        style={{
+                          textAlign: "center",
+                          textTransform: "uppercase"
+                        }}
+                      >
+                        EVENT SCHEDULE
+                      </h2>
                     </div>
                     <div className="cart-table clearfix">
                       <table className="table table-responsive">
@@ -150,6 +157,7 @@ class EventSchedule extends Component {
                     </div>
                     <div className="dstyle-btn-group button-right mt-100">
                       <Link
+                        style={{ textTransform: "uppercase" }}
                         to={`/pageprofile`}
                         className="btn dstyle-btn btn-profile"
                       >
