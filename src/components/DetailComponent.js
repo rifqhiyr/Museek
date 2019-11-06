@@ -15,7 +15,6 @@ class DetailComponent extends Component {
     if (localStorage.token) {
       setToken(localStorage.token);
     }
-
     await this.props.getProfile();
     const id = this.props.match.params.id;
     console.log(id);

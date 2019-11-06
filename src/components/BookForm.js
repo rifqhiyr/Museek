@@ -112,7 +112,6 @@ class BookForm extends Component {
               <div className="col-12 col-md-7 col-lg-7 p-0">
                 <div className="r-col-left">
                   <h2 className="r-book-title">Add Event</h2>
-
                   <form className="r-form">
                     <div className="form-row">
                       <div className="form-group col-md-6">
@@ -266,7 +265,6 @@ class BookForm extends Component {
                       </div>
                     </div>
                   </form>
-
                   <div className="r-right">
                     <div className="r-right-checkbox">
                       <input
