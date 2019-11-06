@@ -22,7 +22,7 @@ class MusicianPage extends Component {
   render() {
     return (
       <div>
-        <div className="main-content-wrapper d-flex clearfix">
+        <div className="d-flex clearfix">
           <div className="content">
             <div className="container-fluid">
               <Filter count={this.props.musicians.length} />
