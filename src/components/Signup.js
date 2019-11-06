@@ -22,9 +22,11 @@ class Signup extends Component {
                   </button>
                 </Link>
                 <div className="signup-message">
-                  <p className="signup--message__p">Already have account</p>
+                  <p className="signup--message__p" style={{ color: "white" }}>
+                    Already have account?{" "}
+                  </p>
                   <Link to="/signin">
-                    <p>login here</p>
+                    <p style={{ color: "white" }}>login here</p>
                   </Link>
                 </div>
               </div>
@@ -44,16 +46,18 @@ class Signup extends Component {
                   </button>
                 </Link>
                 <div className="signup-message">
-                  <p className="signup--message__p">Already have account</p>
+                  <p className="signup--message__p" style={{ color: "black" }}>
+                    Already have account?{" "}
+                  </p>
                   <Link to="/signin">
-                    <p>login here</p>
+                    <p style={{ color: "black" }}>login here</p>
                   </Link>
                 </div>
               </div>
             </div>
-            <div className="signup-little">
+            {/* <div className="signup-little">
               <button className="btn tombol"> go home</button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
