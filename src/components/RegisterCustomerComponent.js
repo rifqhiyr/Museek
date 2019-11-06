@@ -29,10 +29,18 @@ class RegisterCustomerComponent extends Component {
       password: this.state.password,
       role: this.state.role
     };
-
-    this.props.register(formData);
-    swal("MuSeek says:", "You have been registered..", "success");
-    this.props.history.push("/signin");
+    if (
+      formData.name === "" ||
+      formData.email === "" ||
+      formData.password === "" ||
+      formData.role === ""
+    ) {
+      swal("MuSeek says:", "Please fill all the form input!", "warning");
+    } else {
+      this.props.register(formData);
+      swal("MuSeek says:", "You have been registered..", "success");
+      this.props.history.push("/signin");
+    }
   };
 
   render() {
