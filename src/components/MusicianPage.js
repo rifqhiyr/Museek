@@ -23,7 +23,7 @@ class MusicianPage extends Component {
     return (
       <div>
         <div className="d-flex clearfix">
-          <div className="content">
+          <div className="content p-0 mt-50">
             <div className="container">
               <Filter count={this.props.musicians.length} />
               <MusicianList

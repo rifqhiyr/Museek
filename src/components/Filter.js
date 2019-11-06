@@ -7,7 +7,7 @@ import "../assets/scss/Filter.scss";
 class Filter extends Component {
   render() {
     return (
-      <div className="row1">
+      <div className="row1 mb-50">
         <div className="col-12">
           <div className="product-topbar d-xl-flex align-items-end justify-content-between">
             <div className="total-products">
@@ -21,8 +21,8 @@ class Filter extends Component {
                 </Link>
               </div>
             </div>
-            <div style={{ display: "flex" }}>
-              <div className="product-sorting d-flex">
+            <div className="flex-filter">
+              <div className="product-sorting d-flex margin-filter">
                 <div className="sort-by-date d-flex align-items-center">
                   <p>Sort by</p>
                   <form action="#" method="get">
@@ -43,7 +43,7 @@ class Filter extends Component {
                 </div>
               </div>
 
-              <div className="product-sorting d-flex">
+              <div className="product-sorting d-flex margin-filter">
                 <div className="sort-by-date d-flex align-items-center">
                   <p>Sort by</p>
                   <form action="#" method="get">
@@ -56,7 +56,7 @@ class Filter extends Component {
                         )
                       }
                     >
-                      <option value="">All</option>
+                      <option value="">Genre</option>
                       <option value="Jazz">Jazz</option>
                       <option value="Dangdut">Dangdut</option>
                       <option value="Musical Theatre">Musical Theatre</option>
