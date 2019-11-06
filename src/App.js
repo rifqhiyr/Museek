@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 
-import Header from "./components/Header";
+import Head from "./components/Head";
 import Footer from "./components/Footer";
 import LandingPage from "./components/LandingPage";
 import About from "./components/About";
@@ -34,7 +34,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <Header />
+          <Head />
           <Route path="/" exact component={LandingPage} />
           <Route path="/about" exact component={About} />
           <Route path="/detail/:id" exact component={DetailComponent} />
