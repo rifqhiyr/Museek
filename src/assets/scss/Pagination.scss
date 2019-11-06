@@ -1,0 +1,16 @@
+@import "theme_color";
+
+.pagination .page-item .page-link:hover {
+  background-color: $head-button;
+  color: $bg-color;
+}
+
+.pagination {
+  @media (max-width: 767.98px) {
+    margin-bottom: 50px;
+  }
+}
+
+.pagination .page-item .page-link {
+  border: 3px solid $head-button;
+}
