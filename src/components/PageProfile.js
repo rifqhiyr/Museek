@@ -69,7 +69,7 @@ class PageProfile extends Component {
                     <span className="box-fa">
                       <i class="fa fa-envelope"></i>
                     </span>
-                    <h3 className="profile-h3">Email Address</h3>
+                    <h3 className="profile-h3">Email</h3>
                   </div>
                   <p className="profile-p">{this.props.profile.email}</p>
                 </div>
