@@ -62,7 +62,8 @@
 @media (min-width: 992px) {
   .r-signup--wrapper {
     position: relative;
-    height: 100vh;
+    height: 100%;
+    padding: 3rem 0;
     background-image: linear-gradient(
       90deg,
       $color-secondary-3 50%,

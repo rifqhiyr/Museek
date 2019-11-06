@@ -147,21 +147,6 @@ class BookForm extends Component {
                       </div>
                     </div>
                     <div className="form-row">
-                      {/* <div className="form-group col-md-6">
-                        <label style={{ color: "black" }} htmlFor="inputState">
-                          Event Date
-                        </label>
-                        <br />
-                        <input
-                          id="inputState"
-                          className="form-control"
-                          type="date"
-                          name="dateEvent"
-                          value={this.state.dateEvent}
-                          onChange={this.handleChange}
-                        />
-                      </div> */}
-
                       <div className="form-group col-md-6">
                         <label style={{ color: "black" }} htmlFor="inputState">
                           Duration (Hours)
@@ -192,48 +177,7 @@ class BookForm extends Component {
                           placeholder="Detail Event Location"
                         />
                       </div>
-                      {/* <label style={{ color: "black" }} htmlFor="inputState">
-                          Booking Time
-                        </label>
-                        <input
-                          id="inputState"
-                          className="form-control"
-                          type="time"
-                          name="duration"
-                          value={this.state.duration}
-                          onChange={this.handleChange}
-                        />
-                      </div>
-
-                      <div className="form-group col-md-3">
-                        <label style={{ color: "black" }} htmlFor="inputState">
-                          until
-                        </label>
-                        <input
-                          id="inputState"
-                          className="form-control"
-                          type="time"
-                          name="duration"
-                          value={this.state.duration}
-                          onChange={this.handleChange}
-                        />
-                      </div> */}
                     </div>
-
-                    {/* <div className="form-group">
-                      <label style={{ color: "black" }} htmlFor="inputAddress2">
-                        Event Location
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="inputAddress2"
-                        placeholder="Apartment, studio, or floor"
-                        name="location"
-                        value={this.state.location}
-                        onChange={this.handleChange}
-                      />
-                    </div> */}
                     <div className="form-row">
                       <div className="form-group col-md-6">
                         <label style={{ color: "black" }}>City</label>
@@ -286,7 +230,7 @@ class BookForm extends Component {
 
                     <div className="r-book-btn">
                       <button type="submit" className="btn tombol tombol-book">
-                        Sign in
+                        Add Event
                       </button>
                     </div>
                   </div>
@@ -295,7 +239,7 @@ class BookForm extends Component {
               <div className="col-12 col-md-5 col-lg-5 p-0">
                 <div className="r-col-right">
                   <div className="r-right-checkbox">
-                    {/* <input
+                    <input
                       className="form-check-input"
                       type="checkbox"
                       id="gridCheck"
@@ -307,10 +251,9 @@ class BookForm extends Component {
                     >
                       means you're okay with our{" "}
                       <span className="r-book-span">terms of service </span> and
-                      our <span className="r-book-span">privacy policy</span>
-                    </label> */}
+                      our <span className="r-book-span">Privacy policy</span>
+                    </label>
                   </div>
-
                   <div className="r-book-btn">
                     <button
                       type="submit"

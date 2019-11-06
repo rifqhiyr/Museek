@@ -56,7 +56,7 @@ class EventEdit extends Component {
 
   render() {
     return (
-      <div>
+      <div className="edit-wrapper">
         <div className="container edit">
           <div className="row edit-row">
             <div className="col-12 col-lg-12">

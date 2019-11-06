@@ -19,7 +19,7 @@ export default class HomePage extends Component {
                   />
                   <div className="hover-content">
                     <div className="line" />
-                    <p>Pilihan musisi dengan berbaagai genre</p>
+                    <p>List musician with any genre</p>
                     <h4 className="h4">Pop</h4>
                   </div>
                 </Link>
@@ -33,7 +33,7 @@ export default class HomePage extends Component {
                   />
                   <div className="hover-content">
                     <div className="line" />
-                    <p>Pilihan musisi dengan berbagai genre</p>
+                    <p>List mus with any genre</p>
                     <h4 className="h4">Dangdut Digoyang</h4>
                   </div>
                 </Link>

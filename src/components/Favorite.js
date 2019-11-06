@@ -76,7 +76,14 @@ class Favorite extends Component {
                 <div className="row" style={{ justifyContent: "center" }}>
                   <div className="col-12 col-lg-12">
                     <div className="cart-title">
-                      <h2 style={{ textAlign: "center" }}>MUSICIAN FAVORITE</h2>
+                      <h2
+                        style={{
+                          textAlign: "center",
+                          textTransform: "uppercase"
+                        }}
+                      >
+                        MUSICIAN FAVORITE
+                      </h2>
                     </div>
                     <div
                       className="cart-table clearfix"
@@ -122,6 +129,7 @@ class Favorite extends Component {
                     </div>
                     <div className="dstyle-btn-group button-right mt-100">
                       <Link
+                        style={{ textTransform: "uppercase" }}
                         to={`/pageprofile`}
                         className="btn dstyle-btn btn-profile"
                       >
