@@ -24,7 +24,7 @@ class MusicianPage extends Component {
       <div>
         <div className="d-flex clearfix">
           <div className="content">
-            <div className="container-fluid">
+            <div className="container">
               <Filter count={this.props.musicians.length} />
               <MusicianList
                 currentPage={this.state.currentPage}

@@ -61,7 +61,7 @@ class RegisterCustomerComponent extends Component {
                       </span>
                     </div>
                     <h2 className="r-h2" style={{ color: "black" }}>
-                      Get accsess to your orders, wishlist and recomendations
+                      Customer
                     </h2>
                     <div className="r-regis-btn">
                       <Link to="/signin">
