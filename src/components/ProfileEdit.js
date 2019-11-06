@@ -80,9 +80,24 @@ class ProfileEdit extends Component {
       genre: this.state.genres
     };
 
-    this.props.editUser(formData);
-    swal("MuSeek says:", "Musician data have been saved", "success");
-    this.props.history.push("/upload");
+    if (
+      formData.name === "" ||
+      formData.email === "" ||
+      formData.password === "" ||
+      formData.price === "" ||
+      formData.address === "" ||
+      formData.city === "" ||
+      formData.country === "" ||
+      formData.description === "" ||
+      formData.skill === "" ||
+      formData.genre === ""
+    ) {
+      swal("MuSeek says:", "Please fill all the form input", "warning");
+    } else {
+      this.props.editUser(formData);
+      swal("MuSeek says:", "Musician data have been saved", "success");
+      this.props.history.push("/upload");
+    }
   };
 
   handleSubmitCustomer = e => {
@@ -101,10 +116,21 @@ class ProfileEdit extends Component {
       city: this.state.city,
       country: this.state.country
     };
-
-    this.props.editUser(formData);
-    swal("MuSeek says:", "Customer data have been saved", "success");
-    this.props.history.push("/upload");
+    if (
+      formData.name === "" ||
+      formData.email === "" ||
+      formData.password === "" ||
+      formData.gender === "" ||
+      formData.address === "" ||
+      formData.city === "" ||
+      formData.country === ""
+    ) {
+      swal("MuSeek says:", "Please fill all the form input", "warning");
+    } else {
+      this.props.editUser(formData);
+      swal("MuSeek says:", "Customer data have been saved", "success");
+      this.props.history.push("/upload");
+    }
   };
 
   addskill = e => {
