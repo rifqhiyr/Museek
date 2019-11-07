@@ -12,6 +12,7 @@ export default class Genre extends Component {
             <div className="col-sm-6 col-lg-4 genre-col">
               <Link to="/musicianpage">
                 <img
+                  style={{ height: "auto" }}
                   className="img-fluid"
                   src={require("../assets/images/graduation.jpg")}
                   alt=""
@@ -24,6 +25,7 @@ export default class Genre extends Component {
             <div className="col-sm-6 col-lg-4 genre-col">
               <Link to="/musicianpage">
                 <img
+                  style={{ height: "auto" }}
                   className="img-fluid"
                   src={require("../assets/images/wedding.jpg")}
                   alt=""
@@ -36,6 +38,7 @@ export default class Genre extends Component {
             <div className="col-sm-6 col-lg-4 genre-col">
               <Link to="/musicianpage">
                 <img
+                  style={{ height: "auto" }}
                   className="img-fluid"
                   src={require("../assets/images/birthday.jpg")}
                   alt=""
@@ -48,6 +51,7 @@ export default class Genre extends Component {
             <div className="col-sm-6 col-lg-4 genre-col">
               <Link to="/musicianpage">
                 <img
+                  style={{ height: "auto" }}
                   className="img-fluid"
                   src={require("../assets/images/summer.jpg")}
                   alt=""
@@ -60,6 +64,7 @@ export default class Genre extends Component {
             <div className="col-sm-6 col-lg-4 genre-col">
               <Link to="/musicianpage">
                 <img
+                  style={{ height: "auto" }}
                   className="img-fluid"
                   src={require("../assets/images/party.jpg")}
                   alt=""
@@ -72,6 +77,7 @@ export default class Genre extends Component {
             <div className="col-sm-6 col-lg-4 genre-col">
               <Link to="/musicianpage">
                 <img
+                  style={{ height: "auto" }}
                   className="img-fluid"
                   src={require("../assets/images/summer.jpg")}
                   alt=""
