@@ -249,13 +249,21 @@ class BookForm extends Component {
               <div className="col-12 col-md-5 col-lg-5 p-0">
                 <div className="r-col-right">
                   <div className="r-right-checkbox">
+                    <img
+                      className="r-form-img"
+                      style={{ color: "white" }}
+                      src={require("../assets/images/e.png")}
+                      alt=""
+                    />
+                  </div>
+                  <div className="r-right-checkbox">
                     <input
                       className="form-check-input"
                       type="checkbox"
                       id="gridCheck"
                     />
                     <label
-                      style={{ color: "white" }}
+                      style={{ width: "100%" }}
                       className="form-check-label"
                       htmlFor="gridCheck"
                     >

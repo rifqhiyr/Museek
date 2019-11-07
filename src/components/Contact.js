@@ -4,7 +4,7 @@ import "../assets/scss/Contact.scss";
 export default class Contact extends Component {
   render() {
     return (
-      <div className="container fluid contact">
+      <div className="container-fluid contact">
         <div className="contact-title underline"> Let's get in touch!</div>
         <div className="contact-p">
           Ready to start your next project with us ? Give us a call or send us
