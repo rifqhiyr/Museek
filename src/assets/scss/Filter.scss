@@ -20,6 +20,7 @@
   color: $text-color;
   padding-left: 15px;
   padding-right: 15px;
+  margin-left: 20px;
 }
 
 .product-topbar .product-sorting form select {
@@ -27,4 +28,17 @@
   border: none;
   height: 40px;
   width: 150px;
+}
+
+.flex-filter {
+  display: flex;
+  @media (max-width: 767.98px) {
+    display: block;
+  }
+}
+
+.margin-filter {
+  @media (max-width: 767.98px) {
+    margin-top: 10px;
+  }
 }

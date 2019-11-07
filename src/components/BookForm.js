@@ -70,10 +70,20 @@ class BookForm extends Component {
           category: this.state.category,
           musicianId: this.state.musicianId
         };
-        this.props.addEvent(formData);
-        swal("MuSeek says:", "Event booking has been saved", "success");
-        await this.props.getEventCustomer(); //biar setelah pindah halaman, langsung reload
-        this.props.history.push(`/bookedlist=${this.props.profile._id}`);
+        if (
+          formData.dateEvent === "" ||
+          formData.duration === "" ||
+          formData.location === "" ||
+          formData.category === "" ||
+          formData.musicianId === ""
+        ) {
+          swal("MuSeek says:", "Please fill all the form input!", "warning");
+        } else {
+          this.props.addEvent(formData);
+          swal("MuSeek says:", "Event booking has been saved", "success");
+          await this.props.getEventCustomer(); //biar setelah pindah halaman, langsung reload
+          this.props.history.push(`/bookedlist=${this.props.profile._id}`);
+        }
       }
     }
   };

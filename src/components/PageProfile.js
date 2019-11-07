@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import setToken from "../helpers/setToken";
 import { getProfile } from "../store/actions/dataAction";
-// import NewsLetter from "./NewsLetter";
+import Loader from "./Loader";
 import Picture from "./Picture";
 import Rupiah from "./Rupiah";
-
 import "../assets/scss/PageProfile.scss";
 import "../assets/scss/ProfilePage.scss";
 
@@ -19,6 +18,7 @@ class PageProfile extends Component {
   }
 
   render() {
+    if (this.props.loading) return <Loader />;
     const { role } = this.props.profile;
 
     return (
@@ -45,7 +45,10 @@ class PageProfile extends Component {
                   )}
                 </div>
                 <div className="profile-desc">
-                  <h5 className="profile-desc-text">
+                  <h5
+                    className="profile-desc-text"
+                    style={{ textAlign: "justify" }}
+                  >
                     <span className="desc-text-span">
                       {role === "musician" && this.props.profile.description}
                     </span>
@@ -69,7 +72,7 @@ class PageProfile extends Component {
                     <span className="box-fa">
                       <i class="fa fa-envelope"></i>
                     </span>
-                    <h3 className="profile-h3">Email Address</h3>
+                    <h3 className="profile-h3">Email</h3>
                   </div>
                   <p className="profile-p">{this.props.profile.email}</p>
                 </div>
@@ -191,7 +194,8 @@ class PageProfile extends Component {
 
 const mapStateToProps = state => {
   return {
-    profile: state.profileReducer.profile
+    profile: state.profileReducer.profile,
+    loading: state.profileReducer.loading
   };
 };
 

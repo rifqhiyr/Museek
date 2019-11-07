@@ -1,7 +1,8 @@
 const initialState = {
   event: [],
   errors: [],
-  eventById: {}
+  eventById: {},
+  loading: true
 };
 
 export default function(state = initialState, action) {
@@ -22,7 +23,8 @@ export default function(state = initialState, action) {
       return {
         ...state,
         ...payload,
-        event: payload.data
+        event: payload.data,
+        loading: false
       };
     case "GET_EVENT_MUSICIAN":
       return {

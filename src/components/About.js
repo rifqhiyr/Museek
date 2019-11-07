@@ -25,31 +25,12 @@ class About extends Component {
                 Meet our team
               </header>
               <div className="row">
-                <div className="col-12 col-md-4 col-lg-4 ">
+                <div className="col-12 col-md-4 col-lg-4 mb-50">
                   <div className="about-content-col">
                     <div className="about-content">
                       <figure className="figure">
                         <img
-                          src={require("../assets/images/birthday.jpg")}
-                          className="figure-img img-fluid rounded"
-                          alt="..."
-                        />
-                      </figure>
-                      <header className="content-header">
-                        Front-End Developer
-                      </header>
-                      <div className="about-content-body">
-                        as front-end Developer we develop bla bla bla
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-12 col-md-4 col-lg-4 ">
-                  <div className="about-content-col">
-                    <div className="about-content">
-                      <figure className="figure">
-                        <img
-                          src={require("../assets/images/birthday.jpg")}
+                          src={require("../assets/images/be1.jpeg")}
                           className="figure-img img-fluid rounded"
                           alt="..."
                         />
@@ -58,17 +39,17 @@ class About extends Component {
                         Back-End Developer
                       </header>
                       <div className="about-content-body">
-                        as Back-End Developer we develop bla bla bla
+                        Reynanda Putra Pratama
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="col-12 col-md-4 col-lg-4 ">
+                <div className="col-12 col-md-4 col-lg-4 mb-50">
                   <div className="about-content-col">
                     <div className="about-content">
                       <figure className="figure">
                         <img
-                          src={require("../assets/images/birthday.jpg")}
+                          src={require("../assets/images/rn1.jpeg")}
                           className="figure-img img-fluid rounded"
                           alt="..."
                         />
@@ -77,7 +58,77 @@ class About extends Component {
                         React-Native Developer
                       </header>
                       <div className="about-content-body">
-                        as React-Native Developer we develop bla bla bla
+                        Samuel Ezzay Tarigan
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-12 col-md-4 col-lg-4 mb-50">
+                  <div className="about-content-col">
+                    <div className="about-content">
+                      <figure className="figure">
+                        <img
+                          src={require("../assets/images/fe1.jpg")}
+                          className="figure-img img-fluid rounded"
+                          alt="..."
+                        />
+                      </figure>
+                      <header className="content-header">
+                        Front-End Developer
+                      </header>
+                      <div className="about-content-body">Rifqi Yuliandri</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-12 col-md-4 col-lg-4 mb-50">
+                  <div className="about-content-col">
+                    <div className="about-content">
+                      <figure className="figure">
+                        <img
+                          src={require("../assets/images/be2.jpg")}
+                          className="figure-img img-fluid rounded"
+                          alt="..."
+                        />
+                      </figure>
+                      <header className="content-header">
+                        Back-End Developer
+                      </header>
+                      <div className="about-content-body">Muhammad Nur Ali</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-12 col-md-4 col-lg-4 mb-50">
+                  <div className="about-content-col">
+                    <div className="about-content">
+                      <figure className="figure">
+                        <img
+                          src={require("../assets/images/rn2.jpeg")}
+                          className="figure-img img-fluid rounded"
+                          alt="..."
+                        />
+                      </figure>
+                      <header className="content-header">
+                        React-Native Developer
+                      </header>
+                      <div className="about-content-body">Fiki Zulfikar</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-12 col-md-4 col-lg-4 mb-50">
+                  <div className="about-content-col">
+                    <div className="about-content">
+                      <figure className="figure">
+                        <img
+                          src={require("../assets/images/me.png")}
+                          className="figure-img img-fluid rounded"
+                          alt="..."
+                        />
+                      </figure>
+                      <header className="content-header">
+                        Front-End Developer
+                      </header>
+                      <div className="about-content-body">
+                        Nur Inna Alfianinda
                       </div>
                     </div>
                   </div>
@@ -101,7 +152,7 @@ class About extends Component {
                       </figure>
                       <header className="client-header">Customer</header>
                       <div className="about-client-body">
-                        Customer is our Priority, because bla bla bla ...
+                        Customer is our Priority...
                       </div>
                     </div>
                   </div>
@@ -118,7 +169,7 @@ class About extends Component {
                       </figure>
                       <header className="client-header">Musician</header>
                       <div className="about-client-body">
-                        Musician is our Priority because bla bla bla ..
+                        Musician is our Priority...
                       </div>
                     </div>
                   </div>

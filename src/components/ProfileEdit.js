@@ -92,7 +92,7 @@ class ProfileEdit extends Component {
       formData.skill === "" ||
       formData.genre === ""
     ) {
-      swal("MuSeek says:", "Please fill all the form input", "warning");
+      swal("MuSeek says:", "Please fill all the form input!", "warning");
     } else {
       this.props.editUser(formData);
       swal("MuSeek says:", "Musician data have been saved", "success");
@@ -125,7 +125,7 @@ class ProfileEdit extends Component {
       formData.city === "" ||
       formData.country === ""
     ) {
-      swal("MuSeek says:", "Please fill all the form input", "warning");
+      swal("MuSeek says:", "Please fill all the form input!", "warning");
     } else {
       this.props.editUser(formData);
       swal("MuSeek says:", "Customer data have been saved", "success");

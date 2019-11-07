@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import setToken from "../helpers/setToken";
 import { getEventCustomer, deleteEvent } from "../store/actions/eventAction";
 import Rupiah from "./Rupiah";
+import Loader from "./Loader";
 import "../assets/scss/BookedList.scss";
 import PaymentCard from "./PaymentCard";
 import NewsLetter from "./NewsLetter";
@@ -32,6 +33,7 @@ class BookedList extends Component {
   };
 
   render() {
+    if (this.props.loading) return <Loader />;
     // console.log(this.props.event);
     const bookedList =
       this.props.event &&
@@ -144,7 +146,8 @@ class BookedList extends Component {
 
 const mapStateToProps = state => {
   return {
-    event: state.eventReducer.event
+    event: state.eventReducer.event,
+    loading: state.eventReducer.loading
   };
 };
 

@@ -78,13 +78,13 @@ class RegisterMusicianComponent extends Component {
                     </div>
                     <form className="r-signin--form">
                       <div className="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
+                        <label for="exampleInputEmail1">Email</label>
                         <input
                           type="email"
                           className="form-control"
                           id="exampleInputEmail1"
                           aria-describedby="emailHelp"
-                          placeholder="Enter email"
+                          placeholder="Email"
                           name="email"
                           value={this.state.email}
                           onChange={this.handleChange}
@@ -94,13 +94,13 @@ class RegisterMusicianComponent extends Component {
                         </small>
                       </div>
                       <div className="form-group">
-                        <label for="exampleInputEmail1">User Name</label>
+                        <label for="exampleInputEmail1">Musician Name</label>
                         <input
                           type="email"
                           className="form-control"
                           id="exampleInputEmail1"
                           aria-describedby="emailHelp"
-                          placeholder="User name"
+                          placeholder="Musician Name"
                           name="name"
                           value={this.state.name}
                           onChange={this.handleChange}

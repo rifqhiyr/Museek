@@ -22,16 +22,6 @@
   color: $head-button;
 }
 
-.content {
-  position: relative;
-  flex: 100%;
-  padding: 50px;
-  @media (max-width: 767.98px) {
-    padding: 0px;
-    margin-top: 100px;
-  }
-}
-
 .row1 {
   display: flex;
   flex-wrap: wrap;
@@ -74,6 +64,12 @@ i.circle {
   @media (max-width: 767.98px) {
     height: 210px;
   }
+}
+
+.h6 {
+  color: #242424;
+  line-height: 1.4;
+  font-size: 0.9rem;
 }
 
 // .single-product-wrapper {
