@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import setToken from "../helpers/setToken";
 import { getProfile } from "../store/actions/dataAction";
-// import NewsLetter from "./NewsLetter";
+import Loader from "./Loader";
 import Picture from "./Picture";
 import Rupiah from "./Rupiah";
-
 import "../assets/scss/PageProfile.scss";
 import "../assets/scss/ProfilePage.scss";
 
@@ -19,6 +18,7 @@ class PageProfile extends Component {
   }
 
   render() {
+    if (this.props.loading) return <Loader />;
     const { role } = this.props.profile;
 
     return (
@@ -194,7 +194,8 @@ class PageProfile extends Component {
 
 const mapStateToProps = state => {
   return {
-    profile: state.profileReducer.profile
+    profile: state.profileReducer.profile,
+    loading: state.profileReducer.loading
   };
 };
 
