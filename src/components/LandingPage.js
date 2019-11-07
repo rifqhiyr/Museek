@@ -3,7 +3,7 @@ import Jumbotron from "./Jumbotron";
 import Service from "./Service";
 import Genre from "./Genre";
 import Contact from "./Contact";
-class HomePage extends Component {
+class LandingPage extends Component {
   render() {
     return (
       <div>
@@ -16,4 +16,4 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+export default LandingPage;

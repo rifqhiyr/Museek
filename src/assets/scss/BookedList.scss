@@ -108,6 +108,11 @@
   margin: 10px;
 }
 
+.button-edit:hover {
+  font-size: 20px;
+  color: yellow;
+}
+
 .main-content-wrapper {
   @media only screen and (max-width: 767px) {
     margin-top: -50px;
