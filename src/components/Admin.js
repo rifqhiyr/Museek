@@ -58,7 +58,7 @@ export class Admin extends Component {
                   <td>Zul</td>
                   <td>Glints Band</td>
                   <td>
-                    <span className="admin-span">Paid</span>
+                    <span className="admin-span">unpaid</span>
                   </td>
                   <td>Perform</td>
                   <td>
@@ -116,7 +116,7 @@ export class Admin extends Component {
                   <td>Gading</td>
                   <td>Cuma Band</td>
                   <td>
-                    <span className="admin-span">Paid</span>
+                    <span className="admin-span">unpaid</span>
                   </td>
                   <td>Done</td>
                   <td>
@@ -145,7 +145,7 @@ export class Admin extends Component {
                   <td>Zul</td>
                   <td>Kufaku</td>
                   <td>
-                    <span className="admin-span">Paid</span>
+                    <span className="admin-span">unpaid</span>
                   </td>
                   <td>Waiting</td>
                   <td>
