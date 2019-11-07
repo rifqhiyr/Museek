@@ -6,7 +6,6 @@ import { getProfile } from "../store/actions/dataAction";
 import "../assets/scss/EventDetail.scss";
 import Rupiah from "./Rupiah";
 import NewsLetter from "./NewsLetter";
-// import Background from "../assets/images/envelop.png";
 
 class EventDetail extends Component {
   async componentDidMount() {
@@ -27,72 +26,50 @@ class EventDetail extends Component {
     } = this.props.event;
 
     return (
-      <div>
+      <div className="event-detail">
         <div className="container">
-          <div className="detail-event">
-            <div
-              className="row detail-event-row "
-              style={{ display: "flex", justifyContent: "center" }}
-            >
-              <div className="col-12 col-lg-6 detail-event-col-right ">
-                <div>
-                  <div className="detail-event-content detail-event main-footer">
-                    <h1 className="h-1">event detail</h1>
-                    <div className="detail-event-div--content">
-                      <p className="detail-event-p">Status : {status}</p>
-                    </div>
-                    <div className="detail-event-div--content">
-                      <p className="detail-event-p">
-                        Event Category : {category}
-                      </p>
-                    </div>
-                    <div className="detail-event-div--content">
-                      <p className="detail-event-p">
-                        Date Event : {new Date(dateEvent).toLocaleDateString()}
-                      </p>
-                    </div>
-                    <div className="detail-event-div--content">
-                      <p className="detail-event-p">
-                        Duration : {duration} hours
-                      </p>
-                    </div>
-                    <div className="detail-event-div--content">
-                      <p className="detail-event-p">
-                        Event Location :{" "}
-                        {location && location.split(",").join(", ")}
-                      </p>
-                    </div>
-                    <div className="detail-event-div--content">
-                      <p className="detail-event-p">
-                        Total Price : Rp{" "}
-                        {musicianId && Rupiah(musicianId.price)}
-                        ,00
-                      </p>
-                    </div>
-                    <div className="detail-event-div--content">
-                      {this.props.profile.role === "customer" && (
-                        <Link
-                          to={`/detail-event/${musicianId && musicianId._id}`}
-                        >
-                          <p className="detail-event-p">Musician Detail</p>{" "}
-                        </Link>
-                      )}
-                    </div>
-                    <div className="dstyle-btn-group btn-end">
-                      <Link
-                        to={
-                          this.props.profile.role === "customer"
-                            ? `/bookedlist=${customerId && customerId._id}`
-                            : `/eventschedule=${musicianId && musicianId._id}`
-                        }
-                        className="btn dstyle-btn btn-profile"
-                        style={{ width: "200px" }}
-                      >
-                        BACK TO BOOKED LIST
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+          <div className="r-detail-event">
+            <div className="de-wrapper">
+              <div className="de-content">
+                <header className="de-header">Event Detail</header>
+                <h5 className="de-h5">
+                  <span className="de-span">status</span> : {status}
+                </h5>
+                <h5 className="de-h5">
+                  <span className="de-span">Category</span> : {category}
+                </h5>
+                <h5 className="de-h5">
+                  <span className="de-span">Date</span> :{" "}
+                  {new Date(dateEvent).toLocaleDateString()}
+                </h5>
+                <h5 className="de-h5">
+                  <span className="de-span">Duration</span> : {duration} hours
+                </h5>
+                <h5 className="de-h5">
+                  <span className="de-span">Location</span> :{" "}
+                  {location && location.split(",").join(", ")}
+                </h5>
+                <h5 className="de-h5">
+                  <span className="de-span">Total price</span> : Rp{" "}
+                  {musicianId && Rupiah(musicianId.price)}
+                  ,00
+                </h5>
+              </div>
+              <div className="btn-de">
+                {this.props.profile.role === "customer" && (
+                  <Link to={`/detail-event/${musicianId && musicianId._id}`}>
+                    <button className="btn tombol">Musician Detail</button>
+                  </Link>
+                )}
+                <Link
+                  to={
+                    this.props.profile.role === "customer"
+                      ? `/bookedlist=${customerId && customerId._id}`
+                      : `/eventschedule=${musicianId && musicianId._id}`
+                  }
+                >
+                  <button className="btn tombol">back to booklist</button>
+                </Link>
               </div>
             </div>
           </div>

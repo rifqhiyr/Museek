@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 
@@ -29,40 +29,200 @@ import PageProfile from "./components/PageProfile";
 import Favorite from "./components/Favorite";
 import BookForm from "./components/BookForm";
 import Admin from "./components/Admin";
-import DetailEvent from "./components/DetailEvent";
 
 class App extends Component {
   render() {
+    const AppRoute = ({
+      component: Component,
+      layout: Layout,
+      auth: Auth,
+      ...rest
+    }) => (
+      <Auth>
+        <Route
+          {...rest}
+          render={props => (
+            <Layout>
+              <Component {...props} />
+            </Layout>
+          )}
+        />
+      </Auth>
+    );
+    const Navigate = props => (
+      <div>
+        <Head />
+        {props.children}
+        <Footer />
+      </div>
+    );
+    const Without = props => <div>{props.children}</div>;
+
+    const musician = props =>
+      localStorage.token ? props.children : <Redirect to="/" />;
+    const costumer = props =>
+      localStorage.token ? props.children : <Redirect to="/" />;
+
+    const user = props => props.children;
     return (
       <Provider store={store}>
         <Router>
-          <Head />
-          <Route path="/detailevent" exact component={DetailEvent} />
           <Route path="/admin" exact component={Admin} />
-          <Route path="/" exact component={LandingPage} />
+          <AppRoute
+            path="/"
+            exact
+            component={LandingPage}
+            layout={Navigate}
+            auth={user}
+          />
           <Route path="/about" exact component={About} />
-          <Route path="/detail/:id" exact component={DetailComponent} />
-          <Route path="/edit" exact component={ProfileEdit} />
-          <Route exact path="/musicianpage" component={MusicianPage} />
-          <Route exact path="/bookedlist=:id" component={BookedList} />
-          <Route exact path="/bookinghistory=:id" component={BookingHistory} />
-          <Route exact path="/bookform" component={BookForm} />
-          <Route path="/invoice=:id" exact component={Invoice} />
-          <Route path="/invoicehistory=:id" exact component={InvoiceHistory} />
-          <Route path="/registermusician" exact component={RegisterMusician} />
-          <Route path="/registercustomer" exact component={RegisterCustomer} />
-          <Route path="/upload" exact component={Upload} />
-          <Route path="/signin" exact component={Signin} />
-          <Route path="/signup" exact component={Signup} />
-          <Route path="/forgotpassword" exact component={ForgotPassword} />
-          <Route path="/verification" exact component={VerificationEmail} />
-          <Route path="/privacy" exact component={Privacy} />
-          <Route path="/eventdetail/:id" exact component={EventDetail} />
-          <Route path="/eventedit/:id" exact component={EventEdit} />
-          <Route path="/eventschedule=:id" exact component={EventSchedule} />
-          <Route path="/pageprofile" exact component={PageProfile} />
-          <Route path="/favorite" exact component={Favorite} />
-          <Footer />
+          <AppRoute
+            path="/detail/:id"
+            exact
+            component={DetailComponent}
+            layout={Navigate}
+            auth={user}
+          />
+          <AppRoute
+            path="/edit"
+            exact
+            component={ProfileEdit}
+            layout={Without}
+            auth={(musician, costumer)}
+          />
+          <AppRoute
+            exact
+            path="/musicianpage"
+            component={MusicianPage}
+            layout={Navigate}
+            auth={user}
+          />
+          <AppRoute
+            exact
+            path="/bookedlist=:id"
+            component={BookedList}
+            layout={Navigate}
+            auth={user}
+          />
+          <AppRoute
+            exact
+            path="/bookinghistory=:id"
+            component={BookingHistory}
+            layout={Navigate}
+            auth={(musician, costumer)}
+          />
+          <AppRoute
+            exact
+            path="/bookform"
+            component={BookForm}
+            layout={Navigate}
+            auth={(musician, costumer)}
+          />
+          <AppRoute
+            path="/invoice=:id"
+            exact
+            component={Invoice}
+            layout={Navigate}
+            auth={(musician, costumer)}
+          />
+          <AppRoute
+            path="/invoicehistory=:id"
+            exact
+            component={InvoiceHistory}
+            layout={Navigate}
+            auth={(costumer, musician)}
+          />
+          <AppRoute
+            path="/registermusician"
+            exact
+            component={RegisterMusician}
+            layout={Without}
+            auth={user}
+          />
+          <AppRoute
+            path="/registercustomer"
+            exact
+            component={RegisterCustomer}
+            layout={Without}
+            auth={user}
+          />
+          <AppRoute
+            path="/upload"
+            exact
+            component={Upload}
+            layout={Navigate}
+            auth={(musician, costumer)}
+          />
+          <AppRoute
+            path="/signin"
+            exact
+            component={Signin}
+            layout={Without}
+            auth={user}
+          />
+          <AppRoute
+            path="/signup"
+            exact
+            component={Signup}
+            layout={Without}
+            auth={user}
+          />
+          <AppRoute
+            path="/forgotpassword"
+            exact
+            component={ForgotPassword}
+            layout={Without}
+            auth={user}
+          />
+          <AppRoute
+            path="/verification"
+            exact
+            component={VerificationEmail}
+            layout={Without}
+            auth={user}
+          />
+          <AppRoute
+            path="/privacy"
+            exact
+            component={Privacy}
+            layout={Without}
+            auth={user}
+          />
+          <AppRoute
+            path="/eventdetail/:id"
+            exact
+            component={EventDetail}
+            layout={Navigate}
+            auth={(musician, costumer)}
+          />
+          <AppRoute
+            path="/eventedit/:id"
+            exact
+            component={EventEdit}
+            layout={Navigate}
+            auth={(musician, costumer)}
+          />
+          <AppRoute
+            path="/eventschedule=:id"
+            exact
+            component={EventSchedule}
+            layout={Navigate}
+            auth={(musician, costumer)}
+          />
+          <AppRoute
+            path="/pageprofile"
+            exact
+            component={PageProfile}
+            layout={Navigate}
+            auth={(costumer, musician)}
+          />
+          <AppRoute
+            path="/favorite"
+            exact
+            component={Favorite}
+            layout={Navigate}
+            auth={costumer}
+          />
         </Router>
       </Provider>
     );
