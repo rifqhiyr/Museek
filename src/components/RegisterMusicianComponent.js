@@ -56,12 +56,12 @@ class RegisterMusicianComponent extends Component {
                       musician
                     </h2>
                     <div className="r-regis-btn">
-                      <Link to="/signin">
+                      <Link to="/registercustomer">
                         <button
                           className="btn tombol signin"
                           style={{ backgroundColor: "#1a1a1d", color: "white" }}
                         >
-                          sign in
+                          Register as customer
                         </button>
                       </Link>
                     </div>

@@ -24,7 +24,7 @@ class Head extends Component {
   };
 
   render() {
-    if (!this.props.isAuthenticated) {
+    if (!localStorage.token) {
       return (
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light sticky-top">
@@ -175,7 +175,7 @@ class Head extends Component {
 
 const mapStateToProps = state => {
   return {
-    isAuthenticated: state.authReducer.isAuthenticated,
+    // isAuthenticated: state.authReducer.isAuthenticated,
     profile: state.profileReducer.profile
   };
 };
