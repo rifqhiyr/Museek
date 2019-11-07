@@ -29,6 +29,7 @@ import PageProfile from "./components/PageProfile";
 import Favorite from "./components/Favorite";
 import BookForm from "./components/BookForm";
 import Admin from "./components/Admin";
+import DetailEvent from "./components/DetailEvent";
 
 class App extends Component {
   render() {
@@ -36,6 +37,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <Head />
+          <Route path="/detailevent" exact component={DetailEvent} />
           <Route path="/admin" exact component={Admin} />
           <Route path="/" exact component={LandingPage} />
           <Route path="/about" exact component={About} />

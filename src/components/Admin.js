@@ -15,12 +15,42 @@ export class Admin extends Component {
               <caption>List of Clients</caption>
               <thead>
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Customer</th>
-                  <th scope="col">Musician</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Musician Perform</th>
-                  <th scope="col">...</th>
+                  <th
+                    style={{ backgroundColor: "#ffee54", color: "black" }}
+                    scope="col"
+                  >
+                    #
+                  </th>
+                  <th
+                    style={{ backgroundColor: "#ffee54", color: "black" }}
+                    scope="col"
+                  >
+                    Customer
+                  </th>
+                  <th
+                    style={{ backgroundColor: "#ffee54", color: "black" }}
+                    scope="col"
+                  >
+                    Musician
+                  </th>
+                  <th
+                    style={{ backgroundColor: "#ffee54", color: "black" }}
+                    scope="col"
+                  >
+                    Status
+                  </th>
+                  <th
+                    style={{ backgroundColor: "#ffee54", color: "black" }}
+                    scope="col"
+                  >
+                    Musician Perform
+                  </th>
+                  <th
+                    style={{ backgroundColor: "#ffee54", color: "black" }}
+                    scope="col"
+                  >
+                    Action
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -60,7 +90,7 @@ export class Admin extends Component {
                   <td>
                     <span className="admin-span">unpaid</span>
                   </td>
-                  <td>Perform</td>
+                  <td>Waiting</td>
                   <td>
                     <span
                       className="admin-span"
@@ -89,7 +119,7 @@ export class Admin extends Component {
                   <td>
                     <span className="admin-span">Paid</span>
                   </td>
-                  <td>Waiting</td>
+                  <td>Perform</td>
                   <td>
                     <span
                       className="admin-span"
@@ -116,7 +146,7 @@ export class Admin extends Component {
                   <td>Gading</td>
                   <td>Cuma Band</td>
                   <td>
-                    <span className="admin-span">unpaid</span>
+                    <span className="admin-span">Paid</span>
                   </td>
                   <td>Done</td>
                   <td>
