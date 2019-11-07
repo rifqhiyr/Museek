@@ -13,7 +13,8 @@ export default function(state = initialState, action) {
       return {
         ...state,
         ...payload,
-        profile: payload
+        profile: payload,
+        loading: false
       };
     case "EDIT_SUCCESS":
       return {
